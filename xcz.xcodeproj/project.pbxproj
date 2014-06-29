@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		05B22879195F0F1600F91BCC /* XCZWorksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B22877195F0F1600F91BCC /* XCZWorksViewController.m */; };
-		05B2287A195F0F1600F91BCC /* XCZWorksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B22878195F0F1600F91BCC /* XCZWorksViewController.xib */; };
+		05B2287C195FD19500F91BCC /* xcz.db in Resources */ = {isa = PBXBuildFile; fileRef = 05B2287B195FCEBE00F91BCC /* xcz.db */; };
+		05B2287F196024ED00F91BCC /* XCZWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B2287E196024ED00F91BCC /* XCZWork.m */; };
 		05DF00C7195F0CE100175ABF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DF00C6195F0CE100175ABF /* Foundation.framework */; };
 		05DF00C9195F0CE100175ABF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DF00C8195F0CE100175ABF /* CoreGraphics.framework */; };
 		05DF00CB195F0CE100175ABF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DF00CA195F0CE100175ABF /* UIKit.framework */; };
@@ -39,7 +40,9 @@
 /* Begin PBXFileReference section */
 		05B22876195F0F1600F91BCC /* XCZWorksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZWorksViewController.h; sourceTree = "<group>"; };
 		05B22877195F0F1600F91BCC /* XCZWorksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZWorksViewController.m; sourceTree = "<group>"; };
-		05B22878195F0F1600F91BCC /* XCZWorksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XCZWorksViewController.xib; sourceTree = "<group>"; };
+		05B2287B195FCEBE00F91BCC /* xcz.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = xcz.db; sourceTree = "<group>"; };
+		05B2287D196024ED00F91BCC /* XCZWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZWork.h; sourceTree = "<group>"; };
+		05B2287E196024ED00F91BCC /* XCZWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZWork.m; sourceTree = "<group>"; };
 		05DF00C3195F0CE100175ABF /* xcz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xcz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DF00C6195F0CE100175ABF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		05DF00C8195F0CE100175ABF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -124,10 +127,12 @@
 		05DF00CE195F0CE100175ABF /* xcz */ = {
 			isa = PBXGroup;
 			children = (
+				05B2287B195FCEBE00F91BCC /* xcz.db */,
 				05DF00D7195F0CE100175ABF /* XCZAppDelegate.h */,
 				05B22876195F0F1600F91BCC /* XCZWorksViewController.h */,
+				05B2287D196024ED00F91BCC /* XCZWork.h */,
+				05B2287E196024ED00F91BCC /* XCZWork.m */,
 				05B22877195F0F1600F91BCC /* XCZWorksViewController.m */,
-				05B22878195F0F1600F91BCC /* XCZWorksViewController.xib */,
 				05DF00D8195F0CE100175ABF /* XCZAppDelegate.m */,
 				05DF00DD195F0CE100175ABF /* Images.xcassets */,
 				05DF00CF195F0CE100175ABF /* Supporting Files */,
@@ -242,7 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05B2287A195F0F1600F91BCC /* XCZWorksViewController.xib in Resources */,
+				05B2287C195FD19500F91BCC /* xcz.db in Resources */,
 				05DF00D3195F0CE100175ABF /* InfoPlist.strings in Resources */,
 				05DF00DE195F0CE100175ABF /* Images.xcassets in Resources */,
 			);
@@ -296,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05B2287F196024ED00F91BCC /* XCZWork.m in Sources */,
 				05B22879195F0F1600F91BCC /* XCZWorksViewController.m in Sources */,
 				05DF00D9195F0CE100175ABF /* XCZAppDelegate.m in Sources */,
 				05DF00D5195F0CE100175ABF /* main.m in Sources */,

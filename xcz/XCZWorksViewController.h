@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XCZWork.h"
 
-@interface XCZWorksViewController : UIViewController
+@interface XCZWorksViewController : UITableViewController
+
+@property (nonatomic, strong) NSMutableArray *works;
 
 @end
