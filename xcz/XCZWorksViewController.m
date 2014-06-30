@@ -28,6 +28,7 @@
         FMResultSet *s = [db executeQuery:@"SELECT * FROM works"];
         while ([s next]) {
             XCZWork *work = [[XCZWork alloc] init];
+            work.id = [s intForColumn:@"id"];
             work.title = [s stringForColumn:@"title"];
             work.author = [s stringForColumn:@"author"];
             work.dynasty = [s stringForColumn:@"dynasty"];
@@ -42,7 +43,7 @@
         
         [db close];
     }
-    
+
     return self;
 }
 
