@@ -7,6 +7,7 @@
 //
 
 #import "XCZWorksViewController.h"
+#import "XCZWorkDetailViewController.h"
 #import <FMDB/FMDB.h>
 
 @interface XCZWorksViewController ()
@@ -18,6 +19,10 @@
 - (instancetype)init
 {
     self = [super initWithStyle:UITableViewStylePlain];
+    
+    UINavigationItem *navItem = self.navigationItem;
+    navItem.title = @"西窗烛";
+    
     int index = 0;
     self.works = [[NSMutableArray alloc] init];
     
@@ -52,11 +57,13 @@
     return [self init];
 }
 
+// 表行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.works count];
 }
 
+// 单元格内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
@@ -67,6 +74,15 @@
     cell.textLabel.text = work.title;
     cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"[%@] %@", work.dynasty, work.author];
     return cell;
+}
+
+// 选中某单元格后的操作
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    XCZWorkDetailViewController *detailController = [[XCZWorkDetailViewController alloc] init];
+    XCZWork *work = self.works[indexPath.row];
+    detailController.work = work;
+    [self.navigationController pushViewController:detailController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

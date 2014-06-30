@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05ABB5CA1961525900341AAC /* XCZWorkDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05ABB5C81961525900341AAC /* XCZWorkDetailViewController.m */; };
+		05ABB5CB1961525900341AAC /* XCZWorkDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05ABB5C91961525900341AAC /* XCZWorkDetailViewController.xib */; };
 		05B22879195F0F1600F91BCC /* XCZWorksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B22877195F0F1600F91BCC /* XCZWorksViewController.m */; };
 		05B2287C195FD19500F91BCC /* xcz.db in Resources */ = {isa = PBXBuildFile; fileRef = 05B2287B195FCEBE00F91BCC /* xcz.db */; };
 		05B2287F196024ED00F91BCC /* XCZWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B2287E196024ED00F91BCC /* XCZWork.m */; };
@@ -38,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05ABB5C71961525900341AAC /* XCZWorkDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZWorkDetailViewController.h; sourceTree = "<group>"; };
+		05ABB5C81961525900341AAC /* XCZWorkDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZWorkDetailViewController.m; sourceTree = "<group>"; };
+		05ABB5C91961525900341AAC /* XCZWorkDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XCZWorkDetailViewController.xib; sourceTree = "<group>"; };
 		05B22876195F0F1600F91BCC /* XCZWorksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZWorksViewController.h; sourceTree = "<group>"; };
 		05B22877195F0F1600F91BCC /* XCZWorksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZWorksViewController.m; sourceTree = "<group>"; };
 		05B2287B195FCEBE00F91BCC /* xcz.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = xcz.db; sourceTree = "<group>"; };
@@ -136,6 +141,9 @@
 				05DF00D8195F0CE100175ABF /* XCZAppDelegate.m */,
 				05DF00DD195F0CE100175ABF /* Images.xcassets */,
 				05DF00CF195F0CE100175ABF /* Supporting Files */,
+				05ABB5C71961525900341AAC /* XCZWorkDetailViewController.h */,
+				05ABB5C81961525900341AAC /* XCZWorkDetailViewController.m */,
+				05ABB5C91961525900341AAC /* XCZWorkDetailViewController.xib */,
 			);
 			path = xcz;
 			sourceTree = "<group>";
@@ -252,6 +260,7 @@
 			files = (
 				05B2287C195FD19500F91BCC /* xcz.db in Resources */,
 				05DF00D3195F0CE100175ABF /* InfoPlist.strings in Resources */,
+				05ABB5CB1961525900341AAC /* XCZWorkDetailViewController.xib in Resources */,
 				05DF00DE195F0CE100175ABF /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,6 +317,7 @@
 				05B22879195F0F1600F91BCC /* XCZWorksViewController.m in Sources */,
 				05DF00D9195F0CE100175ABF /* XCZAppDelegate.m in Sources */,
 				05DF00D5195F0CE100175ABF /* main.m in Sources */,
+				05ABB5CA1961525900341AAC /* XCZWorkDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,7 +17,10 @@
     
     // Override point for customization after application launch.
     XCZWorksViewController *worksController = [[XCZWorksViewController alloc] init];
-    [self.window setRootViewController:worksController];
+    
+    // 使用nav
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:worksController];
+    [self.window setRootViewController:navController];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
