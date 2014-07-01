@@ -36,10 +36,11 @@
     self.titleField.text = work.title;
     self.authorField.text = [[NSString alloc] initWithFormat:@"[%@] %@", work.dynasty, work.author];
     
-    self.contentField.text = work.content;
-    self.contentField.numberOfLines = 0;
-    [self.contentField sizeToFit];
-    
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.firstLineHeadIndent = 34;
+    paragraphStyle.lineHeightMultiple = 1.2;
+    self.contentField.attributedText = [[NSAttributedString alloc] initWithString:work.content attributes:@{NSParagraphStyleAttributeName: paragraphStyle}];
+
     self.introField.text = work.intro;
 }
 
