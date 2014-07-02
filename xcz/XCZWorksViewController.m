@@ -28,6 +28,7 @@
     
     // 从SQLite中加载数据
     NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
+    NSLog(@"%@", dbPath);
     FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
     if ([db open]) {
         FMResultSet *s = [db executeQuery:@"SELECT * FROM works"];

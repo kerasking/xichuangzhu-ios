@@ -10,6 +10,7 @@
 
 @interface XCZWorkDetailViewController ()
 
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UILabel *titleField;
 @property (weak, nonatomic) IBOutlet UILabel *authorField;
 @property (weak, nonatomic) IBOutlet UILabel *contentField;
@@ -36,18 +37,56 @@
     self.titleField.text = work.title;
     self.authorField.text = [[NSString alloc] initWithFormat:@"[%@] %@", work.dynasty, work.author];
     
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    paragraphStyle.firstLineHeadIndent = 34;
-    paragraphStyle.lineHeightMultiple = 1.2;
-    self.contentField.attributedText = [[NSAttributedString alloc] initWithString:work.content attributes:@{NSParagraphStyleAttributeName: paragraphStyle}];
+    // 内容
+    NSMutableParagraphStyle *contentParagraphStyle = [[NSMutableParagraphStyle alloc] init];
+    if ([self.work.layout isEqual: @"indent"]) {
+        contentParagraphStyle.firstLineHeadIndent = 25;
+        contentParagraphStyle.paragraphSpacing = 15;
+        contentParagraphStyle.lineHeightMultiple = 1.3;
+        self.contentField.preferredMaxLayoutWidth = self.view.bounds.size.width - 40;
+    } else {
+        contentParagraphStyle.alignment = NSTextAlignmentCenter;
+        contentParagraphStyle.paragraphSpacing = 0;
+        contentParagraphStyle.lineHeightMultiple = 1.1;
+        self.contentField.preferredMaxLayoutWidth = self.view.bounds.size.width - 35;
+    }
 
-    self.introField.text = work.intro;
+    contentParagraphStyle.paragraphSpacing = 10;
+    self.contentField.attributedText = [[NSAttributedString alloc] initWithString:work.content attributes:@{NSParagraphStyleAttributeName: contentParagraphStyle}];
+    
+    // 题解
+    NSMutableParagraphStyle *introParagraphStyle = [[NSMutableParagraphStyle alloc] init];
+    introParagraphStyle.lineHeightMultiple = 1.3;
+    self.introField.attributedText = [[NSAttributedString alloc] initWithString:work.intro attributes:@{NSParagraphStyleAttributeName: introParagraphStyle}];
+    
+    // 设置UILabel的preferredMaxLayoutWidth，以保证正确的换行长度
+    self.titleField.preferredMaxLayoutWidth = self.view.bounds.size.width - 40;
+    //self.contentField.preferredMaxLayoutWidth = self.view.bounds.size.width - 35;
+    self.introField.preferredMaxLayoutWidth = self.view.bounds.size.width - 40;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    /*
+    NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:self.contentView
+                                                                      attribute:NSLayoutAttributeLeading
+                                                                      relatedBy:0
+                                                                         toItem:self.view
+                                                                      attribute:NSLayoutAttributeLeft
+                                                                     multiplier:1.0
+                                                                       constant:0];
+    [self.view addConstraint:leftConstraint];
+    
+    NSLayoutConstraint *rightConstraint = [NSLayoutConstraint constraintWithItem:self.contentView
+                                                                       attribute:NSLayoutAttributeTrailing
+                                                                       relatedBy:0
+                                                                          toItem:self.view
+                                                                       attribute:NSLayoutAttributeRight
+                                                                      multiplier:1.0
+                                                                        constant:0];
+    [self.view addConstraint:rightConstraint];
+     */
 }
 
 - (void)didReceiveMemoryWarning
