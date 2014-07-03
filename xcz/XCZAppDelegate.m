@@ -8,6 +8,7 @@
 
 #import "XCZAppDelegate.h"
 #import "XCZWorksViewController.h"
+#import "XCZAuthorsViewController.h"
 
 @implementation XCZAppDelegate
 
@@ -20,12 +21,18 @@
     // Works Nav Controller
     XCZWorksViewController *worksController = [[XCZWorksViewController alloc] init];
     UINavigationController *worksNavController = [[UINavigationController alloc] initWithRootViewController:worksController];
-    worksNavController.tabBarItem.title = @"全部作品";
+    worksNavController.tabBarItem.title = @"作品";
+    
+    // Authors Nav Controller
+    XCZAuthorsViewController *authorsController = [[XCZAuthorsViewController alloc] init];
+    UINavigationController *authorsNavController = [[UINavigationController alloc] initWithRootViewController:authorsController];
+    authorsNavController.tabBarItem.title = @"文学家";
     
     // TabBar Controller
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = @[worksNavController];
+    tabBarController.viewControllers = @[worksNavController, authorsNavController];
     
+    // Root Controller
     [self.window setRootViewController:tabBarController];
     
     self.window.backgroundColor = [UIColor whiteColor];

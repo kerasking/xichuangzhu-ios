@@ -7,6 +7,8 @@
 //
 
 #import "XCZAuthorsViewController.h"
+#import <FMDB/FMDB.h>
+#import "XCZAuthor.h"
 
 @interface XCZAuthorsViewController ()
 
@@ -19,6 +21,30 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        self.navigationItem.title = @"文学家";
+        
+        int index = 0;
+        self.authors = [[NSMutableArray alloc] init];
+        
+        // 从SQLite中加载数据
+        NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
+        FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
+        if ([db open]) {
+            FMResultSet *s = [db executeQuery:@"SELECT * FROM authors"];
+            while ([s next]) {
+                XCZAuthor *author = [[XCZAuthor alloc] init];
+                author.id = [s intForColumn:@"id"];
+                author.name = [s stringForColumn:@"name"];
+                author.intro = [s stringForColumn:@"intro"];
+                author.dynasty = [s stringForColumn:@"dynasty"];
+                author.birthYear = [s stringForColumn:@"birth_year"];
+                author.deathYear = [s stringForColumn:@"death_year"];
+                self.authors[index] = author;
+                index++;
+            }
+            
+            [db close];
+        }
     }
     return self;
 }
@@ -42,30 +68,32 @@
 
 #pragma mark - Table view data source
 
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 0;
 }
+*/
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return self.authors.count;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+    if(cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"UITableViewCell"];
+    }
+    XCZAuthor *author = self.authors[indexPath.row];
+    cell.textLabel.text = author.name;
+    cell.detailTextLabel.text = author.dynasty;
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.

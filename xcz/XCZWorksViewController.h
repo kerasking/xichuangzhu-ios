@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "XCZWork.h"
 
 @interface XCZWorksViewController : UITableViewController
 
