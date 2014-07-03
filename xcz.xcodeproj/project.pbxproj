@@ -105,7 +105,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		05CC12F9196569E80014989C /* Model */ = {
+		05CC12F9196569E80014989C /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				05CC12F6196569DD0014989C /* XCZAuthor.h */,
@@ -115,7 +115,21 @@
 				05CC12FA196583F60014989C /* XCZDynasty.h */,
 				05CC12FB196583F60014989C /* XCZDynasty.m */,
 			);
-			name = Model;
+			name = Models;
+			sourceTree = "<group>";
+		};
+		05CC12FD196586890014989C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				05B22876195F0F1600F91BCC /* XCZWorksViewController.h */,
+				05B22877195F0F1600F91BCC /* XCZWorksViewController.m */,
+				05CC12F3196569690014989C /* XCZAuthorsViewController.h */,
+				05CC12F4196569690014989C /* XCZAuthorsViewController.m */,
+				05ABB5C71961525900341AAC /* XCZWorkDetailViewController.h */,
+				05ABB5C81961525900341AAC /* XCZWorkDetailViewController.m */,
+				05ABB5C91961525900341AAC /* XCZWorkDetailViewController.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		05DF00BA195F0CE100175ABF = {
@@ -154,19 +168,12 @@
 		05DF00CE195F0CE100175ABF /* xcz */ = {
 			isa = PBXGroup;
 			children = (
-				05CC12F9196569E80014989C /* Model */,
-				05B2287B195FCEBE00F91BCC /* xcz.db */,
+				05CC12FD196586890014989C /* Views */,
+				05CC12F9196569E80014989C /* Models */,
 				05DF00D7195F0CE100175ABF /* XCZAppDelegate.h */,
-				05B22876195F0F1600F91BCC /* XCZWorksViewController.h */,
-				05B22877195F0F1600F91BCC /* XCZWorksViewController.m */,
 				05DF00D8195F0CE100175ABF /* XCZAppDelegate.m */,
-				05CC12F3196569690014989C /* XCZAuthorsViewController.h */,
-				05CC12F4196569690014989C /* XCZAuthorsViewController.m */,
 				05DF00DD195F0CE100175ABF /* Images.xcassets */,
 				05DF00CF195F0CE100175ABF /* Supporting Files */,
-				05ABB5C71961525900341AAC /* XCZWorkDetailViewController.h */,
-				05ABB5C81961525900341AAC /* XCZWorkDetailViewController.m */,
-				05ABB5C91961525900341AAC /* XCZWorkDetailViewController.xib */,
 			);
 			path = xcz;
 			sourceTree = "<group>";
@@ -174,6 +181,7 @@
 		05DF00CF195F0CE100175ABF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				05B2287B195FCEBE00F91BCC /* xcz.db */,
 				05DF00D0195F0CE100175ABF /* xcz-Info.plist */,
 				05DF00D1195F0CE100175ABF /* InfoPlist.strings */,
 				05DF00D4195F0CE100175ABF /* main.m */,
