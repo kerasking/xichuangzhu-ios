@@ -10,6 +10,4 @@
 
 @interface XCZAuthorsViewController : UITableViewController
 
-@property (nonatomic, strong) NSMutableArray *authors;
-
 @end

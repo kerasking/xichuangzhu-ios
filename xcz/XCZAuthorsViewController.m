@@ -12,6 +12,9 @@
 
 @interface XCZAuthorsViewController ()
 
+@property (nonatomic, strong) NSMutableArray *dynasties;
+@property (nonatomic, strong) NSMutableDictionary *authors;
+
 @end
 
 @implementation XCZAuthorsViewController
@@ -24,22 +27,39 @@
         self.navigationItem.title = @"文学家";
         
         int index = 0;
-        self.authors = [[NSMutableArray alloc] init];
+        int _index = 0;
+        
+        self.dynasties = [[NSMutableArray alloc] init];
+        self.authors = [[NSMutableDictionary alloc] init];
         
         // 从SQLite中加载数据
         NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
         FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
         if ([db open]) {
-            FMResultSet *s = [db executeQuery:@"SELECT * FROM authors"];
+            index = 0;
+            FMResultSet *s = [db executeQuery:@"SELECT * FROM dynasties ORDER BY start_year ASC"];
             while ([s next]) {
-                XCZAuthor *author = [[XCZAuthor alloc] init];
-                author.id = [s intForColumn:@"id"];
-                author.name = [s stringForColumn:@"name"];
-                author.intro = [s stringForColumn:@"intro"];
-                author.dynasty = [s stringForColumn:@"dynasty"];
-                author.birthYear = [s stringForColumn:@"birth_year"];
-                author.deathYear = [s stringForColumn:@"death_year"];
-                self.authors[index] = author;
+                NSString* dynastyName = [s stringForColumn:@"name"];
+                // 填充dynasties数组
+                self.dynasties[index] = dynastyName;
+                
+                // 填充authors字典
+                NSMutableArray *authors = [[NSMutableArray alloc] init];
+                NSString *query = [[NSString alloc] initWithFormat:@"SELECT * FROM authors WHERE dynasty = '%@'", dynastyName];
+                FMResultSet *_s = [db executeQuery:query];
+                _index = 0;
+                while ([_s next]) {
+                    XCZAuthor *author = [[XCZAuthor alloc] init];
+                    author.id = [_s intForColumn:@"id"];
+                    author.name = [_s stringForColumn:@"name"];
+                    author.intro = [_s stringForColumn:@"intro"];
+                    author.dynasty = [_s stringForColumn:@"dynasty"];
+                    author.birthYear = [_s stringForColumn:@"birth_year"];
+                    author.deathYear = [_s stringForColumn:@"death_year"];
+                    authors[_index] = author;
+                    _index++;
+                }
+                [self.authors setObject:authors forKey:dynastyName];
                 index++;
             }
             
@@ -68,30 +88,54 @@
 
 #pragma mark - Table view data source
 
-/*
+// Section数目
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return self.dynasties.count;
 }
-*/
 
+// 每个Section的行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return self.authors.count;
+    NSString *dynastyName = [self.dynasties objectAtIndex:section];
+    NSArray *authors = [self.authors objectForKey:dynastyName];
+    return authors.count;
+}
+
+// Section标题
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return self.dynasties[section];
+}
+
+// 索引
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    NSMutableArray *dynasties = [self.dynasties mutableCopy];
+    for (int i = 0; i < dynasties.count; i++) {
+        if ([dynasties[i] isEqualToString:@"五代十国"]) {
+            dynasties[i] = @"五代";
+        } else if ([dynasties[i] isEqualToString:@"南北朝"]) {
+            dynasties[i] = @"南北";
+        }
+    }
+    
+    return dynasties;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+    
     if(cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"UITableViewCell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
     }
-    XCZAuthor *author = self.authors[indexPath.row];
+    
+    NSString *dynastyName = [self.dynasties objectAtIndex:indexPath.section];
+    NSArray *authors = [self.authors objectForKey:dynastyName];
+    XCZAuthor *author = authors[indexPath.row];
+
     cell.textLabel.text = author.name;
-    cell.detailTextLabel.text = author.dynasty;
     return cell;
 }
 
