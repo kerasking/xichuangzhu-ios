@@ -22,11 +22,15 @@
     XCZWorksViewController *worksController = [[XCZWorksViewController alloc] init];
     UINavigationController *worksNavController = [[UINavigationController alloc] initWithRootViewController:worksController];
     worksNavController.tabBarItem.title = @"作品";
+    UIImage *worksImg = [UIImage imageNamed:@"Hypno.png"];
+    worksNavController.tabBarItem.image = worksImg;
     
     // Authors Nav Controller
     XCZAuthorsViewController *authorsController = [[XCZAuthorsViewController alloc] init];
     UINavigationController *authorsNavController = [[UINavigationController alloc] initWithRootViewController:authorsController];
     authorsNavController.tabBarItem.title = @"文学家";
+    UIImage *authorsImg = [UIImage imageNamed:@"Time.png"];
+    authorsNavController.tabBarItem.image = authorsImg;
     
     // TabBar Controller
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
