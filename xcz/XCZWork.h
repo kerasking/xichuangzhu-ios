@@ -12,6 +12,7 @@
 
 @property (nonatomic) int id;
 @property (nonatomic, strong) NSString *title;
+@property (nonatomic) int authorId;
 @property (nonatomic, strong) NSString *author;
 @property (nonatomic, strong) NSString *dynasty;
 @property (nonatomic, strong) NSString *kind;

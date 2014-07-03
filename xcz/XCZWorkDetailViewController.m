@@ -39,11 +39,13 @@
     
     // 内容
     NSMutableParagraphStyle *contentParagraphStyle = [[NSMutableParagraphStyle alloc] init];
+    // 缩进排版
     if ([self.work.layout isEqual: @"indent"]) {
         contentParagraphStyle.firstLineHeadIndent = 25;
         contentParagraphStyle.paragraphSpacing = 15;
         contentParagraphStyle.lineHeightMultiple = 1.3;
         self.contentField.preferredMaxLayoutWidth = self.view.bounds.size.width - 40;
+    // 居中排版
     } else {
         contentParagraphStyle.alignment = NSTextAlignmentCenter;
         contentParagraphStyle.paragraphSpacing = 0;

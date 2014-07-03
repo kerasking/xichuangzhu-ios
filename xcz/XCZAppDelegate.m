@@ -16,11 +16,17 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // Override point for customization after application launch.
-    XCZWorksViewController *worksController = [[XCZWorksViewController alloc] init];
     
-    // 使用nav
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:worksController];
-    [self.window setRootViewController:navController];
+    // Works Nav Controller
+    XCZWorksViewController *worksController = [[XCZWorksViewController alloc] init];
+    UINavigationController *worksNavController = [[UINavigationController alloc] initWithRootViewController:worksController];
+    worksNavController.tabBarItem.title = @"全部作品";
+    
+    // TabBar Controller
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    tabBarController.viewControllers = @[worksNavController];
+    
+    [self.window setRootViewController:tabBarController];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
