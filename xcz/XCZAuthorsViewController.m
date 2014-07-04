@@ -8,7 +8,9 @@
 
 #import "XCZAuthorsViewController.h"
 #import <FMDB/FMDB.h>
+#import "XCZAuthorDetailsViewController.h"
 #import "XCZAuthor.h"
+#import "XCZWork.h"
 
 @interface XCZAuthorsViewController ()
 
@@ -34,6 +36,7 @@
         
         // 从SQLite中加载数据
         NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
+        NSLog(@"%@", dbPath);
         FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
         if ([db open]) {
             index = 0;
@@ -123,6 +126,7 @@
     return dynasties;
 }
 
+// 单元格的内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
@@ -137,6 +141,48 @@
 
     cell.textLabel.text = author.name;
     return cell;
+}
+
+// 选中单元格
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    XCZAuthorDetailsViewController *detailController = [[XCZAuthorDetailsViewController alloc] init];
+    
+    NSString *dynastyName = [self.dynasties objectAtIndex:indexPath.section];
+    NSArray *authors = [self.authors objectForKey:dynastyName];
+    XCZAuthor *author = authors[indexPath.row];
+
+    detailController.author = author;
+    NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
+    FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
+    
+    NSMutableArray *works = [[NSMutableArray alloc] init];
+    int index = 0;
+    
+    if ([db open]) {
+        NSString *query = [[NSString alloc] initWithFormat:@"SELECT * FROM works WHERE author_id = %d", author.id];
+        FMResultSet *s = [db executeQuery:query];
+        while ([s next]) {
+            XCZWork *work = [[XCZWork alloc] init];
+            work.id = [s intForColumn:@"id"];
+            work.title = [s stringForColumn:@"title"];
+            work.authorId = [s intForColumn:@"author_id"];
+            work.author = [s stringForColumn:@"author"];
+            work.dynasty = [s stringForColumn:@"dynasty"];
+            work.kind = [s stringForColumn:@"kind"];
+            work.foreword = [s stringForColumn:@"foreword"];
+            work.content = [s stringForColumn:@"content"];
+            work.intro = [s stringForColumn:@"intro"];
+            work.layout = [s stringForColumn:@"layout"];
+            works[index] = work;
+            index++;
+        }
+        
+        [db close];
+    }
+    detailController.works = works;
+    
+    [self.navigationController pushViewController:detailController animated:YES];
 }
 
 /*

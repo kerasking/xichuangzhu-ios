@@ -10,6 +10,4 @@
 
 @interface XCZWorksViewController : UITableViewController
 
-@property (nonatomic, strong) NSMutableArray *works;
-
 @end

@@ -13,6 +13,8 @@
 
 @interface XCZWorksViewController ()
 
+@property (nonatomic, strong) NSMutableArray *works;
+
 @end
 
 @implementation XCZWorksViewController

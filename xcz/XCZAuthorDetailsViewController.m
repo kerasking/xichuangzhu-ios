@@ -1,18 +1,31 @@
 //
-//  XCZAuthorDetailViewController.m
+//  XCZAuthorDetailsViewController.m
 //  xcz
 //
 //  Created by 刘志鹏 on 14-7-4.
 //  Copyright (c) 2014年 Zhipeng Liu. All rights reserved.
 //
 
-#import "XCZAuthorDetailViewController.h"
+#import "XCZAuthorDetailsViewController.h"
+#import <FMDB/FMDB.h>
+#import "XCZWork.h"
+#import "XCZAuthor.h"
+#import "XCZWorkDetailViewController.h"
 
-@interface XCZAuthorDetailViewController ()
+@interface XCZAuthorDetailsViewController ()
 
 @end
 
-@implementation XCZAuthorDetailViewController
+@implementation XCZAuthorDetailsViewController
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+    }
+    
+    return self;
+}
 
 - (void)viewDidLoad
 {
@@ -23,6 +36,7 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.title = self.author.name;
 }
 
 - (void)didReceiveMemoryWarning
@@ -33,30 +47,42 @@
 
 #pragma mark - Table view data source
 
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 0;
 }
+ */
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    NSLog(@"%d", self.works.count);
+    return self.works.count;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
     
-    // Configure the cell...
+    if(cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
+    }
     
+    cell.textLabel.text = [self.works[indexPath.row] title];
     return cell;
 }
-*/
+
+// 选中某单元格后的操作
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    XCZWorkDetailViewController *detailController = [[XCZWorkDetailViewController alloc] init];
+    XCZWork *work = self.works[indexPath.row];
+    detailController.work = work;
+    [self.navigationController pushViewController:detailController animated:YES];
+}
 
 /*
 // Override to support conditional editing of the table view.
