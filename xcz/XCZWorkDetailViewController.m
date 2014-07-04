@@ -10,6 +10,7 @@
 
 @interface XCZWorkDetailViewController ()
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *authorTopConstraint;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UILabel *titleField;
 @property (weak, nonatomic) IBOutlet UILabel *authorField;
@@ -49,7 +50,8 @@
     } else {
         contentParagraphStyle.alignment = NSTextAlignmentCenter;
         contentParagraphStyle.paragraphSpacing = 0;
-        contentParagraphStyle.lineHeightMultiple = 1.1;
+        contentParagraphStyle.lineHeightMultiple = 1;
+        self.authorTopConstraint.constant = 15;
         self.contentField.preferredMaxLayoutWidth = self.view.bounds.size.width - 35;
     }
 
@@ -63,32 +65,12 @@
     
     // 设置UILabel的preferredMaxLayoutWidth，以保证正确的换行长度
     self.titleField.preferredMaxLayoutWidth = self.view.bounds.size.width - 40;
-    //self.contentField.preferredMaxLayoutWidth = self.view.bounds.size.width - 35;
     self.introField.preferredMaxLayoutWidth = self.view.bounds.size.width - 40;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    /*
-    NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:self.contentView
-                                                                      attribute:NSLayoutAttributeLeading
-                                                                      relatedBy:0
-                                                                         toItem:self.view
-                                                                      attribute:NSLayoutAttributeLeft
-                                                                     multiplier:1.0
-                                                                       constant:0];
-    [self.view addConstraint:leftConstraint];
-    
-    NSLayoutConstraint *rightConstraint = [NSLayoutConstraint constraintWithItem:self.contentView
-                                                                       attribute:NSLayoutAttributeTrailing
-                                                                       relatedBy:0
-                                                                          toItem:self.view
-                                                                       attribute:NSLayoutAttributeRight
-                                                                      multiplier:1.0
-                                                                        constant:0];
-    [self.view addConstraint:rightConstraint];
-     */
 }
 
 - (void)didReceiveMemoryWarning

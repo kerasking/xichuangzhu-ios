@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XCZWorkDetailViewController">
             <connections>
                 <outlet property="authorField" destination="n3R-5O-41w" id="rSW-a3-6Mk"/>
+                <outlet property="authorTopConstraint" destination="fEq-Bj-raJ" id="E6B-Ow-kcL"/>
                 <outlet property="contentField" destination="Qfz-9g-nNm" id="1ZN-8m-q1n"/>
                 <outlet property="contentView" destination="FfD-Bw-Cdd" id="Pbu-Wg-MVa"/>
                 <outlet property="introField" destination="1p1-gD-O6S" id="qF5-e1-EPf"/>
