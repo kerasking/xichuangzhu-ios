@@ -27,8 +27,15 @@
     [super viewWillAppear:animated];
     
     self.nameField.text = self.author.name;
-    self.periodField.text = [[NSString alloc] initWithFormat:@"[%@] %@年 ~ %@年", self.author.dynasty, self.author.birthYear, self.author.deathYear];
     
+    // 时期
+    NSLog(@"%@", self.author.deathYear);
+    if (![self.author.deathYear isEqualToString:@""]) {
+        self.periodField.text = [[NSString alloc] initWithFormat:@"[%@]  %@ ~ %@", self.author.dynasty, self.author.birthYear, self.author.deathYear];
+    } else {
+        self.periodField.text = [[NSString alloc] initWithFormat:@"[%@]", self.author.dynasty];
+    }
+
     // 简介
     NSMutableParagraphStyle *contentParagraphStyle = [[NSMutableParagraphStyle alloc] init];
     contentParagraphStyle.lineHeightMultiple = 1.3;

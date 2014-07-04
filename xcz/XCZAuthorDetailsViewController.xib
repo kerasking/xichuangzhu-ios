@@ -33,16 +33,17 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intro" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="285" translatesAutoresizingMaskIntoConstraints="NO" id="Mgf-QB-CPf">
-                    <rect key="frame" x="15" y="161" width="285" height="21"/>
+                    <rect key="frame" x="15" y="156" width="285" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="RmL-rf-nkF"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.098039217293262482" green="0.098039217293262482" blue="0.098039217293262482" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="TB6-ks-6xr">
-                    <rect key="frame" x="0.0" y="190" width="320" height="368"/>
+                    <rect key="frame" x="0.0" y="185" width="320" height="373"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -55,7 +56,7 @@
             <constraints>
                 <constraint firstItem="U7I-ka-N0D" firstAttribute="top" secondItem="COb-4t-lM6" secondAttribute="bottom" constant="10" id="0vd-dE-XN2"/>
                 <constraint firstItem="Mgf-QB-CPf" firstAttribute="leading" secondItem="575-Py-WrC" secondAttribute="leading" constant="15" id="8EV-fg-8Oz"/>
-                <constraint firstItem="Mgf-QB-CPf" firstAttribute="top" secondItem="U7I-ka-N0D" secondAttribute="bottom" constant="10" id="CTR-7q-Ash"/>
+                <constraint firstItem="Mgf-QB-CPf" firstAttribute="top" secondItem="U7I-ka-N0D" secondAttribute="bottom" constant="5" id="CTR-7q-Ash"/>
                 <constraint firstItem="COb-4t-lM6" firstAttribute="top" secondItem="575-Py-WrC" secondAttribute="top" constant="90" id="Fm2-Ik-gS9"/>
                 <constraint firstAttribute="trailing" secondItem="TB6-ks-6xr" secondAttribute="trailing" id="HQP-uk-koV"/>
                 <constraint firstItem="U7I-ka-N0D" firstAttribute="leading" secondItem="575-Py-WrC" secondAttribute="leading" constant="15" id="Ia9-IS-GDr"/>
