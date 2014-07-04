@@ -14,17 +14,21 @@
 
 @interface XCZAuthorDetailsViewController ()
 
+@property (weak, nonatomic) IBOutlet UIView *authorHeaderView;
+@property (weak, nonatomic) IBOutlet UILabel *nameField;
+@property (weak, nonatomic) IBOutlet UILabel *periodField;
+@property (weak, nonatomic) IBOutlet UILabel *introField;
+
 @end
 
 @implementation XCZAuthorDetailsViewController
 
-- (instancetype)init
+- (void)viewWillAppear:(BOOL)animated
 {
-    self = [super init];
-    if (self) {
-    }
-    
-    return self;
+    [super viewWillAppear:animated];
+    self.nameField.text = self.author.name;
+    self.periodField.text = [[NSString alloc] initWithFormat:@"[%@] %@年 ~ %@年", self.author.dynasty, self.author.birthYear, self.author.deathYear];
+    self.introField.text = self.author.intro;
 }
 
 - (void)viewDidLoad
@@ -37,12 +41,24 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.navigationItem.title = self.author.name;
+    
+    UIView *authorHeaderView = self.authorHeaderView;
+    [self.tableView setTableHeaderView:authorHeaderView];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (UIView *)authorHeaderView
+{
+    if(!_authorHeaderView) {
+        [[NSBundle mainBundle] loadNibNamed:@"AuthorHeaderView" owner:self options:nil];
+    }
+    
+    return _authorHeaderView;
 }
 
 #pragma mark - Table view data source
@@ -59,7 +75,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    NSLog(@"%d", self.works.count);
     return self.works.count;
 }
 

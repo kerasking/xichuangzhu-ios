@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XCZAuthorDetailsViewController">
+            <connections>
+                <outlet property="authorHeaderView" destination="oo8-FE-cfp" id="E8e-Vf-tgD"/>
+                <outlet property="introField" destination="V3j-jz-m4C" id="cn5-QZ-Vb3"/>
+                <outlet property="nameField" destination="QYU-PA-Yb7" id="7pK-Kp-9h2"/>
+                <outlet property="periodField" destination="5HX-vR-JTz" id="RP9-L5-iMg"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="9Nc-yW-4OE">
+            <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+        </activityIndicatorView>
+        <view contentMode="scaleToFill" id="oo8-FE-cfp">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="382"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYU-PA-Yb7">
+                    <rect key="frame" x="20" y="20" width="280" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="r0s-Po-2DE"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Period" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5HX-vR-JTz">
+                    <rect key="frame" x="20" y="49" width="280" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Intro" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="V3j-jz-m4C">
+                    <rect key="frame" x="10" y="98" width="300" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="ZRt-xG-lyf"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="QYU-PA-Yb7" firstAttribute="top" secondItem="oo8-FE-cfp" secondAttribute="top" constant="25" id="4Wf-nX-RFH"/>
+                <constraint firstItem="QYU-PA-Yb7" firstAttribute="leading" secondItem="oo8-FE-cfp" secondAttribute="leading" constant="15" id="6c4-fr-5ia"/>
+                <constraint firstAttribute="trailing" secondItem="QYU-PA-Yb7" secondAttribute="trailing" constant="20" id="CaM-8T-rqj"/>
+                <constraint firstItem="V3j-jz-m4C" firstAttribute="top" secondItem="5HX-vR-JTz" secondAttribute="bottom" constant="10" id="WuL-QZ-auk"/>
+                <constraint firstItem="V3j-jz-m4C" firstAttribute="leading" secondItem="oo8-FE-cfp" secondAttribute="leading" constant="15" id="avt-Lh-8eR"/>
+                <constraint firstAttribute="bottom" secondItem="V3j-jz-m4C" secondAttribute="bottom" constant="10" id="gu9-NA-GFz"/>
+                <constraint firstAttribute="trailing" secondItem="5HX-vR-JTz" secondAttribute="trailing" constant="20" id="naf-P7-aaf"/>
+                <constraint firstAttribute="trailing" secondItem="V3j-jz-m4C" secondAttribute="trailing" constant="20" id="puS-7P-eQo"/>
+                <constraint firstItem="5HX-vR-JTz" firstAttribute="leading" secondItem="oo8-FE-cfp" secondAttribute="leading" constant="15" id="wp7-iF-WOl"/>
+                <constraint firstItem="5HX-vR-JTz" firstAttribute="top" secondItem="QYU-PA-Yb7" secondAttribute="bottom" id="xfB-i8-mQg"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
