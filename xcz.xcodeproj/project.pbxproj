@@ -16,7 +16,7 @@
 		05CC12F8196569DD0014989C /* XCZAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CC12F7196569DD0014989C /* XCZAuthor.m */; };
 		05CC12FC196583F60014989C /* XCZDynasty.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CC12FB196583F60014989C /* XCZDynasty.m */; };
 		05CC13101966689F0014989C /* XCZAuthorDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CC130E1966689F0014989C /* XCZAuthorDetailsViewController.m */; };
-		05CC131319666B440014989C /* AuthorHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05CC131219666B440014989C /* AuthorHeaderView.xib */; };
+		05CC1315196691140014989C /* XCZAuthorDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05CC1314196691140014989C /* XCZAuthorDetailsViewController.xib */; };
 		05DF00C7195F0CE100175ABF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DF00C6195F0CE100175ABF /* Foundation.framework */; };
 		05DF00C9195F0CE100175ABF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DF00C8195F0CE100175ABF /* CoreGraphics.framework */; };
 		05DF00CB195F0CE100175ABF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DF00CA195F0CE100175ABF /* UIKit.framework */; };
@@ -61,7 +61,7 @@
 		05CC12FB196583F60014989C /* XCZDynasty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZDynasty.m; sourceTree = "<group>"; };
 		05CC130D1966689F0014989C /* XCZAuthorDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZAuthorDetailsViewController.h; sourceTree = "<group>"; };
 		05CC130E1966689F0014989C /* XCZAuthorDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZAuthorDetailsViewController.m; sourceTree = "<group>"; };
-		05CC131219666B440014989C /* AuthorHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthorHeaderView.xib; sourceTree = "<group>"; };
+		05CC1314196691140014989C /* XCZAuthorDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XCZAuthorDetailsViewController.xib; sourceTree = "<group>"; };
 		05DF00C3195F0CE100175ABF /* xcz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xcz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DF00C6195F0CE100175ABF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		05DF00C8195F0CE100175ABF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -135,7 +135,7 @@
 				05ABB5C71961525900341AAC /* XCZWorkDetailViewController.h */,
 				05ABB5C81961525900341AAC /* XCZWorkDetailViewController.m */,
 				05ABB5C91961525900341AAC /* XCZWorkDetailViewController.xib */,
-				05CC131219666B440014989C /* AuthorHeaderView.xib */,
+				05CC1314196691140014989C /* XCZAuthorDetailsViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -297,7 +297,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05CC131319666B440014989C /* AuthorHeaderView.xib in Resources */,
+				05CC1315196691140014989C /* XCZAuthorDetailsViewController.xib in Resources */,
 				05B2287C195FD19500F91BCC /* xcz.db in Resources */,
 				05DF00D3195F0CE100175ABF /* InfoPlist.strings in Resources */,
 				05ABB5CB1961525900341AAC /* XCZWorkDetailViewController.xib in Resources */,

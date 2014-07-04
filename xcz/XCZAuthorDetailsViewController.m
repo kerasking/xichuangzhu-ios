@@ -12,9 +12,8 @@
 #import "XCZAuthor.h"
 #import "XCZWorkDetailViewController.h"
 
-@interface XCZAuthorDetailsViewController ()
+@interface XCZAuthorDetailsViewController ()\
 
-@property (weak, nonatomic) IBOutlet UIView *authorHeaderView;
 @property (weak, nonatomic) IBOutlet UILabel *nameField;
 @property (weak, nonatomic) IBOutlet UILabel *periodField;
 @property (weak, nonatomic) IBOutlet UILabel *introField;
@@ -26,9 +25,14 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
     self.nameField.text = self.author.name;
     self.periodField.text = [[NSString alloc] initWithFormat:@"[%@] %@年 ~ %@年", self.author.dynasty, self.author.birthYear, self.author.deathYear];
-    self.introField.text = self.author.intro;
+    
+    // 简介
+    NSMutableParagraphStyle *contentParagraphStyle = [[NSMutableParagraphStyle alloc] init];
+    contentParagraphStyle.lineHeightMultiple = 1.3;
+    self.introField.attributedText = [[NSAttributedString alloc] initWithString:self.author.intro attributes:@{NSParagraphStyleAttributeName: contentParagraphStyle}];
 }
 
 - (void)viewDidLoad
@@ -41,24 +45,12 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.navigationItem.title = self.author.name;
-    
-    UIView *authorHeaderView = self.authorHeaderView;
-    [self.tableView setTableHeaderView:authorHeaderView];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (UIView *)authorHeaderView
-{
-    if(!_authorHeaderView) {
-        [[NSBundle mainBundle] loadNibNamed:@"AuthorHeaderView" owner:self options:nil];
-    }
-    
-    return _authorHeaderView;
 }
 
 #pragma mark - Table view data source
