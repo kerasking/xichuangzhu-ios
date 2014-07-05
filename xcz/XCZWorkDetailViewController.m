@@ -59,7 +59,7 @@
         contentParagraphStyle.paragraphSpacing = 0;
         contentParagraphStyle.lineHeightMultiple = 1;
         self.authorTopConstraint.constant = 15;
-        self.contentField.preferredMaxLayoutWidth = self.view.bounds.size.width - 25;
+        self.contentField.preferredMaxLayoutWidth = self.view.bounds.size.width - 20;
     }
     contentParagraphStyle.paragraphSpacing = 10;
     self.contentField.attributedText = [[NSAttributedString alloc] initWithString:work.content attributes:@{NSParagraphStyleAttributeName: contentParagraphStyle}];

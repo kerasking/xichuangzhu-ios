@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XCZWorksViewController : UITableViewController
+@interface XCZWorksViewController : UIViewController
 
 @end

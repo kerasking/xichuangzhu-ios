@@ -14,6 +14,8 @@
 @interface XCZWorksViewController ()
 
 @property (nonatomic, strong) NSMutableArray *works;
+@property (nonatomic, strong) NSArray *searchResults;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 
 @end
 
@@ -21,11 +23,11 @@
 
 - (instancetype)init
 {
-    self = [super initWithStyle:UITableViewStylePlain];
+    self = [super init];
     
     if (self) {
         UINavigationItem *navItem = self.navigationItem;
-        navItem.title = @"作品";
+        navItem.title = @"全部作品";
         
         int index = 0;
         self.works = [[NSMutableArray alloc] init];
@@ -58,15 +60,54 @@
     return self;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+}
+
 - (instancetype)initWithStyle:(UITableViewStyle)style
 {
     return [self init];
 }
 
+- (void)filterContentForSearchText:(NSString*)searchText
+{
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"title contains[c] %@", searchText];
+    self.searchResults = [self.works filteredArrayUsingPredicate:resultPredicate];
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+    NSString *searchText = self.searchDisplayController.searchBar.text;
+    if([searchText isEqualToString:@""]){
+        self.topConstraint.constant = 64;
+    }
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    self.topConstraint.constant = 20;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    self.topConstraint.constant = 64;
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString];
+    return YES;
+}
+
 // 表行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.works count];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [self.searchResults count];
+    } else {
+        return [self.works count];
+    }
 }
 
 // 单元格内容
@@ -76,7 +117,14 @@
     if(cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"UITableViewCell"];
     }
-    XCZWork *work = self.works[indexPath.row];
+    
+    XCZWork *work = nil;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        work = self.searchResults[indexPath.row];
+    } else {
+        work = self.works[indexPath.row];
+    }
+    
     cell.textLabel.text = work.title;
     cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"[%@] %@", work.dynasty, work.author];
     return cell;
