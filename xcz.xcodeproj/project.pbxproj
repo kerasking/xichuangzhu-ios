@@ -17,6 +17,7 @@
 		05CC12FC196583F60014989C /* XCZDynasty.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CC12FB196583F60014989C /* XCZDynasty.m */; };
 		05CC13101966689F0014989C /* XCZAuthorDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CC130E1966689F0014989C /* XCZAuthorDetailsViewController.m */; };
 		05CC13191966FCFC0014989C /* AuthorHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05CC13181966FCFC0014989C /* AuthorHeaderView.xib */; };
+		05D4A1D81967F53900D5F534 /* XCZQuote.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D4A1D71967F53900D5F534 /* XCZQuote.m */; };
 		05DF00C7195F0CE100175ABF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DF00C6195F0CE100175ABF /* Foundation.framework */; };
 		05DF00C9195F0CE100175ABF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DF00C8195F0CE100175ABF /* CoreGraphics.framework */; };
 		05DF00CB195F0CE100175ABF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DF00CA195F0CE100175ABF /* UIKit.framework */; };
@@ -62,6 +63,8 @@
 		05CC130D1966689F0014989C /* XCZAuthorDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZAuthorDetailsViewController.h; sourceTree = "<group>"; };
 		05CC130E1966689F0014989C /* XCZAuthorDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZAuthorDetailsViewController.m; sourceTree = "<group>"; };
 		05CC13181966FCFC0014989C /* AuthorHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthorHeaderView.xib; sourceTree = "<group>"; };
+		05D4A1D61967F53900D5F534 /* XCZQuote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZQuote.h; sourceTree = "<group>"; };
+		05D4A1D71967F53900D5F534 /* XCZQuote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZQuote.m; sourceTree = "<group>"; };
 		05DF00C3195F0CE100175ABF /* xcz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xcz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DF00C6195F0CE100175ABF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		05DF00C8195F0CE100175ABF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -119,6 +122,8 @@
 				05B2287E196024ED00F91BCC /* XCZWork.m */,
 				05CC12FA196583F60014989C /* XCZDynasty.h */,
 				05CC12FB196583F60014989C /* XCZDynasty.m */,
+				05D4A1D61967F53900D5F534 /* XCZQuote.h */,
+				05D4A1D71967F53900D5F534 /* XCZQuote.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -357,6 +362,7 @@
 				05B2287F196024ED00F91BCC /* XCZWork.m in Sources */,
 				05CC12F8196569DD0014989C /* XCZAuthor.m in Sources */,
 				05CC13101966689F0014989C /* XCZAuthorDetailsViewController.m in Sources */,
+				05D4A1D81967F53900D5F534 /* XCZQuote.m in Sources */,
 				05B22879195F0F1600F91BCC /* XCZWorksViewController.m in Sources */,
 				05DF00D9195F0CE100175ABF /* XCZAppDelegate.m in Sources */,
 				05CC12F5196569690014989C /* XCZAuthorsViewController.m in Sources */,
