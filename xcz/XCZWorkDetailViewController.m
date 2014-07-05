@@ -35,7 +35,14 @@
     [super viewWillAppear:animated];
     
     XCZWork *work = self.work;
-    self.titleField.text = work.title;
+    
+    // 标题
+    NSMutableParagraphStyle *titleParagraphStyle = [[NSMutableParagraphStyle alloc] init];
+    titleParagraphStyle.lineHeightMultiple = 1.1;
+    titleParagraphStyle.alignment = NSTextAlignmentCenter;
+    self.titleField.attributedText = [[NSAttributedString alloc] initWithString:work.title attributes:@{NSParagraphStyleAttributeName: titleParagraphStyle}];
+    
+    // 作者
     self.authorField.text = [[NSString alloc] initWithFormat:@"[%@] %@", work.dynasty, work.author];
     
     // 内容
@@ -45,14 +52,14 @@
         contentParagraphStyle.firstLineHeadIndent = 25;
         contentParagraphStyle.paragraphSpacing = 15;
         contentParagraphStyle.lineHeightMultiple = 1.3;
-        self.contentField.preferredMaxLayoutWidth = self.view.bounds.size.width - 40;
+        self.contentField.preferredMaxLayoutWidth = self.view.bounds.size.width - 30;
     // 居中排版
     } else {
         contentParagraphStyle.alignment = NSTextAlignmentCenter;
         contentParagraphStyle.paragraphSpacing = 0;
         contentParagraphStyle.lineHeightMultiple = 1;
         self.authorTopConstraint.constant = 15;
-        self.contentField.preferredMaxLayoutWidth = self.view.bounds.size.width - 35;
+        self.contentField.preferredMaxLayoutWidth = self.view.bounds.size.width - 25;
     }
 
     contentParagraphStyle.paragraphSpacing = 10;
@@ -64,8 +71,8 @@
     self.introField.attributedText = [[NSAttributedString alloc] initWithString:work.intro attributes:@{NSParagraphStyleAttributeName: introParagraphStyle}];
     
     // 设置UILabel的preferredMaxLayoutWidth，以保证正确的换行长度
-    self.titleField.preferredMaxLayoutWidth = self.view.bounds.size.width - 40;
-    self.introField.preferredMaxLayoutWidth = self.view.bounds.size.width - 40;
+    self.titleField.preferredMaxLayoutWidth = self.view.bounds.size.width - 30;
+    self.introField.preferredMaxLayoutWidth = self.view.bounds.size.width - 30;
 }
 
 - (void)viewDidLoad
