@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "XCZAuthor.h"
 
-@interface XCZAuthorDetailsViewController : UIViewController
+@interface XCZAuthorDetailsViewController : UITableViewController
 
 @property (nonatomic, strong) NSMutableArray *works;
 @property (nonatomic, strong) XCZAuthor *author;

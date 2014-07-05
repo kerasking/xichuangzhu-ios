@@ -12,11 +12,14 @@
 #import "XCZAuthor.h"
 #import "XCZWorkDetailViewController.h"
 
-@interface XCZAuthorDetailsViewController ()\
+@interface XCZAuthorDetailsViewController ()
 
+@property (strong, nonatomic) IBOutlet UIView *headerView;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UILabel *nameField;
 @property (weak, nonatomic) IBOutlet UILabel *periodField;
 @property (weak, nonatomic) IBOutlet UILabel *introField;
+@property (weak, nonatomic) IBOutlet UILabel *worksHeaderField;
 
 @end
 
@@ -29,7 +32,7 @@
     self.nameField.text = self.author.name;
     
     // 时期
-    NSLog(@"%@", self.author.deathYear);
+    NSLog(@"%@", self.author.name);
     if (![self.author.deathYear isEqualToString:@""]) {
         self.periodField.text = [[NSString alloc] initWithFormat:@"[%@]  %@ ~ %@", self.author.dynasty, self.author.birthYear, self.author.deathYear];
     } else {
@@ -40,18 +43,49 @@
     NSMutableParagraphStyle *contentParagraphStyle = [[NSMutableParagraphStyle alloc] init];
     contentParagraphStyle.lineHeightMultiple = 1.3;
     self.introField.attributedText = [[NSAttributedString alloc] initWithString:self.author.intro attributes:@{NSParagraphStyleAttributeName: contentParagraphStyle}];
+    
+    // 作品数目
+    self.worksHeaderField.text = [[NSString alloc] initWithFormat:@"作品 / %d", self.works.count];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.navigationItem.title = self.author.name;
+    UIView *headerView = self.headerView;
+    [self.tableView setTableHeaderView:headerView];
+
+    // 计算introLabel的高度
+    NSMutableParagraphStyle *contentParagraphStyle = [[NSMutableParagraphStyle alloc] init];
+    contentParagraphStyle.lineHeightMultiple = 1.3;
+    CGRect introSize = [self.author.intro
+                           boundingRectWithSize:CGSizeMake(285.f, CGFLOAT_MAX)
+                           options:NSStringDrawingUsesLineFragmentOrigin
+                           attributes:@{NSFontAttributeName: self.introField.font,
+                                        NSParagraphStyleAttributeName: contentParagraphStyle}
+                           context:nil];
+    CGFloat height = self.introField.frame.origin.y + introSize.size.height;
+    
+    
+    height += 15;
+    height += self.worksHeaderField.frame.size.height;
+    height += 2;
+    
+    CGRect headerFrame = self.headerView.frame;
+    headerFrame.size.height = height;
+    headerView.frame = headerFrame;
+
+    [self.tableView setTableHeaderView:headerView];
+}
+
+- (UIView *)headerView
+{
+    if(!_headerView){
+        [[NSBundle mainBundle] loadNibNamed:@"AuthorHeaderView" owner:self options:nil];
+    }
+    
+    return _headerView;
 }
 
 - (void)didReceiveMemoryWarning
