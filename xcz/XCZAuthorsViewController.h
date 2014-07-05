@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XCZAuthorsViewController : UITableViewController
+@interface XCZAuthorsViewController : UIViewController
 
 @end

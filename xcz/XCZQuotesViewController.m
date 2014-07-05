@@ -25,7 +25,7 @@
     self = [super initWithStyle:style];
     if (self) {
         UINavigationItem *navItem = self.navigationItem;
-        navItem.title = @"随机名言";
+        navItem.title = @"名言";
         
         // 加载名言
         [self loadQuotes];

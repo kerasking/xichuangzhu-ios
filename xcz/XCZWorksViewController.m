@@ -63,6 +63,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.searchDisplayController.searchBar.placeholder = @"搜索";
 }
 
 - (instancetype)initWithStyle:(UITableViewStyle)style
@@ -87,19 +88,34 @@
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
 {
     NSString *searchText = self.searchDisplayController.searchBar.text;
-    if([searchText isEqualToString:@""]){
-        self.topConstraint.constant = 64;
+    if([searchText isEqualToString:@""]) {
+        [self.view layoutIfNeeded];
+        [UIView animateWithDuration:0.1
+                         animations:^{
+                             self.topConstraint.constant = 64;
+                             [self.view layoutIfNeeded]; // Called on parent view
+                         }];
     }
 }
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
-    self.topConstraint.constant = 20;
+    [self.view layoutIfNeeded];
+    [UIView animateWithDuration:0.1
+                     animations:^{
+                         self.topConstraint.constant = 20;
+                         [self.view layoutIfNeeded]; // Called on parent view
+                     }];
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
-    self.topConstraint.constant = 64;
+    [self.view layoutIfNeeded];
+    [UIView animateWithDuration:0.1
+                     animations:^{
+                         self.topConstraint.constant = 64;
+                         [self.view layoutIfNeeded]; // Called on parent view
+                     }];
 }
 
 // 表行数

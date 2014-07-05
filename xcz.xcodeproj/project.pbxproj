@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0573FF2219682050005341F2 /* XCZWorksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0573FF2119682050005341F2 /* XCZWorksViewController.xib */; };
+		0573FF24196847A0005341F2 /* XCZAuthorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0573FF23196847A0005341F2 /* XCZAuthorsViewController.xib */; };
 		05ABB5CA1961525900341AAC /* XCZWorkDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05ABB5C81961525900341AAC /* XCZWorkDetailViewController.m */; };
 		05ABB5CB1961525900341AAC /* XCZWorkDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05ABB5C91961525900341AAC /* XCZWorkDetailViewController.xib */; };
 		05B22879195F0F1600F91BCC /* XCZWorksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B22877195F0F1600F91BCC /* XCZWorksViewController.m */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		0573FF2119682050005341F2 /* XCZWorksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XCZWorksViewController.xib; sourceTree = "<group>"; };
+		0573FF23196847A0005341F2 /* XCZAuthorsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XCZAuthorsViewController.xib; sourceTree = "<group>"; };
 		05ABB5C71961525900341AAC /* XCZWorkDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZWorkDetailViewController.h; sourceTree = "<group>"; };
 		05ABB5C81961525900341AAC /* XCZWorkDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZWorkDetailViewController.m; sourceTree = "<group>"; };
 		05ABB5C91961525900341AAC /* XCZWorkDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XCZWorkDetailViewController.xib; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				0573FF2119682050005341F2 /* XCZWorksViewController.xib */,
 				05CC12F3196569690014989C /* XCZAuthorsViewController.h */,
 				05CC12F4196569690014989C /* XCZAuthorsViewController.m */,
+				0573FF23196847A0005341F2 /* XCZAuthorsViewController.xib */,
 				05ABB5C71961525900341AAC /* XCZWorkDetailViewController.h */,
 				05ABB5C81961525900341AAC /* XCZWorkDetailViewController.m */,
 				05ABB5C91961525900341AAC /* XCZWorkDetailViewController.xib */,
@@ -312,6 +315,7 @@
 			files = (
 				05B2287C195FD19500F91BCC /* xcz.db in Resources */,
 				05CC13191966FCFC0014989C /* AuthorHeaderView.xib in Resources */,
+				0573FF24196847A0005341F2 /* XCZAuthorsViewController.xib in Resources */,
 				05DF00D3195F0CE100175ABF /* InfoPlist.strings in Resources */,
 				0573FF2219682050005341F2 /* XCZWorksViewController.xib in Resources */,
 				05ABB5CB1961525900341AAC /* XCZWorkDetailViewController.xib in Resources */,

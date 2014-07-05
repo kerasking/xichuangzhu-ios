@@ -14,16 +14,20 @@
 
 @interface XCZAuthorsViewController ()
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @property (nonatomic, strong) NSMutableArray *dynasties;
 @property (nonatomic, strong) NSMutableDictionary *authors;
+
+@property (nonatomic, strong) NSMutableArray *authorsForSearch;
+@property (nonatomic, strong) NSArray *searchResult;
 
 @end
 
 @implementation XCZAuthorsViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (instancetype)init
 {
-    self = [super initWithStyle:style];
+    self = [super init];
     if (self) {
         // Custom initialization
         self.navigationItem.title = @"文学家";
@@ -33,20 +37,22 @@
         
         self.dynasties = [[NSMutableArray alloc] init];
         self.authors = [[NSMutableDictionary alloc] init];
+        self.authorsForSearch = [[NSMutableArray alloc] init];
         
         // 从SQLite中加载数据
         NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
         NSLog(@"%@", dbPath);
         FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
         if ([db open]) {
+            // 填充dynasties与authors
             index = 0;
             FMResultSet *s = [db executeQuery:@"SELECT * FROM dynasties ORDER BY start_year ASC"];
             while ([s next]) {
                 NSString* dynastyName = [s stringForColumn:@"name"];
-                // 填充dynasties数组
+                // 填充dynasties
                 self.dynasties[index] = dynastyName;
                 
-                // 填充authors字典
+                // 填充authors
                 NSMutableArray *authors = [[NSMutableArray alloc] init];
                 NSString *query = [[NSString alloc] initWithFormat:@"SELECT * FROM authors WHERE dynasty = '%@'", dynastyName];
                 FMResultSet *_s = [db executeQuery:query];
@@ -66,6 +72,21 @@
                 index++;
             }
             
+            // 填充authorsForSearch
+            index = 0;
+            s = [db executeQuery:@"SELECT * FROM authors"];
+            while ([s next]) {
+                XCZAuthor *author = [[XCZAuthor alloc] init];
+                author.id = [s intForColumn:@"id"];
+                author.name = [s stringForColumn:@"name"];
+                author.intro = [s stringForColumn:@"intro"];
+                author.dynasty = [s stringForColumn:@"dynasty"];
+                author.birthYear = [s stringForColumn:@"birth_year"];
+                author.deathYear = [s stringForColumn:@"death_year"];
+                self.authorsForSearch[index] = author;
+                index++;
+            }
+            
             [db close];
         }
     }
@@ -75,12 +96,41 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.searchDisplayController.searchBar.placeholder = @"搜索";
+}
+
+// 以下代码用于修复SearchBar的位置问题
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+    NSString *searchText = self.searchDisplayController.searchBar.text;
+    if([searchText isEqualToString:@""]) {
+        [self.view layoutIfNeeded];
+        [UIView animateWithDuration:0.1
+                         animations:^{
+                             self.topConstraint.constant = 64;
+                             [self.view layoutIfNeeded]; // Called on parent view
+                         }];
+    }
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    [self.view layoutIfNeeded];
+    [UIView animateWithDuration:0.1
+                     animations:^{
+                         self.topConstraint.constant = 20;
+                         [self.view layoutIfNeeded]; // Called on parent view
+                     }];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [self.view layoutIfNeeded];
+    [UIView animateWithDuration:0.1
+                     animations:^{
+                         self.topConstraint.constant = 64;
+                         [self.view layoutIfNeeded]; // Called on parent view
+                     }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -89,41 +139,70 @@
     // Dispose of any resources that can be recreated.
 }
 
+// 过滤结果
+- (void)filterContentForSearchText:(NSString*)searchText
+{
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", searchText];
+    self.searchResult = [self.authorsForSearch filteredArrayUsingPredicate:resultPredicate];
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString];
+    return YES;
+}
+
 #pragma mark - Table view data source
 
 // Section数目
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.dynasties.count;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return 1;
+    } else {
+        return self.dynasties.count;
+    }
 }
 
 // 每个Section的行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSString *dynastyName = [self.dynasties objectAtIndex:section];
-    NSArray *authors = [self.authors objectForKey:dynastyName];
-    return authors.count;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return self.searchResult.count;
+    } else {
+        NSString *dynastyName = [self.dynasties objectAtIndex:section];
+        NSArray *authors = [self.authors objectForKey:dynastyName];
+        return authors.count;
+    }
 }
 
 // Section标题
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return self.dynasties[section];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return @"";
+    } else {
+        return self.dynasties[section];
+    }
 }
 
 // 索引
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
-    NSMutableArray *dynasties = [self.dynasties mutableCopy];
-    for (int i = 0; i < dynasties.count; i++) {
-        if ([dynasties[i] isEqualToString:@"五代十国"]) {
-            dynasties[i] = @"五代";
-        } else if ([dynasties[i] isEqualToString:@"南北朝"]) {
-            dynasties[i] = @"南北";
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return @[];
+    } else {
+        NSMutableArray *dynasties = [self.dynasties mutableCopy];
+        for (int i = 0; i < dynasties.count; i++) {
+            if ([dynasties[i] isEqualToString:@"五代十国"]) {
+                dynasties[i] = @"五代";
+            } else if ([dynasties[i] isEqualToString:@"南北朝"]) {
+                dynasties[i] = @"南北";
+            }
         }
+        
+        return dynasties;
     }
-    
-    return dynasties;
 }
 
 // 单元格的内容
@@ -135,9 +214,14 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
     }
     
-    NSString *dynastyName = [self.dynasties objectAtIndex:indexPath.section];
-    NSArray *authors = [self.authors objectForKey:dynastyName];
-    XCZAuthor *author = authors[indexPath.row];
+    XCZAuthor *author = nil;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        author = self.searchResult[indexPath.row];
+    } else {
+        NSString *dynastyName = [self.dynasties objectAtIndex:indexPath.section];
+        NSArray *authors = [self.authors objectForKey:dynastyName];
+        author = authors[indexPath.row];
+    }
 
     cell.textLabel.text = author.name;
     return cell;
@@ -148,9 +232,14 @@
 {
     XCZAuthorDetailsViewController *detailController = [[XCZAuthorDetailsViewController alloc] init];
     
-    NSString *dynastyName = [self.dynasties objectAtIndex:indexPath.section];
-    NSArray *authors = [self.authors objectForKey:dynastyName];
-    XCZAuthor *author = authors[indexPath.row];
+    XCZAuthor *author = nil;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        author = self.searchResult[indexPath.row];
+    } else {
+        NSString *dynastyName = [self.dynasties objectAtIndex:indexPath.section];
+        NSArray *authors = [self.authors objectForKey:dynastyName];
+        author = authors[indexPath.row];
+    }
 
     detailController.author = author;
     NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
