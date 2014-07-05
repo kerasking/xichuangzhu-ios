@@ -12,9 +12,9 @@
 
 @property (nonatomic) int id;
 @property (nonatomic, strong) NSString *quote;
-@property (nonatomic) int author_id;
+@property (nonatomic) int authorId;
 @property (nonatomic, strong) NSString *author;
-@property (nonatomic) int work_id;
+@property (nonatomic) int workId;
 @property (nonatomic, strong) NSString *work;
 
 @end

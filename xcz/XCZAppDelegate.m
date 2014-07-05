@@ -9,6 +9,7 @@
 #import "XCZAppDelegate.h"
 #import "XCZWorksViewController.h"
 #import "XCZAuthorsViewController.h"
+#import "XCZQuotesViewController.h"
 
 @implementation XCZAppDelegate
 
@@ -18,23 +19,30 @@
     
     // Override point for customization after application launch.
     
-    // Works Nav Controller
+    // 作品Nav
     XCZWorksViewController *worksController = [[XCZWorksViewController alloc] init];
     UINavigationController *worksNavController = [[UINavigationController alloc] initWithRootViewController:worksController];
     worksNavController.tabBarItem.title = @"作品";
     UIImage *worksImg = [UIImage imageNamed:@"Hypno.png"];
     worksNavController.tabBarItem.image = worksImg;
     
-    // Authors Nav Controller
+    // 文学家Nav
     XCZAuthorsViewController *authorsController = [[XCZAuthorsViewController alloc] init];
     UINavigationController *authorsNavController = [[UINavigationController alloc] initWithRootViewController:authorsController];
     authorsNavController.tabBarItem.title = @"文学家";
     UIImage *authorsImg = [UIImage imageNamed:@"Time.png"];
     authorsNavController.tabBarItem.image = authorsImg;
     
+    // 名言Nav
+    XCZQuotesViewController *quotesController = [[XCZQuotesViewController alloc] init];
+    UINavigationController *quotesNavController = [[UINavigationController alloc] initWithRootViewController:quotesController];
+    quotesNavController.tabBarItem.title = @"名言";
+    UIImage *quotesImg = [UIImage imageNamed:@"Time.png"];
+    quotesNavController.tabBarItem.image = quotesImg;
+    
     // TabBar Controller
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = @[worksNavController, authorsNavController];
+    tabBarController.viewControllers = @[worksNavController, authorsNavController, quotesNavController];
     
     // Root Controller
     [self.window setRootViewController:tabBarController];
