@@ -70,12 +70,20 @@
     return [self init];
 }
 
+// 过滤结果
 - (void)filterContentForSearchText:(NSString*)searchText
 {
     NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"title contains[c] %@", searchText];
     self.searchResults = [self.works filteredArrayUsingPredicate:resultPredicate];
 }
 
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString];
+    return YES;
+}
+
+// 以下代码用于修复SearchBar的位置问题
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
 {
     NSString *searchText = self.searchDisplayController.searchBar.text;
@@ -92,12 +100,6 @@
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
     self.topConstraint.constant = 64;
-}
-
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
-{
-    [self filterContentForSearchText:searchString];
-    return YES;
 }
 
 // 表行数

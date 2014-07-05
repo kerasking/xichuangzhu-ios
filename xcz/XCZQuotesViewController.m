@@ -14,6 +14,7 @@
 @interface XCZQuotesViewController ()
 
 @property (nonatomic, strong) NSMutableArray *quotes;
+- (void)loadQuotes;
 
 @end
 
@@ -26,28 +27,8 @@
         UINavigationItem *navItem = self.navigationItem;
         navItem.title = @"随机名言";
         
-        int index = 0;
-        self.quotes = [[NSMutableArray alloc] init];
-        
-        // 从SQLite中加载数据
-        NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
-        FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
-        if ([db open]) {
-            FMResultSet *s = [db executeQuery:@"SELECT * FROM quotes ORDER BY RANDOM() LIMIT 10"];
-            while ([s next]) {
-                XCZQuote *quote = [[XCZQuote alloc] init];
-                quote.id = [s intForColumn:@"id"];
-                quote.quote = [s stringForColumn:@"quote"];
-                quote.authorId = [s intForColumn:@"author_id"];
-                quote.author = [s stringForColumn:@"author"];
-                quote.workId = [s intForColumn:@"work_id"];
-                quote.work = [s stringForColumn:@"work"];
-                self.quotes[index] = quote;
-                index++;
-            }
-            
-            [db close];
-        }
+        // 加载名言
+        [self loadQuotes];
     }
     return self;
 }
@@ -65,7 +46,9 @@
     [self.navigationItem setRightBarButtonItem:rightButton];
 }
 
-- (IBAction)refreshQuotes:(id)sender {
+// 随机加载10条名言
+- (void)loadQuotes
+{
     int index = 0;
     self.quotes = [[NSMutableArray alloc] init];
     
@@ -88,7 +71,10 @@
         
         [db close];
     }
-    
+}
+
+- (IBAction)refreshQuotes:(id)sender {
+    [self loadQuotes];
     [self.tableView reloadData];
 }
 
