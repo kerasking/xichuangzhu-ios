@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XCZWorksViewController">
             <connections>
                 <outlet property="searchDisplayController" destination="VVx-Z8-HLV" id="ygO-pk-dyG"/>
+                <outlet property="tableView" destination="ySm-8j-EGb" id="PWs-9o-rHk"/>
                 <outlet property="topConstraint" destination="7bo-9Z-ToD" id="V0e-ne-YYR"/>
                 <outlet property="view" destination="h3Y-hg-Wfc" id="1pL-p4-t4Y"/>
             </connections>

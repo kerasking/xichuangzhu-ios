@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSMutableArray *works;
 @property (nonatomic, strong) NSArray *searchResults;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -64,6 +65,12 @@
 {
     [super viewDidLoad];
     self.searchDisplayController.searchBar.placeholder = @"搜索";
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSIndexPath *tableSelection = [self.tableView indexPathForSelectedRow];
+    [self.tableView deselectRowAtIndexPath:tableSelection animated:YES];
 }
 
 - (instancetype)initWithStyle:(UITableViewStyle)style

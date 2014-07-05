@@ -20,6 +20,7 @@
 
 @property (nonatomic, strong) NSMutableArray *authorsForSearch;
 @property (nonatomic, strong) NSArray *searchResult;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -91,6 +92,12 @@
         }
     }
     return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSIndexPath *tableSelection = [self.tableView indexPathForSelectedRow];
+    [self.tableView deselectRowAtIndexPath:tableSelection animated:YES];
 }
 
 - (void)viewDidLoad
@@ -230,6 +237,8 @@
 // 选中单元格
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //[tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     XCZAuthorDetailsViewController *detailController = [[XCZAuthorDetailsViewController alloc] init];
     
     XCZAuthor *author = nil;
