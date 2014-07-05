@@ -42,6 +42,7 @@
                                     <rect key="frame" x="20" y="103" width="280" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.098039217293262482" green="0.098039217293262482" blue="0.098039217293262482" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Content" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Qfz-9g-nNm">
@@ -72,7 +73,7 @@
                                 </label>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="n3R-5O-41w" firstAttribute="top" secondItem="3KG-O2-X76" secondAttribute="bottom" constant="15" id="9kF-hC-Mog" userLabel="Vertical Space - (10) - Label - Author - Label - Title"/>
+                                <constraint firstItem="n3R-5O-41w" firstAttribute="top" secondItem="3KG-O2-X76" secondAttribute="bottom" constant="12" id="9kF-hC-Mog" userLabel="Vertical Space - (10) - Label - Author - Label - Title"/>
                                 <constraint firstItem="3KG-O2-X76" firstAttribute="top" secondItem="FfD-Bw-Cdd" secondAttribute="top" constant="40" id="FE1-0h-3sh"/>
                                 <constraint firstItem="1p1-gD-O6S" firstAttribute="leading" secondItem="FfD-Bw-Cdd" secondAttribute="leading" constant="15" id="IPA-aC-tZz"/>
                                 <constraint firstAttribute="trailing" secondItem="zjl-SQ-Ft8" secondAttribute="trailing" constant="15" id="Ooi-Dt-QOO"/>
