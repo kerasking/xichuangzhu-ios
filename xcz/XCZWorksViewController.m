@@ -73,11 +73,6 @@
     [self.tableView deselectRowAtIndexPath:tableSelection animated:YES];
 }
 
-- (instancetype)initWithStyle:(UITableViewStyle)style
-{
-    return [self init];
-}
-
 // 过滤结果
 - (void)filterContentForSearchText:(NSString*)searchText
 {
@@ -159,7 +154,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XCZWorkDetailViewController *detailController = [[XCZWorkDetailViewController alloc] init];
-    XCZWork *work = self.works[indexPath.row];
+    
+    XCZWork *work = nil;
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        work = self.searchResults[indexPath.row];
+    } else {
+        work = self.works[indexPath.row];
+    }
+    
     detailController.work = work;
     [self.navigationController pushViewController:detailController animated:YES];
 }

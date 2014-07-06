@@ -30,14 +30,14 @@
     XCZAuthorsViewController *authorsController = [[XCZAuthorsViewController alloc] init];
     UINavigationController *authorsNavController = [[UINavigationController alloc] initWithRootViewController:authorsController];
     authorsNavController.tabBarItem.title = @"文学家";
-    UIImage *authorsImg = [UIImage imageNamed:@"Time.png"];
+    UIImage *authorsImg = [UIImage imageNamed:@"Hypno.png"];
     authorsNavController.tabBarItem.image = authorsImg;
     
     // 名言Nav
     XCZQuotesViewController *quotesController = [[XCZQuotesViewController alloc] init];
     UINavigationController *quotesNavController = [[UINavigationController alloc] initWithRootViewController:quotesController];
     quotesNavController.tabBarItem.title = @"名言";
-    UIImage *quotesImg = [UIImage imageNamed:@"Time.png"];
+    UIImage *quotesImg = [UIImage imageNamed:@"Hypno.png"];
     quotesNavController.tabBarItem.image = quotesImg;
     
     // TabBar Controller
