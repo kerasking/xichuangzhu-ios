@@ -11,6 +11,7 @@
 #import "XCZWork.h"
 #import "XCZAuthor.h"
 #import "XCZWorkDetailViewController.h"
+#import "XCZUtils.h"
 
 @interface XCZAuthorDetailsViewController ()
 
@@ -29,10 +30,10 @@
 {
     [super viewWillAppear:animated];
     
+    // 姓名
     self.nameField.text = self.author.name;
     
     // 时期
-    NSLog(@"%@", self.author.name);
     if (![self.author.deathYear isEqualToString:@""]) {
         self.periodField.text = [[NSString alloc] initWithFormat:@"[%@]  %@ ~ %@", self.author.dynasty, self.author.birthYear, self.author.deathYear];
     } else {
@@ -43,9 +44,10 @@
     NSMutableParagraphStyle *contentParagraphStyle = [[NSMutableParagraphStyle alloc] init];
     contentParagraphStyle.lineHeightMultiple = 1.3;
     self.introField.attributedText = [[NSAttributedString alloc] initWithString:self.author.intro attributes:@{NSParagraphStyleAttributeName: contentParagraphStyle}];
+    self.introField.preferredMaxLayoutWidth = [XCZUtils currentWindowWidth] - 35;
     
     // 作品数目
-    self.worksHeaderField.text = [[NSString alloc] initWithFormat:@"作品 / %d", self.works.count];
+    self.worksHeaderField.text = [[NSString alloc] initWithFormat:@"作品 / %lu", (unsigned long)self.works.count];
 }
 
 - (void)viewDidLoad
@@ -60,18 +62,17 @@
     NSMutableParagraphStyle *contentParagraphStyle = [[NSMutableParagraphStyle alloc] init];
     contentParagraphStyle.lineHeightMultiple = 1.3;
     CGRect introSize = [self.author.intro
-                           boundingRectWithSize:CGSizeMake(285.f, CGFLOAT_MAX)
+                           boundingRectWithSize:CGSizeMake([XCZUtils currentWindowWidth] - 35, CGFLOAT_MAX)
                            options:NSStringDrawingUsesLineFragmentOrigin
                            attributes:@{NSFontAttributeName: self.introField.font,
                                         NSParagraphStyleAttributeName: contentParagraphStyle}
                            context:nil];
+    
     CGFloat height = self.introField.frame.origin.y + introSize.size.height;
-    
-    
-    height += 15;
+    height += 15;   // “作品”与简介之间的垂直距离
     height += self.worksHeaderField.frame.size.height;
-    height += 2;
     
+    // 设置header view的实际高度
     CGRect headerFrame = self.headerView.frame;
     headerFrame.size.height = height;
     headerView.frame = headerFrame;

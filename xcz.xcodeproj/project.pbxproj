@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0573FF2219682050005341F2 /* XCZWorksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0573FF2119682050005341F2 /* XCZWorksViewController.xib */; };
 		0573FF24196847A0005341F2 /* XCZAuthorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0573FF23196847A0005341F2 /* XCZAuthorsViewController.xib */; };
+		05827AA0196A8236003ABBDD /* XCZUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 05827A9F196A8236003ABBDD /* XCZUtils.m */; };
 		05ABB5CA1961525900341AAC /* XCZWorkDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05ABB5C81961525900341AAC /* XCZWorkDetailViewController.m */; };
 		05ABB5CB1961525900341AAC /* XCZWorkDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05ABB5C91961525900341AAC /* XCZWorkDetailViewController.xib */; };
 		05B22879195F0F1600F91BCC /* XCZWorksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B22877195F0F1600F91BCC /* XCZWorksViewController.m */; };
@@ -51,6 +52,8 @@
 /* Begin PBXFileReference section */
 		0573FF2119682050005341F2 /* XCZWorksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XCZWorksViewController.xib; sourceTree = "<group>"; };
 		0573FF23196847A0005341F2 /* XCZAuthorsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XCZAuthorsViewController.xib; sourceTree = "<group>"; };
+		05827A9E196A8236003ABBDD /* XCZUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZUtils.h; sourceTree = "<group>"; };
+		05827A9F196A8236003ABBDD /* XCZUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZUtils.m; sourceTree = "<group>"; };
 		05ABB5C71961525900341AAC /* XCZWorkDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZWorkDetailViewController.h; sourceTree = "<group>"; };
 		05ABB5C81961525900341AAC /* XCZWorkDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZWorkDetailViewController.m; sourceTree = "<group>"; };
 		05ABB5C91961525900341AAC /* XCZWorkDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XCZWorkDetailViewController.xib; sourceTree = "<group>"; };
@@ -198,6 +201,8 @@
 				05DF00D8195F0CE100175ABF /* XCZAppDelegate.m */,
 				05DF00DD195F0CE100175ABF /* Images.xcassets */,
 				05DF00CF195F0CE100175ABF /* Supporting Files */,
+				05827A9E196A8236003ABBDD /* XCZUtils.h */,
+				05827A9F196A8236003ABBDD /* XCZUtils.m */,
 			);
 			path = xcz;
 			sourceTree = "<group>";
@@ -374,6 +379,7 @@
 				05CC12FC196583F60014989C /* XCZDynasty.m in Sources */,
 				05D4A1DB1967F5BA00D5F534 /* XCZQuotesViewController.m in Sources */,
 				05B2287F196024ED00F91BCC /* XCZWork.m in Sources */,
+				05827AA0196A8236003ABBDD /* XCZUtils.m in Sources */,
 				05CC12F8196569DD0014989C /* XCZAuthor.m in Sources */,
 				05CC13101966689F0014989C /* XCZAuthorDetailsViewController.m in Sources */,
 				05D4A1D81967F53900D5F534 /* XCZQuote.m in Sources */,

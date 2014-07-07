@@ -7,6 +7,7 @@
 //
 
 #import "XCZWorkDetailViewController.h"
+#import "XCZUtils.h"
 
 @interface XCZWorkDetailViewController ()
 
@@ -52,14 +53,14 @@
         contentParagraphStyle.firstLineHeadIndent = 25;
         contentParagraphStyle.paragraphSpacing = 15;
         contentParagraphStyle.lineHeightMultiple = 1.3;
-        self.contentField.preferredMaxLayoutWidth = self.view.bounds.size.width - 30;
+        self.contentField.preferredMaxLayoutWidth = [XCZUtils currentWindowWidth] - 30;
     // 居中排版
     } else {
         contentParagraphStyle.alignment = NSTextAlignmentCenter;
         contentParagraphStyle.paragraphSpacing = 0;
         contentParagraphStyle.lineHeightMultiple = 1;
         self.authorTopConstraint.constant = 15;
-        self.contentField.preferredMaxLayoutWidth = self.view.bounds.size.width - 20;
+        self.contentField.preferredMaxLayoutWidth = [XCZUtils currentWindowWidth] - 20;
     }
     contentParagraphStyle.paragraphSpacing = 10;
     self.contentField.attributedText = [[NSAttributedString alloc] initWithString:work.content attributes:@{NSParagraphStyleAttributeName: contentParagraphStyle}];
@@ -70,8 +71,9 @@
     self.introField.attributedText = [[NSAttributedString alloc] initWithString:work.intro attributes:@{NSParagraphStyleAttributeName: introParagraphStyle}];
     
     // 设置UILabel的preferredMaxLayoutWidth，以保证正确的换行长度
-    self.titleField.preferredMaxLayoutWidth = self.view.bounds.size.width - 30;
-    self.introField.preferredMaxLayoutWidth = self.view.bounds.size.width - 30;
+    self.titleField.preferredMaxLayoutWidth = [XCZUtils currentWindowWidth] - 30;
+    self.introField.preferredMaxLayoutWidth = [XCZUtils currentWindowWidth] - 30;
+    NSLog(@"%lu", (unsigned long)self.view.bounds.size.width);
 }
 
 - (void)viewDidLoad
