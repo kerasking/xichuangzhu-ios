@@ -26,6 +26,60 @@
 
 @implementation XCZAuthorDetailsViewController
 
+-(instancetype)initWithAuthorId:(int)authorId
+{
+    self = [super init];
+    
+    if (self){
+        NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
+        FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
+        
+        // 加载author
+        self.author = [[XCZAuthor alloc] init];
+        if ([db open]) {
+            NSString *query = [[NSString alloc] initWithFormat:@"SELECT * FROM authors WHERE id = %d", authorId];
+            FMResultSet *s = [db executeQuery:query];
+            if ([s next]) {
+                self.author.id = [s intForColumn:@"id"];
+                self.author.name = [s stringForColumn:@"name"];
+                self.author.intro = [s stringForColumn:@"intro"];
+                self.author.dynasty = [s stringForColumn:@"dynasty"];
+                self.author.birthYear = [s stringForColumn:@"birth_year"];
+                self.author.deathYear = [s stringForColumn:@"death_year"];
+            }
+        }
+        
+        // 加载works
+        NSMutableArray *works = [[NSMutableArray alloc] init];
+        int index = 0;
+        
+        if ([db open]) {
+            NSString *query = [[NSString alloc] initWithFormat:@"SELECT * FROM works WHERE author_id = %d", self.author.id];
+            FMResultSet *s = [db executeQuery:query];
+            while ([s next]) {
+                XCZWork *work = [[XCZWork alloc] init];
+                work.id = [s intForColumn:@"id"];
+                work.title = [s stringForColumn:@"title"];
+                work.authorId = [s intForColumn:@"author_id"];
+                work.author = [s stringForColumn:@"author"];
+                work.dynasty = [s stringForColumn:@"dynasty"];
+                work.kind = [s stringForColumn:@"kind"];
+                work.foreword = [s stringForColumn:@"foreword"];
+                work.content = [s stringForColumn:@"content"];
+                work.intro = [s stringForColumn:@"intro"];
+                work.layout = [s stringForColumn:@"layout"];
+                works[index] = work;
+                index++;
+            }
+            
+            [db close];
+        }
+        self.works = works;
+    }
+    
+    return self;
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];

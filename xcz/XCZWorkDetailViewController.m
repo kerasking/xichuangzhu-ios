@@ -73,12 +73,23 @@
     // 设置UILabel的preferredMaxLayoutWidth，以保证正确的换行长度
     self.titleField.preferredMaxLayoutWidth = [XCZUtils currentWindowWidth] - 30;
     self.introField.preferredMaxLayoutWidth = [XCZUtils currentWindowWidth] - 30;
-    NSLog(@"%lu", (unsigned long)self.view.bounds.size.width);
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]
+                                    initWithTitle:self.work.author
+                                    style:UIBarButtonItemStylePlain
+                                    target:self
+                                    action:@selector(redirectToAuthor:)];
+    [self.navigationItem setRightBarButtonItem:rightButton];
+}
+
+- (IBAction)redirectToAuthor:(id)sender
+{
+    NSLog(@"HEHE");
 }
 
 - (void)didReceiveMemoryWarning

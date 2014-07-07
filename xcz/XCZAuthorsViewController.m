@@ -42,7 +42,6 @@
         
         // 从SQLite中加载数据
         NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
-        NSLog(@"%@", dbPath);
         FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
         if ([db open]) {
             // 填充dynasties与authors
@@ -239,8 +238,6 @@
 {
     //[tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    XCZAuthorDetailsViewController *detailController = [[XCZAuthorDetailsViewController alloc] init];
-    
     XCZAuthor *author = nil;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         author = self.searchResult[indexPath.row];
@@ -249,37 +246,10 @@
         NSArray *authors = [self.authors objectForKey:dynastyName];
         author = authors[indexPath.row];
     }
+    
+    XCZAuthorDetailsViewController *detailController = [[XCZAuthorDetailsViewController alloc] initWithAuthorId:author.id];
 
-    detailController.author = author;
-    NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
-    FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
-    
-    NSMutableArray *works = [[NSMutableArray alloc] init];
-    int index = 0;
-    
-    if ([db open]) {
-        NSString *query = [[NSString alloc] initWithFormat:@"SELECT * FROM works WHERE author_id = %d", author.id];
-        FMResultSet *s = [db executeQuery:query];
-        while ([s next]) {
-            XCZWork *work = [[XCZWork alloc] init];
-            work.id = [s intForColumn:@"id"];
-            work.title = [s stringForColumn:@"title"];
-            work.authorId = [s intForColumn:@"author_id"];
-            work.author = [s stringForColumn:@"author"];
-            work.dynasty = [s stringForColumn:@"dynasty"];
-            work.kind = [s stringForColumn:@"kind"];
-            work.foreword = [s stringForColumn:@"foreword"];
-            work.content = [s stringForColumn:@"content"];
-            work.intro = [s stringForColumn:@"intro"];
-            work.layout = [s stringForColumn:@"layout"];
-            works[index] = work;
-            index++;
-        }
-        
-        [db close];
-    }
-    detailController.works = works;
-    
+    // 加载author
     [self.navigationController pushViewController:detailController animated:YES];
 }
 
