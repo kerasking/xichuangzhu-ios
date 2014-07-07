@@ -23,6 +23,16 @@
 
 @implementation XCZWorkDetailViewController
 
+-(instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.showAuthorButton = YES;
+    }
+    
+    return self;
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -74,12 +84,14 @@
 {
     [super viewDidLoad];
     
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]
-                                    initWithTitle:self.work.author
-                                    style:UIBarButtonItemStylePlain
-                                    target:self
-                                    action:@selector(redirectToAuthor:)];
-    [self.navigationItem setRightBarButtonItem:rightButton];
+    if (self.showAuthorButton) {
+        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]
+                                        initWithTitle:self.work.author
+                                        style:UIBarButtonItemStylePlain
+                                        target:self
+                                        action:@selector(redirectToAuthor:)];
+        [self.navigationItem setRightBarButtonItem:rightButton];
+    }
 }
 
 - (IBAction)redirectToAuthor:(id)sender

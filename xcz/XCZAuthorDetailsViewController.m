@@ -184,6 +184,7 @@
     XCZWorkDetailViewController *detailController = [[XCZWorkDetailViewController alloc] init];
     XCZWork *work = self.works[indexPath.row];
     detailController.work = work;
+    detailController.showAuthorButton = NO;
     [self.navigationController pushViewController:detailController animated:YES];
 }
 

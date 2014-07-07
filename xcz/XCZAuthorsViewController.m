@@ -236,8 +236,6 @@
 // 选中单元格
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //[tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
     XCZAuthor *author = nil;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         author = self.searchResult[indexPath.row];
@@ -249,7 +247,6 @@
     
     XCZAuthorDetailsViewController *detailController = [[XCZAuthorDetailsViewController alloc] initWithAuthorId:author.id];
 
-    // 加载author
     [self.navigationController pushViewController:detailController animated:YES];
 }
 

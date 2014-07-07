@@ -134,6 +134,7 @@
     }
     
     detailController.work = work;
+
     [self.navigationController pushViewController:detailController animated:YES];
 }
 

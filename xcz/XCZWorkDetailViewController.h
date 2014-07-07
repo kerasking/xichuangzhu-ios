@@ -11,6 +11,7 @@
 
 @interface XCZWorkDetailViewController : UIViewController
 
+@property (nonatomic) BOOL showAuthorButton;
 @property (nonatomic, strong) XCZWork *work;
 
 @end
