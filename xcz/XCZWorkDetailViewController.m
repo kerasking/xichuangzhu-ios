@@ -8,6 +8,7 @@
 
 #import "XCZWorkDetailViewController.h"
 #import "XCZUtils.h"
+#import "XCZAuthorDetailsViewController.h"
 
 @interface XCZWorkDetailViewController ()
 
@@ -22,18 +23,12 @@
 
 @implementation XCZWorkDetailViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    // 从其他页面跳转过来时，将navbar标题设置为空
+    self.navigationItem.title = @"";
     
     XCZWork *work = self.work;
     
@@ -89,7 +84,10 @@
 
 - (IBAction)redirectToAuthor:(id)sender
 {
-    NSLog(@"HEHE");
+    [self.navigationItem setTitle:@"返回"];
+    
+    XCZAuthorDetailsViewController *authorDetailController = [[XCZAuthorDetailsViewController alloc] initWithAuthorId:self.work.authorId];
+    [self.navigationController pushViewController:authorDetailController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
