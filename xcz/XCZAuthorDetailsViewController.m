@@ -15,12 +15,16 @@
 
 @interface XCZAuthorDetailsViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *worksHeaderField;
 @property (strong, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UILabel *nameField;
 @property (weak, nonatomic) IBOutlet UILabel *periodField;
 @property (weak, nonatomic) IBOutlet UILabel *introField;
-@property (weak, nonatomic) IBOutlet UILabel *worksHeaderField;
+
+//@property (nonatomic, strong) NSMutableArray *works;
+@property (nonatomic, strong) NSMutableDictionary *works;
+@property (nonatomic, strong) XCZAuthor *author;
 
 @end
 
@@ -47,8 +51,11 @@
                 self.author.birthYear = [s stringForColumn:@"birth_year"];
                 self.author.deathYear = [s stringForColumn:@"death_year"];
             }
+            
+            [db close];
         }
         
+        /*
         // 加载works
         NSMutableArray *works = [[NSMutableArray alloc] init];
         int index = 0;
@@ -74,10 +81,57 @@
             
             [db close];
         }
+         
         self.works = works;
+        */
+        
+        // 填充works
+        self.works = [[NSMutableDictionary alloc] init];
+        [self loadWorksByKind:@"文"];
+        [self loadWorksByKind:@"诗"];
+        [self loadWorksByKind:@"词"];
+        [self loadWorksByKind:@"曲"];
+        [self loadWorksByKind:@"赋"];
     }
     
     return self;
+}
+
+// 根据类别加载作品
+- (void)loadWorksByKind:(NSString *)kindCN
+{
+    NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
+    FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
+    int index = 0;
+    
+    NSMutableArray *works = [[NSMutableArray alloc] init];
+    
+    if ([db open]) {
+        NSString *query = [[NSString alloc] initWithFormat:@"SELECT * FROM works WHERE author_id = %d AND kind_cn = '%@'", self.author.id, kindCN];
+        FMResultSet *s = [db executeQuery:query];
+        while ([s next]) {
+            XCZWork *work = [[XCZWork alloc] init];
+            work.id = [s intForColumn:@"id"];
+            work.title = [s stringForColumn:@"title"];
+            work.authorId = [s intForColumn:@"author_id"];
+            work.author = [s stringForColumn:@"author"];
+            work.dynasty = [s stringForColumn:@"dynasty"];
+            work.kind = [s stringForColumn:@"kind"];
+            work.kindCN = [s stringForColumn:@"kind_cn"];
+            work.foreword = [s stringForColumn:@"foreword"];
+            work.content = [s stringForColumn:@"content"];
+            work.intro = [s stringForColumn:@"intro"];
+            work.layout = [s stringForColumn:@"layout"];
+            works[index] = work;
+            index++;
+        }
+        
+        [db close];
+    }
+    
+    if (index > 0) {
+        [self.works setObject:works forKey:kindCN];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -102,6 +156,7 @@
     
     // 作品数目
     self.worksHeaderField.text = [[NSString alloc] initWithFormat:@"作品 / %lu", (unsigned long)self.works.count];
+    //self.worksHeaderField.text = @"作品";
 }
 
 - (void)viewDidLoad
@@ -125,6 +180,7 @@
     CGFloat height = self.introField.frame.origin.y + introSize.size.height;
     height += 15;   // “作品”与简介之间的垂直距离
     height += self.worksHeaderField.frame.size.height;
+    height += 12;
     
     // 设置header view的实际高度
     CGRect headerFrame = self.headerView.frame;
@@ -151,21 +207,24 @@
 
 #pragma mark - Table view data source
 
-/*
+// section数目
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
-}
- */
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
     return self.works.count;
 }
 
+// 每个section的行数
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    NSArray *keys = [self.works allKeys];
+    NSString* key = [keys objectAtIndex:section];
+    NSArray *works = [self.works objectForKey:key];
+    return works.count;
+}
+
+// 单元格内容
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
@@ -174,15 +233,40 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
     }
     
-    cell.textLabel.text = [self.works[indexPath.row] title];
+    NSArray *keys = [self.works allKeys];
+    NSString* key = [keys objectAtIndex:indexPath.section];
+    NSArray *works = [self.works objectForKey:key];
+    XCZWork *work = works[indexPath.row];
+
+    cell.textLabel.text = work.title;
     return cell;
+}
+
+// Section标题
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    /*
+    NSArray *keys = [self.works allKeys];
+    NSString *key = [keys objectAtIndex:section];
+    NSArray *works = [self.works objectForKey:key];
+    return [[NSString alloc] initWithFormat:@"%@ / %d", key, works.count];
+    */
+    
+    NSArray *keys = [self.works allKeys];
+    NSString *key = [keys objectAtIndex:section];
+    return key;
 }
 
 // 选中某单元格后的操作
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     XCZWorkDetailViewController *detailController = [[XCZWorkDetailViewController alloc] init];
-    XCZWork *work = self.works[indexPath.row];
+    
+    NSArray *keys = [self.works allKeys];
+    NSString* key = [keys objectAtIndex:indexPath.section];
+    NSArray *works = [self.works objectForKey:key];
+    XCZWork *work = works[indexPath.row];
+    
     detailController.work = work;
     detailController.showAuthorButton = NO;
     [self.navigationController pushViewController:detailController animated:YES];

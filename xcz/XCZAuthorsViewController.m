@@ -14,13 +14,18 @@
 
 @interface XCZAuthorsViewController ()
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
+
+// 正常显示
 @property (nonatomic, strong) NSMutableArray *dynasties;
 @property (nonatomic, strong) NSMutableDictionary *authors;
 
+// 用于搜索
 @property (nonatomic, strong) NSMutableArray *authorsForSearch;
 @property (nonatomic, strong) NSArray *searchResult;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 
 @end
 

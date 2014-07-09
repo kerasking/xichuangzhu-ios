@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSString *author;
 @property (nonatomic, strong) NSString *dynasty;
 @property (nonatomic, strong) NSString *kind;
+@property (nonatomic, strong) NSString *kindCN;
 @property (nonatomic, strong) NSString *foreword;
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) NSString *intro;

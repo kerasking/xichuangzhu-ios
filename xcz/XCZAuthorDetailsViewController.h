@@ -11,8 +11,7 @@
 
 @interface XCZAuthorDetailsViewController : UITableViewController
 
-@property (nonatomic, strong) NSMutableArray *works;
-@property (nonatomic, strong) XCZAuthor *author;
+
 -(instancetype)initWithAuthorId:(int)authorId;
 
 @end
