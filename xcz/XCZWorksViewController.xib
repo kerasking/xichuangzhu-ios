@@ -18,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="fgg-9B-i8D">
-                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
@@ -26,7 +26,7 @@
                     </connections>
                 </searchBar>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ySm-8j-EGb">
-                    <rect key="frame" x="0.0" y="108" width="320" height="411"/>
+                    <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -38,16 +38,14 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="ySm-8j-EGb" firstAttribute="top" secondItem="fgg-9B-i8D" secondAttribute="bottom" id="3je-Np-MQ4"/>
-                <constraint firstItem="fgg-9B-i8D" firstAttribute="top" secondItem="h3Y-hg-Wfc" secondAttribute="top" constant="64" id="7bo-9Z-ToD"/>
+                <constraint firstItem="fgg-9B-i8D" firstAttribute="top" secondItem="h3Y-hg-Wfc" secondAttribute="top" id="7bo-9Z-ToD"/>
                 <constraint firstAttribute="trailing" secondItem="ySm-8j-EGb" secondAttribute="trailing" id="BfF-pY-yMD"/>
                 <constraint firstItem="fgg-9B-i8D" firstAttribute="leading" secondItem="h3Y-hg-Wfc" secondAttribute="leading" id="OeL-Ae-JsX"/>
                 <constraint firstAttribute="trailing" secondItem="fgg-9B-i8D" secondAttribute="trailing" id="RD3-yn-X4R"/>
                 <constraint firstItem="ySm-8j-EGb" firstAttribute="leading" secondItem="h3Y-hg-Wfc" secondAttribute="leading" id="SZ6-mz-Wrb"/>
-                <constraint firstAttribute="bottom" secondItem="ySm-8j-EGb" secondAttribute="bottom" constant="49" id="wX6-0y-xcR"/>
+                <constraint firstAttribute="bottom" secondItem="ySm-8j-EGb" secondAttribute="bottom" id="wX6-0y-xcR"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-            <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
         <searchDisplayController id="VVx-Z8-HLV">

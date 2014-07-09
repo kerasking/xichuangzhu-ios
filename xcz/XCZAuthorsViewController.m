@@ -108,40 +108,9 @@
 {
     [super viewDidLoad];
     self.searchDisplayController.searchBar.placeholder = @"搜索";
-}
-
-// 以下代码用于修复SearchBar的位置问题
-- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
-{
-    NSString *searchText = self.searchDisplayController.searchBar.text;
-    if([searchText isEqualToString:@""]) {
-        [self.view layoutIfNeeded];
-        [UIView animateWithDuration:0.1
-                         animations:^{
-                             self.topConstraint.constant = 64;
-                             [self.view layoutIfNeeded]; // Called on parent view
-                         }];
+    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
     }
-}
-
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
-{
-    [self.view layoutIfNeeded];
-    [UIView animateWithDuration:0.1
-                     animations:^{
-                         self.topConstraint.constant = 20;
-                         [self.view layoutIfNeeded]; // Called on parent view
-                     }];
-}
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
-{
-    [self.view layoutIfNeeded];
-    [UIView animateWithDuration:0.1
-                     animations:^{
-                         self.topConstraint.constant = 64;
-                         [self.view layoutIfNeeded]; // Called on parent view
-                     }];
 }
 
 - (void)didReceiveMemoryWarning

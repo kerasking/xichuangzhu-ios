@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="3HC-ED-AXO">
-                    <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
@@ -27,7 +27,7 @@
                     </connections>
                 </searchBar>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="RKM-ai-hbs">
-                    <rect key="frame" x="0.0" y="108" width="320" height="411"/>
+                    <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -39,12 +39,12 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="RKM-ai-hbs" firstAttribute="top" secondItem="3HC-ED-AXO" secondAttribute="bottom" id="Q61-rM-MEW"/>
-                <constraint firstAttribute="bottom" secondItem="RKM-ai-hbs" secondAttribute="bottom" constant="49" id="QqC-uF-WMj"/>
+                <constraint firstAttribute="bottom" secondItem="RKM-ai-hbs" secondAttribute="bottom" id="QqC-uF-WMj"/>
                 <constraint firstItem="3HC-ED-AXO" firstAttribute="leading" secondItem="Nan-Iu-dOi" secondAttribute="leading" id="Tbv-zH-F6V"/>
                 <constraint firstAttribute="trailing" secondItem="RKM-ai-hbs" secondAttribute="trailing" id="f9Q-NX-2GV"/>
                 <constraint firstAttribute="trailing" secondItem="3HC-ED-AXO" secondAttribute="trailing" id="nor-Ud-m96"/>
                 <constraint firstItem="RKM-ai-hbs" firstAttribute="leading" secondItem="Nan-Iu-dOi" secondAttribute="leading" id="pqW-Rq-MbR"/>
-                <constraint firstItem="3HC-ED-AXO" firstAttribute="top" secondItem="Nan-Iu-dOi" secondAttribute="top" constant="64" id="whc-BT-YZi"/>
+                <constraint firstItem="3HC-ED-AXO" firstAttribute="top" secondItem="Nan-Iu-dOi" secondAttribute="top" id="whc-BT-YZi"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
