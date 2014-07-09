@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 // 正常显示
 @property (nonatomic, strong) NSMutableArray *dynasties;
@@ -25,7 +26,6 @@
 // 用于搜索
 @property (nonatomic, strong) NSMutableArray *authorsForSearch;
 @property (nonatomic, strong) NSArray *searchResult;
-
 
 @end
 
