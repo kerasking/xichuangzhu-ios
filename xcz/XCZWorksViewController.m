@@ -46,6 +46,7 @@
                 work.author = [s stringForColumn:@"author"];
                 work.dynasty = [s stringForColumn:@"dynasty"];
                 work.kind = [s stringForColumn:@"kind"];
+                work.kindCN = [s stringForColumn:@"kind_cn"];
                 work.foreword = [s stringForColumn:@"foreword"];
                 work.content = [s stringForColumn:@"content"];
                 work.intro = [s stringForColumn:@"intro"];
