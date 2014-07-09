@@ -24,6 +24,7 @@
 
 //@property (nonatomic, strong) NSMutableArray *works;
 @property (nonatomic, strong) NSMutableDictionary *works;
+@property (nonatomic) int worksCount;
 @property (nonatomic, strong) XCZAuthor *author;
 
 @end
@@ -85,7 +86,19 @@
         self.works = works;
         */
         
-        // 填充works
+        // 加载worksCount
+        self.worksCount = 0;
+        if ([db open]) {
+            NSString *query = [[NSString alloc] initWithFormat:@"SELECT COUNT(*) AS works_count FROM works WHERE author_id = %d", self.author.id];
+            FMResultSet *s = [db executeQuery:query];
+            if ([s next]) {
+                self.worksCount = [s intForColumn:@"works_count"];
+            }
+            
+            [db close];
+        }
+        
+        // 加载works
         self.works = [[NSMutableDictionary alloc] init];
         [self loadWorksByKind:@"文"];
         [self loadWorksByKind:@"诗"];
@@ -155,7 +168,7 @@
     self.introField.preferredMaxLayoutWidth = [XCZUtils currentWindowWidth] - 35;
     
     // 作品数目
-    self.worksHeaderField.text = [[NSString alloc] initWithFormat:@"作品 / %lu", (unsigned long)self.works.count];
+    self.worksHeaderField.text = [[NSString alloc] initWithFormat:@"作品 / %d", self.worksCount];
     //self.worksHeaderField.text = @"作品";
 }
 
