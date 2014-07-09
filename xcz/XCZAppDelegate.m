@@ -24,22 +24,21 @@
     XCZWorksViewController *worksController = [[XCZWorksViewController alloc] init];
     UINavigationController *worksNavController = [[UINavigationController alloc] initWithRootViewController:worksController];
     worksNavController.tabBarItem.title = @"作品";
-    UIImage *worksImg = [UIImage imageNamed:@"Hypno.png"];
+    UIImage *worksImg = [UIImage imageNamed:@"works.png"];
     worksNavController.tabBarItem.image = worksImg;
     
     // 文学家Nav
     XCZAuthorsViewController *authorsController = [[XCZAuthorsViewController alloc] init];
     UINavigationController *authorsNavController = [[UINavigationController alloc] initWithRootViewController:authorsController];
     authorsNavController.tabBarItem.title = @"文学家";
-    UIImage *authorsImg = [UIImage imageNamed:@"Hypno.png"];
+    UIImage *authorsImg = [UIImage imageNamed:@"authors.png"];
     authorsNavController.tabBarItem.image = authorsImg;
     
     // 名言Nav
     XCZQuotesViewController *quotesController = [[XCZQuotesViewController alloc] init];
     UINavigationController *quotesNavController = [[UINavigationController alloc] initWithRootViewController:quotesController];
     quotesNavController.tabBarItem.title = @"名言";
-    UIImage *quotesImg = [UIImage imageNamed:@"Hypno.png"];
-    quotesNavController.tabBarItem.image = quotesImg;
+    quotesNavController.tabBarItem.image = [UIImage imageNamed:@"quotes.png"];
     
     // TabBar Controller
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
