@@ -64,7 +64,7 @@
         contentParagraphStyle.alignment = NSTextAlignmentCenter;
         contentParagraphStyle.paragraphSpacing = 0;
         contentParagraphStyle.lineHeightMultiple = 1;
-        self.authorTopConstraint.constant = 15;
+        self.authorTopConstraint.constant = 16;
         self.contentField.preferredMaxLayoutWidth = [XCZUtils currentWindowWidth] - 20;
     }
     contentParagraphStyle.paragraphSpacing = 10;

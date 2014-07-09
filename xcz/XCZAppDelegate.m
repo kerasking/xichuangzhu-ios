@@ -18,7 +18,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // Override point for customization after application launch.
-    sleep(1);
+    // 延迟1.5s
+    usleep(1500 * 1000);
     
     // 作品Nav
     XCZWorksViewController *worksController = [[XCZWorksViewController alloc] init];
