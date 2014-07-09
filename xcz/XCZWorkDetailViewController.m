@@ -56,8 +56,8 @@
     // 缩进排版
     if ([self.work.layout isEqual: @"indent"]) {
         contentParagraphStyle.firstLineHeadIndent = 25;
-        contentParagraphStyle.paragraphSpacing = 15;
-        contentParagraphStyle.lineHeightMultiple = 1.3;
+        contentParagraphStyle.paragraphSpacing = 20;
+        contentParagraphStyle.lineHeightMultiple = 1.35;
         self.contentField.preferredMaxLayoutWidth = [XCZUtils currentWindowWidth] - 30;
     // 居中排版
     } else {

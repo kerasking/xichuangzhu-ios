@@ -73,7 +73,7 @@
                                 </label>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="n3R-5O-41w" firstAttribute="top" secondItem="3KG-O2-X76" secondAttribute="bottom" constant="12" id="9kF-hC-Mog" userLabel="Vertical Space - (10) - Label - Author - Label - Title"/>
+                                <constraint firstItem="n3R-5O-41w" firstAttribute="top" secondItem="3KG-O2-X76" secondAttribute="bottom" constant="14" id="9kF-hC-Mog" userLabel="Vertical Space - (10) - Label - Author - Label - Title"/>
                                 <constraint firstItem="3KG-O2-X76" firstAttribute="top" secondItem="FfD-Bw-Cdd" secondAttribute="top" constant="40" id="FE1-0h-3sh"/>
                                 <constraint firstItem="1p1-gD-O6S" firstAttribute="leading" secondItem="FfD-Bw-Cdd" secondAttribute="leading" constant="15" id="IPA-aC-tZz"/>
                                 <constraint firstAttribute="trailing" secondItem="zjl-SQ-Ft8" secondAttribute="trailing" constant="15" id="Ooi-Dt-QOO"/>
@@ -83,7 +83,7 @@
                                 <constraint firstItem="n3R-5O-41w" firstAttribute="leading" secondItem="FfD-Bw-Cdd" secondAttribute="leading" constant="15" id="Yki-9i-Udi"/>
                                 <constraint firstAttribute="trailing" secondItem="3KG-O2-X76" secondAttribute="trailing" constant="15" id="bvq-Hq-b4E"/>
                                 <constraint firstAttribute="trailing" secondItem="1p1-gD-O6S" secondAttribute="trailing" constant="15" id="cSw-8k-No4"/>
-                                <constraint firstItem="Qfz-9g-nNm" firstAttribute="top" secondItem="n3R-5O-41w" secondAttribute="bottom" constant="8" id="fEq-Bj-raJ"/>
+                                <constraint firstItem="Qfz-9g-nNm" firstAttribute="top" secondItem="n3R-5O-41w" secondAttribute="bottom" constant="10" id="fEq-Bj-raJ"/>
                                 <constraint firstAttribute="trailing" secondItem="n3R-5O-41w" secondAttribute="trailing" constant="15" id="h28-Hm-PHH"/>
                                 <constraint firstItem="Qfz-9g-nNm" firstAttribute="leading" secondItem="FfD-Bw-Cdd" secondAttribute="leading" constant="15" id="m6q-tg-fId"/>
                                 <constraint firstItem="3KG-O2-X76" firstAttribute="leading" secondItem="FfD-Bw-Cdd" secondAttribute="leading" constant="15" id="mii-0J-7dR"/>
