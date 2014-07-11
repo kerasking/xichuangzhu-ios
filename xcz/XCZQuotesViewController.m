@@ -13,6 +13,7 @@
 
 @interface XCZQuotesViewController ()
 
+@property (nonatomic) int quotesCount;
 @property (nonatomic, strong) NSMutableArray *quotes;
 - (void)loadQuotes;
 
@@ -26,6 +27,14 @@
     if (self) {
         UINavigationItem *navItem = self.navigationItem;
         navItem.title = @"名言";
+        
+        // 根据屏幕大小来确定名言的显示数目，以保证一屏能够显示完全
+        int height = (int)([[UIScreen mainScreen] bounds].size.height);
+        if (height >= 568) {
+            self.quotesCount = 10;
+        } else {
+            self.quotesCount = 8;
+        }
         
         // 加载名言
         [self loadQuotes];
@@ -56,7 +65,8 @@
     NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
     FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
     if ([db open]) {
-        FMResultSet *s = [db executeQuery:@"SELECT * FROM quotes ORDER BY RANDOM() LIMIT 10"];
+        NSString *query = [[NSString alloc] initWithFormat:@"SELECT * FROM quotes ORDER BY RANDOM() LIMIT %d", self.quotesCount];
+        FMResultSet *s = [db executeQuery:query];
         while ([s next]) {
             XCZQuote *quote = [[XCZQuote alloc] init];
             quote.id = [s intForColumn:@"id"];
