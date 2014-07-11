@@ -77,6 +77,22 @@
     [self.tableView deselectRowAtIndexPath:tableSelection animated:YES];
 }
 
+// 以下3个message用于解决键盘位置占据了searchResultsTableView下方空间的bug
+// 参见：http://stackoverflow.com/questions/19069503/uisearchdisplaycontrollers-searchresultstableviews-contentsize-is-incorrect-b
+- (void)searchDisplayController:(UISearchDisplayController *)controller didHideSearchResultsTableView:(UITableView *)tableView {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)searchDisplayController:(UISearchDisplayController *)controller willShowSearchResultsTableView:(UITableView *)tableView {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void) keyboardWillHide {
+    UITableView *tableView = [[self searchDisplayController] searchResultsTableView];
+    [tableView setContentInset:UIEdgeInsetsZero];
+    [tableView setScrollIndicatorInsets:UIEdgeInsetsZero];
+}
+
 // 过滤结果
 - (void)filterContentForSearchText:(NSString*)searchText
 {

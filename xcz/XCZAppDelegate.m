@@ -18,6 +18,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // Override point for customization after application launch.
+    
     // 延迟1.2s
     usleep(1200 * 1000);
     
