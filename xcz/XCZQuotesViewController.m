@@ -26,9 +26,9 @@
     self = [super initWithStyle:style];
     if (self) {
         UINavigationItem *navItem = self.navigationItem;
-        navItem.title = @"名言";
+        navItem.title = @"摘录";
         
-        // 根据屏幕大小来确定名言的显示数目，以保证一屏能够显示完全
+        // 根据屏幕大小来确定摘录的显示数目，以保证一屏能够显示完全
         int height = (int)([[UIScreen mainScreen] bounds].size.height);
         if (height >= 568) {
             self.quotesCount = 10;
@@ -36,7 +36,7 @@
             self.quotesCount = 8;
         }
         
-        // 加载名言
+        // 加载摘录
         [self loadQuotes];
     }
     return self;
