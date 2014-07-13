@@ -39,7 +39,7 @@
     // 名言Nav
     XCZQuotesViewController *quotesController = [[XCZQuotesViewController alloc] init];
     UINavigationController *quotesNavController = [[UINavigationController alloc] initWithRootViewController:quotesController];
-    quotesNavController.tabBarItem.title = @"名言";
+    quotesNavController.tabBarItem.title = @"摘录";
     quotesNavController.tabBarItem.image = [UIImage imageNamed:@"quotes.png"];
     
     // TabBar Controller
