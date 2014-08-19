@@ -37,7 +37,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Period" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5HX-vR-JTz">
-                            <rect key="frame" x="15" y="65" width="285" height="21"/>
+                            <rect key="frame" x="16" y="65" width="284" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.098039217293262482" green="0.098039217293262482" blue="0.098039217293262482" alpha="1" colorSpace="calibratedRGB"/>
@@ -86,7 +86,7 @@
                         <constraint firstAttribute="trailing" secondItem="7oj-Ue-aPF" secondAttribute="trailing" constant="20" id="bWe-EG-WmN"/>
                         <constraint firstAttribute="trailing" secondItem="5HX-vR-JTz" secondAttribute="trailing" constant="20" id="naf-P7-aaf"/>
                         <constraint firstItem="ODG-oa-sXc" firstAttribute="top" secondItem="5HX-vR-JTz" secondAttribute="bottom" constant="15" id="pZg-Fg-1Um"/>
-                        <constraint firstItem="5HX-vR-JTz" firstAttribute="leading" secondItem="oo8-FE-cfp" secondAttribute="leading" constant="15" id="wp7-iF-WOl"/>
+                        <constraint firstItem="5HX-vR-JTz" firstAttribute="leading" secondItem="oo8-FE-cfp" secondAttribute="leading" constant="16" id="wp7-iF-WOl"/>
                         <constraint firstItem="5HX-vR-JTz" firstAttribute="top" secondItem="QYU-PA-Yb7" secondAttribute="bottom" constant="10" id="xfB-i8-mQg"/>
                     </constraints>
                 </view>

@@ -44,7 +44,7 @@
     
     // 标题
     NSMutableParagraphStyle *titleParagraphStyle = [[NSMutableParagraphStyle alloc] init];
-    titleParagraphStyle.lineHeightMultiple = 1.1;
+    titleParagraphStyle.lineHeightMultiple = 1.2;
     titleParagraphStyle.alignment = NSTextAlignmentCenter;
     self.titleField.attributedText = [[NSAttributedString alloc] initWithString:work.title attributes:@{NSParagraphStyleAttributeName: titleParagraphStyle}];
     
@@ -76,7 +76,7 @@
     self.introField.attributedText = [[NSAttributedString alloc] initWithString:work.intro attributes:@{NSParagraphStyleAttributeName: introParagraphStyle}];
     
     // 设置UILabel的preferredMaxLayoutWidth，以保证正确的换行长度
-    self.titleField.preferredMaxLayoutWidth = [XCZUtils currentWindowWidth] - 30;
+    self.titleField.preferredMaxLayoutWidth = [XCZUtils currentWindowWidth] - 50;
     self.introField.preferredMaxLayoutWidth = [XCZUtils currentWindowWidth] - 30;
 }
 
