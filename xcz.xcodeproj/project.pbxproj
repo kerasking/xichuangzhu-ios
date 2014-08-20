@@ -20,6 +20,7 @@
 		05CC12FC196583F60014989C /* XCZDynasty.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CC12FB196583F60014989C /* XCZDynasty.m */; };
 		05CC13101966689F0014989C /* XCZAuthorDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CC130E1966689F0014989C /* XCZAuthorDetailsViewController.m */; };
 		05CC13191966FCFC0014989C /* AuthorHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05CC13181966FCFC0014989C /* AuthorHeaderView.xib */; };
+		05CE723719A4D97C003864E4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05CE723619A4D97C003864E4 /* Images.xcassets */; };
 		05D4A1D81967F53900D5F534 /* XCZQuote.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D4A1D71967F53900D5F534 /* XCZQuote.m */; };
 		05D4A1DB1967F5BA00D5F534 /* XCZQuotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D4A1DA1967F5BA00D5F534 /* XCZQuotesViewController.m */; };
 		05DF00C7195F0CE100175ABF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DF00C6195F0CE100175ABF /* Foundation.framework */; };
@@ -29,7 +30,6 @@
 		05DF00D3195F0CE100175ABF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05DF00D1195F0CE100175ABF /* InfoPlist.strings */; };
 		05DF00D5195F0CE100175ABF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DF00D4195F0CE100175ABF /* main.m */; };
 		05DF00D9195F0CE100175ABF /* XCZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DF00D8195F0CE100175ABF /* XCZAppDelegate.m */; };
-		05DF00DE195F0CE100175ABF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05DF00DD195F0CE100175ABF /* Images.xcassets */; };
 		05DF00E5195F0CE100175ABF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DF00E4195F0CE100175ABF /* XCTest.framework */; };
 		05DF00E6195F0CE100175ABF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DF00C6195F0CE100175ABF /* Foundation.framework */; };
 		05DF00E7195F0CE100175ABF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DF00CA195F0CE100175ABF /* UIKit.framework */; };
@@ -71,6 +71,7 @@
 		05CC130D1966689F0014989C /* XCZAuthorDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZAuthorDetailsViewController.h; sourceTree = "<group>"; };
 		05CC130E1966689F0014989C /* XCZAuthorDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZAuthorDetailsViewController.m; sourceTree = "<group>"; };
 		05CC13181966FCFC0014989C /* AuthorHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthorHeaderView.xib; sourceTree = "<group>"; };
+		05CE723619A4D97C003864E4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		05D4A1D61967F53900D5F534 /* XCZQuote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZQuote.h; sourceTree = "<group>"; };
 		05D4A1D71967F53900D5F534 /* XCZQuote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZQuote.m; sourceTree = "<group>"; };
 		05D4A1D91967F5BA00D5F534 /* XCZQuotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZQuotesViewController.h; sourceTree = "<group>"; };
@@ -86,7 +87,6 @@
 		05DF00D6195F0CE100175ABF /* xcz-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "xcz-Prefix.pch"; sourceTree = "<group>"; };
 		05DF00D7195F0CE100175ABF /* XCZAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XCZAppDelegate.h; sourceTree = "<group>"; };
 		05DF00D8195F0CE100175ABF /* XCZAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XCZAppDelegate.m; sourceTree = "<group>"; };
-		05DF00DD195F0CE100175ABF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		05DF00E3195F0CE100175ABF /* xczTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xczTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DF00E4195F0CE100175ABF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		05DF00ED195F0CE100175ABF /* xczTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "xczTests-Info.plist"; sourceTree = "<group>"; };
@@ -195,11 +195,11 @@
 		05DF00CE195F0CE100175ABF /* xcz */ = {
 			isa = PBXGroup;
 			children = (
+				05CE723619A4D97C003864E4 /* Images.xcassets */,
 				05CC12FD196586890014989C /* Views */,
 				05CC12F9196569E80014989C /* Models */,
 				05DF00D7195F0CE100175ABF /* XCZAppDelegate.h */,
 				05DF00D8195F0CE100175ABF /* XCZAppDelegate.m */,
-				05DF00DD195F0CE100175ABF /* Images.xcassets */,
 				05DF00CF195F0CE100175ABF /* Supporting Files */,
 				05827A9E196A8236003ABBDD /* XCZUtils.h */,
 				05827A9F196A8236003ABBDD /* XCZUtils.m */,
@@ -320,11 +320,11 @@
 			files = (
 				05B2287C195FD19500F91BCC /* xcz.db in Resources */,
 				05CC13191966FCFC0014989C /* AuthorHeaderView.xib in Resources */,
+				05CE723719A4D97C003864E4 /* Images.xcassets in Resources */,
 				0573FF24196847A0005341F2 /* XCZAuthorsViewController.xib in Resources */,
 				05DF00D3195F0CE100175ABF /* InfoPlist.strings in Resources */,
 				0573FF2219682050005341F2 /* XCZWorksViewController.xib in Resources */,
 				05ABB5CB1961525900341AAC /* XCZWorkDetailViewController.xib in Resources */,
-				05DF00DE195F0CE100175ABF /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
