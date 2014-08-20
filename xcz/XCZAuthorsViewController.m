@@ -59,7 +59,7 @@
                 
                 // 填充authors
                 NSMutableArray *authors = [[NSMutableArray alloc] init];
-                NSString *query = [[NSString alloc] initWithFormat:@"SELECT * FROM authors WHERE dynasty = '%@'", dynastyName];
+                NSString *query = [[NSString alloc] initWithFormat:@"SELECT * FROM authors WHERE dynasty = '%@' ORDER BY birth_year ASC", dynastyName];
                 FMResultSet *_s = [db executeQuery:query];
                 _index = 0;
                 while ([_s next]) {
