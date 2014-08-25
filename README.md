@@ -1,4 +1,4 @@
-xichuangzhu_ios
+xichuangzhu-ios
 ===============
 
-西窗烛 iOS App.
+西窗烛iOS App.
