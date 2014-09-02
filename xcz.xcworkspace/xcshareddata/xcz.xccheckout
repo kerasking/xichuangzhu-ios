@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>5B85E1FD-C099-48E0-B84C-5DAE7CBB87AF</string>
+	<string>A1ACFB79-C3B1-49E7-9783-BC102094C9D0</string>
 	<key>IDESourceControlProjectName</key>
 	<string>xcz</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>254FE040-65CC-4F7F-B5E7-96FCDE77B880</key>
-		<string>https://github.com/hustlzp/xichuangzhu_ios.git</string>
+		<key>F21D4F95-7798-4A6A-9001-10FE44212952</key>
+		<string>https://github.com/hustlzp/xichuangzhu-ios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>xcz.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>254FE040-65CC-4F7F-B5E7-96FCDE77B880</key>
+		<key>F21D4F95-7798-4A6A-9001-10FE44212952</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/hustlzp/xichuangzhu_ios.git</string>
+	<string>https://github.com/hustlzp/xichuangzhu-ios.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>254FE040-65CC-4F7F-B5E7-96FCDE77B880</string>
+	<string>F21D4F95-7798-4A6A-9001-10FE44212952</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>254FE040-65CC-4F7F-B5E7-96FCDE77B880</string>
+			<string>F21D4F95-7798-4A6A-9001-10FE44212952</string>
 			<key>IDESourceControlWCCName</key>
 			<string>xcz</string>
 		</dict>
