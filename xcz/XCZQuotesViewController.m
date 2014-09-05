@@ -85,7 +85,7 @@
 }
 
 - (IBAction)refreshQuotes:(id)sender {
-    [AVAnalytics event:@"refresh_ramdom_works"]; // 通知服务器一个“换一换”事件。
+    [AVAnalytics event:@"refresh_random_works"]; // “换一换”事件。
     [self loadQuotes];
     [self.tableView reloadData];
 }
