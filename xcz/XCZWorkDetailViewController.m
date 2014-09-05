@@ -9,6 +9,7 @@
 #import "XCZWorkDetailViewController.h"
 #import "XCZUtils.h"
 #import "XCZAuthorDetailsViewController.h"
+#import <AVOSCloud/AVOSCloud.h>
 
 @interface XCZWorkDetailViewController ()
 
@@ -36,6 +37,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    [AVAnalytics beginLogPageView:[[NSString alloc] initWithFormat:@"work-%@/%@", self.work.author, self.work.title]];
     
     // 从其他页面跳转过来时，将navbar标题设置为空
     self.navigationItem.title = @"";
@@ -79,6 +82,12 @@
     // 设置UILabel的preferredMaxLayoutWidth，以保证正确的换行长度
     self.titleField.preferredMaxLayoutWidth = [XCZUtils currentWindowWidth] - 50;
     self.introField.preferredMaxLayoutWidth = [XCZUtils currentWindowWidth] - 30;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [AVAnalytics endLogPageView:[[NSString alloc] initWithFormat:@"work-%@/%@", self.work.author, self.work.title]];
 }
 
 - (void)viewDidLoad

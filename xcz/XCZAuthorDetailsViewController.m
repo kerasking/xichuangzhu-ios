@@ -152,7 +152,7 @@
 {
     [super viewWillAppear:animated];
     
-    [AVAnalytics beginLogPageView:@"author"];
+    [AVAnalytics beginLogPageView:[[NSString alloc] initWithFormat:@"author-%@", self.author.name ]];
     
     // 姓名
     self.nameField.text = self.author.name;
@@ -178,7 +178,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
-    [AVAnalytics endLogPageView:@"author"];
+    [AVAnalytics endLogPageView:[[NSString alloc] initWithFormat:@"author-%@", self.author.name ]];
 }
 
 - (void)viewDidLoad
