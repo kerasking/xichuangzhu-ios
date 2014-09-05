@@ -12,6 +12,7 @@
 #import "XCZAuthor.h"
 #import "XCZWorkDetailViewController.h"
 #import "XCZUtils.h"
+#import <AVOSCloud/AVOSCloud.h>
 
 @interface XCZAuthorDetailsViewController ()
 
@@ -151,6 +152,8 @@
 {
     [super viewWillAppear:animated];
     
+    [AVAnalytics beginLogPageView:@"author"];
+    
     // 姓名
     self.nameField.text = self.author.name;
     
@@ -170,6 +173,12 @@
     // 作品数目
     self.worksHeaderField.text = [[NSString alloc] initWithFormat:@"作品 / %d", self.worksCount];
     //self.worksHeaderField.text = @"作品";
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [AVAnalytics endLogPageView:@"author"];
 }
 
 - (void)viewDidLoad

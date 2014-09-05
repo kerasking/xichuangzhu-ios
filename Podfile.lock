@@ -1,4 +1,5 @@
 PODS:
+  - AVOSCloud (2.6.3)
   - FMDB (2.3):
     - FMDB/standard
   - FMDB/common (2.3)
@@ -6,9 +7,11 @@ PODS:
     - FMDB/common
 
 DEPENDENCIES:
+  - AVOSCloud
   - FMDB
 
 SPEC CHECKSUMS:
+  AVOSCloud: 022ac23be27fbdced1d4e8d4745ac04d23c48eb1
   FMDB: 31ec26773c7f7b7890a6038235a1f2bbd933a7cb
 
 COCOAPODS: 0.33.1

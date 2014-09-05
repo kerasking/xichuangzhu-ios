@@ -4,6 +4,7 @@ platform :ios, '7.0'
 target "xcz" do
 
 pod 'FMDB'
+pod 'AVOSCloud'
 
 end
 

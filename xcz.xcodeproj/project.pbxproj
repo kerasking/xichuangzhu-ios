@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		051C225319B8B19E00FA14E8 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 051C225119B8B19E00FA14E8 /* libMobClickLibrary.a */; };
-		051C225519B8B1FC00FA14E8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 051C225419B8B1FC00FA14E8 /* libz.dylib */; };
 		0573FF2219682050005341F2 /* XCZWorksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0573FF2119682050005341F2 /* XCZWorksViewController.xib */; };
 		0573FF24196847A0005341F2 /* XCZAuthorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0573FF23196847A0005341F2 /* XCZAuthorsViewController.xib */; };
 		05827AA0196A8236003ABBDD /* XCZUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 05827A9F196A8236003ABBDD /* XCZUtils.m */; };
@@ -52,8 +50,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		051C225119B8B19E00FA14E8 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
-		051C225219B8B19E00FA14E8 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		051C225419B8B1FC00FA14E8 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		0573FF2119682050005341F2 /* XCZWorksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XCZWorksViewController.xib; sourceTree = "<group>"; };
 		0573FF23196847A0005341F2 /* XCZAuthorsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XCZAuthorsViewController.xib; sourceTree = "<group>"; };
@@ -106,11 +102,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				051C225519B8B1FC00FA14E8 /* libz.dylib in Frameworks */,
 				05DF00C9195F0CE100175ABF /* CoreGraphics.framework in Frameworks */,
 				05DF00CD195F0CE100175ABF /* CoreData.framework in Frameworks */,
 				05DF00CB195F0CE100175ABF /* UIKit.framework in Frameworks */,
-				051C225319B8B19E00FA14E8 /* libMobClickLibrary.a in Frameworks */,
 				05DF00C7195F0CE100175ABF /* Foundation.framework in Frameworks */,
 				CABD71F26B624951841B653B /* libPods-xcz.a in Frameworks */,
 			);
@@ -218,8 +212,6 @@
 		05DF00CF195F0CE100175ABF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				051C225119B8B19E00FA14E8 /* libMobClickLibrary.a */,
-				051C225219B8B19E00FA14E8 /* MobClick.h */,
 				05B2287B195FCEBE00F91BCC /* xcz.db */,
 				05DF00D0195F0CE100175ABF /* xcz-Info.plist */,
 				05DF00D1195F0CE100175ABF /* InfoPlist.strings */,
