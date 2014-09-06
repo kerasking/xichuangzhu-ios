@@ -76,7 +76,7 @@
     // 评析
     NSMutableParagraphStyle *introParagraphStyle = [[NSMutableParagraphStyle alloc] init];
     introParagraphStyle.lineHeightMultiple = 1.3;
-    introParagraphStyle.paragraphSpacing = 10;
+    introParagraphStyle.paragraphSpacing = 8;
     self.introField.attributedText = [[NSAttributedString alloc] initWithString:work.intro attributes:@{NSParagraphStyleAttributeName: introParagraphStyle}];
     
     // 设置UILabel的preferredMaxLayoutWidth，以保证正确的换行长度

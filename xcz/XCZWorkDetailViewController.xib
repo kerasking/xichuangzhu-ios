@@ -90,7 +90,7 @@
                                 <constraint firstAttribute="trailing" secondItem="n3R-5O-41w" secondAttribute="trailing" constant="15" id="h28-Hm-PHH"/>
                                 <constraint firstItem="Qfz-9g-nNm" firstAttribute="leading" secondItem="FfD-Bw-Cdd" secondAttribute="leading" constant="15" id="m6q-tg-fId"/>
                                 <constraint firstItem="3KG-O2-X76" firstAttribute="leading" secondItem="FfD-Bw-Cdd" secondAttribute="leading" constant="25" id="mii-0J-7dR"/>
-                                <constraint firstItem="1p1-gD-O6S" firstAttribute="top" secondItem="zjl-SQ-Ft8" secondAttribute="bottom" constant="7" id="oRR-bn-i5A"/>
+                                <constraint firstItem="1p1-gD-O6S" firstAttribute="top" secondItem="zjl-SQ-Ft8" secondAttribute="bottom" constant="5" id="oRR-bn-i5A"/>
                                 <constraint firstAttribute="bottom" secondItem="1p1-gD-O6S" secondAttribute="bottom" constant="20" id="x7u-QT-KQE"/>
                             </constraints>
                         </view>
