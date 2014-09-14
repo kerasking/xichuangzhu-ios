@@ -56,37 +56,7 @@
             
             [db close];
         }
-        
-        /*
-        // 加载works
-        NSMutableArray *works = [[NSMutableArray alloc] init];
-        int index = 0;
-        
-        if ([db open]) {
-            NSString *query = [[NSString alloc] initWithFormat:@"SELECT * FROM works WHERE author_id = %d", self.author.id];
-            FMResultSet *s = [db executeQuery:query];
-            while ([s next]) {
-                XCZWork *work = [[XCZWork alloc] init];
-                work.id = [s intForColumn:@"id"];
-                work.title = [s stringForColumn:@"title"];
-                work.authorId = [s intForColumn:@"author_id"];
-                work.author = [s stringForColumn:@"author"];
-                work.dynasty = [s stringForColumn:@"dynasty"];
-                work.kind = [s stringForColumn:@"kind"];
-                work.foreword = [s stringForColumn:@"foreword"];
-                work.content = [s stringForColumn:@"content"];
-                work.intro = [s stringForColumn:@"intro"];
-                work.layout = [s stringForColumn:@"layout"];
-                works[index] = work;
-                index++;
-            }
-            
-            [db close];
-        }
-         
-        self.works = works;
-        */
-        
+
         // 加载worksCount
         self.worksCount = 0;
         if ([db open]) {

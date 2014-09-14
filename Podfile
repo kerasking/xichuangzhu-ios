@@ -5,6 +5,7 @@ target "xcz" do
 
 pod 'FMDB'
 pod 'AVOSCloud'
+pod 'AFNetworking', '~> 2.2'
 
 end
 

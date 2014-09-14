@@ -16,5 +16,6 @@
 @property (nonatomic, strong) NSString *dynasty;
 @property (nonatomic, strong) NSString *birthYear;
 @property (nonatomic, strong) NSString *deathYear;
+@property (nonatomic, strong) NSDate* updated_at;
 
 @end

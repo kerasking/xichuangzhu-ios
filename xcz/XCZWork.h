@@ -21,5 +21,6 @@
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) NSString *intro;
 @property (nonatomic, strong) NSString *layout;
+@property (nonatomic, strong) NSDate* updated_at;
 
 @end

@@ -16,5 +16,6 @@
 @property (nonatomic, strong) NSString *author;
 @property (nonatomic) int workId;
 @property (nonatomic, strong) NSString *work;
+@property (nonatomic, strong) NSDate* updated_at;
 
 @end
