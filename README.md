@@ -12,3 +12,4 @@ xichuangzhu-ios
 * 使用XCode打开工程
 * 将`xcz/XCZAppDelegate_sample.m`重命名为`xcz/XCZAppDelegate.m`
 * 在XCode中的`views/`下加入此文件
+* 编译运行即可
