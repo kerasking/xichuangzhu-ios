@@ -11,4 +11,4 @@ xichuangzhu-ios
 
 * 使用XCode打开工程
 * 将`xcz/XCZAppDelegate_sample.m`重命名为`XCZAppDelegate.m`
-* 在工程中的`views/`下加入此文件
+* 在XCode中的`views/`下加入此文件
