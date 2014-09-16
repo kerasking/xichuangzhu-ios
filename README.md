@@ -9,6 +9,7 @@ xichuangzhu-ios
 
 运行方法：
 
+* 使用CocoaPods安装依赖库：`sudo gem install cocoapods && pod install`
 * 使用Xcode打开工程
 * 将`xcz/XCZAppDelegate_sample.m`重命名为`xcz/XCZAppDelegate.m`
 * 在Xcode中的`views/`下加入此文件
