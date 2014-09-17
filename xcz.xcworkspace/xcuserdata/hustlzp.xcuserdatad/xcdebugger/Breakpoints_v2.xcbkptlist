@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "xcz/XCZAuthorDetailsViewController.m"
-            timestampString = "431622916.822224"
+            timestampString = "432615885.509925"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
             landmarkName = "-viewWillAppear:"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "xcz/XCZAuthorDetailsViewController.m"
-            timestampString = "431622916.822224"
+            timestampString = "432615885.509925"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "-viewWillAppear:"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "xcz/XCZAuthorDetailsViewController.m"
-            timestampString = "431622916.822224"
+            timestampString = "432615885.509925"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "-viewWillAppear:"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "xcz/XCZAuthorDetailsViewController.m"
-            timestampString = "431622916.822224"
+            timestampString = "432615885.509925"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "-initWithAuthorId:"
             landmarkType = "5">
          </BreakpointContent>

@@ -23,7 +23,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *periodField;
 @property (weak, nonatomic) IBOutlet UILabel *introField;
 
-//@property (nonatomic, strong) NSMutableArray *works;
 @property (nonatomic, strong) NSMutableDictionary *works;
 @property (nonatomic) int worksCount;
 @property (nonatomic, strong) XCZAuthor *author;
@@ -36,7 +35,7 @@
 {
     self = [super init];
     
-    if (self){
+    if (self) {
         NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
         FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
         
@@ -56,36 +55,6 @@
             
             [db close];
         }
-        
-        /*
-        // 加载works
-        NSMutableArray *works = [[NSMutableArray alloc] init];
-        int index = 0;
-        
-        if ([db open]) {
-            NSString *query = [[NSString alloc] initWithFormat:@"SELECT * FROM works WHERE author_id = %d", self.author.id];
-            FMResultSet *s = [db executeQuery:query];
-            while ([s next]) {
-                XCZWork *work = [[XCZWork alloc] init];
-                work.id = [s intForColumn:@"id"];
-                work.title = [s stringForColumn:@"title"];
-                work.authorId = [s intForColumn:@"author_id"];
-                work.author = [s stringForColumn:@"author"];
-                work.dynasty = [s stringForColumn:@"dynasty"];
-                work.kind = [s stringForColumn:@"kind"];
-                work.foreword = [s stringForColumn:@"foreword"];
-                work.content = [s stringForColumn:@"content"];
-                work.intro = [s stringForColumn:@"intro"];
-                work.layout = [s stringForColumn:@"layout"];
-                works[index] = work;
-                index++;
-            }
-            
-            [db close];
-        }
-         
-        self.works = works;
-        */
         
         // 加载worksCount
         self.worksCount = 0;
@@ -188,18 +157,18 @@
     self.navigationItem.title = self.author.name;
     UIView *headerView = self.headerView;
     [self.tableView setTableHeaderView:headerView];
-
+    
     // 计算introLabel的高度
     NSMutableParagraphStyle *contentParagraphStyle = [[NSMutableParagraphStyle alloc] init];
-    contentParagraphStyle.lineHeightMultiple = 1.3;
+        contentParagraphStyle.lineHeightMultiple = 1.3;
     CGRect introSize = [self.author.intro
-                           boundingRectWithSize:CGSizeMake([XCZUtils currentWindowWidth] - 35, CGFLOAT_MAX)
-                           options:NSStringDrawingUsesLineFragmentOrigin
-                           attributes:@{NSFontAttributeName: self.introField.font,
-                                        NSParagraphStyleAttributeName: contentParagraphStyle}
-                           context:nil];
+                        boundingRectWithSize:CGSizeMake([XCZUtils currentWindowWidth] - 35, CGFLOAT_MAX)
+                        options:NSStringDrawingUsesLineFragmentOrigin
+                        attributes:@{NSFontAttributeName: self.introField.font, NSParagraphStyleAttributeName: contentParagraphStyle}
+                        context:nil];
+    CGFloat introHeight = introSize.size.height;
     
-    CGFloat height = self.introField.frame.origin.y + introSize.size.height;
+    CGFloat height = self.introField.frame.origin.y + introHeight;
     height += 15;   // “作品”与简介之间的垂直距离
     height += self.worksHeaderField.frame.size.height;
     height += 12;
@@ -267,13 +236,6 @@
 // Section标题
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    /*
-    NSArray *keys = [self.works allKeys];
-    NSString *key = [keys objectAtIndex:section];
-    NSArray *works = [self.works objectForKey:key];
-    return [[NSString alloc] initWithFormat:@"%@ / %d", key, works.count];
-    */
-    
     NSArray *keys = [self.works allKeys];
     NSString *key = [keys objectAtIndex:section];
     return key;
@@ -293,60 +255,5 @@
     detailController.showAuthorButton = NO;
     [self.navigationController pushViewController:detailController animated:YES];
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
-    
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-}
-*/
 
 @end
