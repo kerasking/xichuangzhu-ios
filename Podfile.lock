@@ -5,13 +5,16 @@ PODS:
   - FMDB/common (2.3)
   - FMDB/standard (2.3):
     - FMDB/common
+  - HTCopyableLabel (0.0.7)
 
 DEPENDENCIES:
   - AVOSCloud
   - FMDB
+  - HTCopyableLabel
 
 SPEC CHECKSUMS:
   AVOSCloud: 022ac23be27fbdced1d4e8d4745ac04d23c48eb1
   FMDB: 31ec26773c7f7b7890a6038235a1f2bbd933a7cb
+  HTCopyableLabel: 4cbbeb9ddecbcb841a6e9a8023f77fc48ef37db0
 
 COCOAPODS: 0.33.1

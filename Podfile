@@ -5,6 +5,7 @@ target "xcz" do
 
 pod 'FMDB'
 pod 'AVOSCloud'
+pod 'HTCopyableLabel'
 
 end
 

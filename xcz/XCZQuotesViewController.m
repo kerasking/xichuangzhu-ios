@@ -150,4 +150,25 @@
     [self.navigationController pushViewController:detailController animated:YES];
 }
 
+// 用于支持tableviewcell文字赋值
+-(void)tableView:(UITableView*)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath*)indexPath withSender:(id)sender {
+    
+    UIPasteboard* pasteboard = [UIPasteboard generalPasteboard];
+    XCZQuote *quote = self.quotes[indexPath.row];
+    pasteboard.string = quote.quote;
+}
+
+-(BOOL)tableView:(UITableView*)tableView canPerformAction:(SEL)action forRowAtIndexPath:(NSIndexPath*)indexPath withSender:(id)sender {
+    
+    if (action == @selector(copy:)) {
+        return YES;
+    }
+    
+    return NO;
+}
+
+-(BOOL)tableView:(UITableView*)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath*)indexPath {
+    return YES;
+}
+
 @end
