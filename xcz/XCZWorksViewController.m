@@ -75,13 +75,11 @@
 
 - (void)pushNotificationReceived:(NSNotification*) notification
 {
-    /*
     int workId = [[notification.userInfo objectForKey:@"workId"] intValue];
     XCZWorkDetailViewController *detailController = [[XCZWorkDetailViewController alloc] init];
     
     detailController.work =  [XCZWork getById:workId];
     [self.navigationController pushViewController:detailController animated:YES];
-    */
 }
 
 - (void)viewWillAppear:(BOOL)animated

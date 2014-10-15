@@ -1,7 +1,18 @@
-mport "XCZAppDelegate.h"
+//
+//  XCZAppDelegate.m
+//  xcz
+//
+//  Created by 刘志鹏 on 14-6-28.
+//  Copyright (c) 2014年 Zhipeng Liu. All rights reserved.
+//
+
+#import "XCZAppDelegate.h"
 #import "XCZWorksViewController.h"
 #import "XCZAuthorsViewController.h"
 #import "XCZQuotesViewController.h"
+#import "XCZWorkDetailViewController.h"
+#import "XCZWork.h"
+#import <FMDB/FMDB.h>
 #import <AVOSCloud/AVOSCloud.h>
 
 #define AVOSCloudAppID  @""
@@ -13,8 +24,19 @@ mport "XCZAppDelegate.h"
 {    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    //设置AVOSCloud
+    // 设置AVOSCloud
     [AVOSCloud setApplicationId:AVOSCloudAppID clientKey:AVOSCloudAppKey];
+    
+    // 向用户申请通知权限
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]];
+    }
+    
+    // app尚未运行时，处理local notification
+    UILocalNotification *localNotif = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (localNotif) {
+        [self handleLocalNotification:localNotif];
+    }
     
     // Override point for customization after application launch.
     
@@ -79,5 +101,18 @@ mport "XCZAppDelegate.h"
 {
 }
 
-@end
+// 处理local notification
+- (void)application:(UIApplication *)app didReceiveLocalNotification:(UILocalNotification *)notification {
+    UIApplicationState state = [app applicationState];
+    if (state != UIApplicationStateActive) {
+        [self handleLocalNotification:notification];
+    }
+}
 
+// 在应用运行时，处理local notification
+- (void)handleLocalNotification:(UILocalNotification *)notification
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"openWorkView" object:nil userInfo:notification.userInfo];
+}
+
+@end
