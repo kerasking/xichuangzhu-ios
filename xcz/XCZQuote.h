@@ -17,4 +17,6 @@
 @property (nonatomic) int workId;
 @property (nonatomic, strong) NSString *work;
 
++ (XCZQuote *)getRandomQuote;
+
 @end

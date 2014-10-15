@@ -22,4 +22,5 @@
 @property (nonatomic, strong) NSString *intro;
 @property (nonatomic, strong) NSString *layout;
 
++ (XCZWork *)getById:(int)workId;
 @end

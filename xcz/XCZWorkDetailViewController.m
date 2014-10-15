@@ -8,6 +8,7 @@
 
 #import "XCZWorkDetailViewController.h"
 #import "XCZUtils.h"
+#import "XCZQuote.h"
 #import "XCZAuthorDetailsViewController.h"
 #import <AVOSCloud/AVOSCloud.h>
 
@@ -34,10 +35,52 @@
     return self;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    if (self.showAuthorButton) {
+        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]
+                                        initWithTitle:self.work.author
+                                        style:UIBarButtonItemStylePlain
+                                        target:self
+                                        action:@selector(redirectToAuthor:)];
+        [self.navigationItem setRightBarButtonItem:rightButton];
+    }
+}
+
+// 移除NSNotification Observer
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
+    // 发起本地通知
+    /*
+    NSCalendar *calendar = [NSCalendar currentCalendar]; // gets default calendar
+    NSDateComponents *components = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:[NSDate date]]; // gets the year, month, day,hour and minutesfor today's date
+    [components setHour:12];
+    [components setMinute:48];
+
+    XCZQuote *quote = [XCZQuote getRandomQuote];
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    
+    //localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:10];
+    localNotification.fireDate = [calendar dateFromComponents:components];
+    
+    [localNotification setRepeatInterval: NSMinuteCalendarUnit];
+    
+    localNotification.alertBody = [[NSString alloc] initWithFormat:@"每日一句：%@—《%@》", quote.quote, quote.work];
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    NSDictionary *infoDict = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:quote.workId] forKey:@"workId"];
+    localNotification.userInfo = infoDict;
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    */
+     
     [AVAnalytics beginLogPageView:[[NSString alloc] initWithFormat:@"work-%@/%@", self.work.author, self.work.title]];
     
     // 从其他页面跳转过来时，将navbar标题设置为空
@@ -88,20 +131,6 @@
     [super viewWillDisappear:animated];
     
     [AVAnalytics endLogPageView:[[NSString alloc] initWithFormat:@"work-%@/%@", self.work.author, self.work.title]];
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    if (self.showAuthorButton) {
-        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]
-                                        initWithTitle:self.work.author
-                                        style:UIBarButtonItemStylePlain
-                                        target:self
-                                        action:@selector(redirectToAuthor:)];
-        [self.navigationItem setRightBarButtonItem:rightButton];
-    }
 }
 
 - (IBAction)redirectToAuthor:(id)sender

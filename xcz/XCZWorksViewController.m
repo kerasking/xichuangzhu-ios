@@ -69,6 +69,19 @@
     if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushNotificationReceived:) name:@"openWorkView" object:nil];
+}
+
+- (void)pushNotificationReceived:(NSNotification*) notification
+{
+    /*
+    int workId = [[notification.userInfo objectForKey:@"workId"] intValue];
+    XCZWorkDetailViewController *detailController = [[XCZWorkDetailViewController alloc] init];
+    
+    detailController.work =  [XCZWork getById:workId];
+    [self.navigationController pushViewController:detailController animated:YES];
+    */
 }
 
 - (void)viewWillAppear:(BOOL)animated
