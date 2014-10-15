@@ -59,7 +59,6 @@
 // 随机加载10条名言
 - (void)loadQuotes
 {
-    int index = 0;
     self.quotes = [XCZQuote getRandomQuotes:self.quotesCount];
 }
 
