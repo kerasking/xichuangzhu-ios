@@ -29,34 +29,8 @@
     if (self) {
         UINavigationItem *navItem = self.navigationItem;
         navItem.title = @"全部作品";
-        
-        int index = 0;
-        self.works = [[NSMutableArray alloc] init];
-        
-        // 从SQLite中加载数据
-        NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
-        FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
-        if ([db open]) {
-            FMResultSet *s = [db executeQuery:@"SELECT * FROM works"];
-            while ([s next]) {
-                XCZWork *work = [[XCZWork alloc] init];
-                work.id = [s intForColumn:@"id"];
-                work.title = [s stringForColumn:@"title"];
-                work.authorId = [s intForColumn:@"author_id"];
-                work.author = [s stringForColumn:@"author"];
-                work.dynasty = [s stringForColumn:@"dynasty"];
-                work.kind = [s stringForColumn:@"kind"];
-                work.kindCN = [s stringForColumn:@"kind_cn"];
-                work.foreword = [s stringForColumn:@"foreword"];
-                work.content = [s stringForColumn:@"content"];
-                work.intro = [s stringForColumn:@"intro"];
-                work.layout = [s stringForColumn:@"layout"];
-                self.works[index] = work;
-                index++;
-            }
-            
-            [db close];
-        }
+        // 加载全部作品
+        self.works = [XCZWork getAll];
     }
 
     return self;
