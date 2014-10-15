@@ -19,5 +19,7 @@
 
 + (XCZAuthor *)getById:(int)authorId;
 + (int)getWorksCount:(int)authorId;
++ (NSMutableArray *)getAuthorsByDynasty:(NSString *)dynasty;
++ (NSMutableArray *)getAllAuthors;
 
 @end

@@ -16,4 +16,6 @@
 @property (nonatomic) int start_year;
 @property (nonatomic) int end_year;
 
++ (NSMutableArray *)getNames;
+
 @end

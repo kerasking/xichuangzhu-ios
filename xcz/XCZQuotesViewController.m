@@ -60,28 +60,7 @@
 - (void)loadQuotes
 {
     int index = 0;
-    self.quotes = [[NSMutableArray alloc] init];
-    
-    // 从SQLite中加载数据
-    NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
-    FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
-    if ([db open]) {
-        NSString *query = [[NSString alloc] initWithFormat:@"SELECT * FROM quotes ORDER BY RANDOM() LIMIT %d", self.quotesCount];
-        FMResultSet *s = [db executeQuery:query];
-        while ([s next]) {
-            XCZQuote *quote = [[XCZQuote alloc] init];
-            quote.id = [s intForColumn:@"id"];
-            quote.quote = [s stringForColumn:@"quote"];
-            quote.authorId = [s intForColumn:@"author_id"];
-            quote.author = [s stringForColumn:@"author"];
-            quote.workId = [s intForColumn:@"work_id"];
-            quote.work = [s stringForColumn:@"work"];
-            self.quotes[index] = quote;
-            index++;
-        }
-        
-        [db close];
-    }
+    self.quotes = [XCZQuote getRandomQuotes:self.quotesCount];
 }
 
 - (IBAction)refreshQuotes:(id)sender {
@@ -122,8 +101,6 @@
     XCZQuote *quote = self.quotes[indexPath.row];
     
     // 查询work
-    NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
-    FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
     XCZWork *work = [XCZWork getById:quote.workId];
     detailController.work = work;
 

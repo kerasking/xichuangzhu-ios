@@ -10,12 +10,12 @@
 #import <FMDB/FMDB.h>
 #import "XCZAuthorDetailsViewController.h"
 #import "XCZAuthor.h"
+#import "XCZDynasty.h"
 #import "XCZWork.h"
 
 @interface XCZAuthorsViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
@@ -37,64 +37,19 @@
     if (self) {
         // Custom initialization
         self.navigationItem.title = @"文学家";
-        
-        int index = 0;
-        int _index = 0;
-        
-        self.dynasties = [[NSMutableArray alloc] init];
+
+        self.dynasties = [XCZDynasty getNames];
         self.authors = [[NSMutableDictionary alloc] init];
-        self.authorsForSearch = [[NSMutableArray alloc] init];
+        self.authorsForSearch = [XCZAuthor getAllAuthors];
         
-        // 从SQLite中加载数据
-        NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
-        FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
-        if ([db open]) {
-            // 填充dynasties与authors
-            index = 0;
-            FMResultSet *s = [db executeQuery:@"SELECT * FROM dynasties ORDER BY start_year ASC"];
-            while ([s next]) {
-                NSString* dynastyName = [s stringForColumn:@"name"];
-                // 填充dynasties
-                self.dynasties[index] = dynastyName;
-                
-                // 填充authors
-                NSMutableArray *authors = [[NSMutableArray alloc] init];
-                NSString *query = [[NSString alloc] initWithFormat:@"SELECT * FROM authors WHERE dynasty = '%@' ORDER BY birth_year ASC", dynastyName];
-                FMResultSet *_s = [db executeQuery:query];
-                _index = 0;
-                while ([_s next]) {
-                    XCZAuthor *author = [[XCZAuthor alloc] init];
-                    author.id = [_s intForColumn:@"id"];
-                    author.name = [_s stringForColumn:@"name"];
-                    author.intro = [_s stringForColumn:@"intro"];
-                    author.dynasty = [_s stringForColumn:@"dynasty"];
-                    author.birthYear = [_s stringForColumn:@"birth_year"];
-                    author.deathYear = [_s stringForColumn:@"death_year"];
-                    authors[_index] = author;
-                    _index++;
-                }
-                [self.authors setObject:authors forKey:dynastyName];
-                index++;
-            }
+        for(int i = 0; i < self.dynasties.count; i++) {
+            NSString *dynasty = self.dynasties[i];
+            NSMutableArray *authors = [XCZAuthor getAuthorsByDynasty:dynasty];
+            [self.authors setObject:authors forKey:dynasty];
             
-            // 填充authorsForSearch
-            index = 0;
-            s = [db executeQuery:@"SELECT * FROM authors"];
-            while ([s next]) {
-                XCZAuthor *author = [[XCZAuthor alloc] init];
-                author.id = [s intForColumn:@"id"];
-                author.name = [s stringForColumn:@"name"];
-                author.intro = [s stringForColumn:@"intro"];
-                author.dynasty = [s stringForColumn:@"dynasty"];
-                author.birthYear = [s stringForColumn:@"birth_year"];
-                author.deathYear = [s stringForColumn:@"death_year"];
-                self.authorsForSearch[index] = author;
-                index++;
-            }
-            
-            [db close];
         }
     }
+    
     return self;
 }
 

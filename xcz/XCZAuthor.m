@@ -57,4 +57,63 @@
     return worksCount;
 }
 
+// 获取某朝代的所有文学家
++ (NSMutableArray *)getAuthorsByDynasty:(NSString *)dynasty
+{
+    int index = 0;
+    NSMutableArray *authors = [[NSMutableArray alloc] init];
+    NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
+    FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
+
+    if ([db open]) {
+        NSString *query = [[NSString alloc] initWithFormat:@"SELECT * FROM authors WHERE dynasty = '%@' ORDER BY birth_year ASC", dynasty];
+        
+        FMResultSet *s = [db executeQuery:query];
+
+        while ([s next]) {
+            XCZAuthor *author = [[XCZAuthor alloc] init];
+            author.id = [s intForColumn:@"id"];
+            author.name = [s stringForColumn:@"name"];
+            author.intro = [s stringForColumn:@"intro"];
+            author.dynasty = [s stringForColumn:@"dynasty"];
+            author.birthYear = [s stringForColumn:@"birth_year"];
+            author.deathYear = [s stringForColumn:@"death_year"];
+            authors[index] = author;
+            index++;
+        }
+        
+        [db close];
+    }
+    
+    return authors;
+}
+
+// 获取所有文学家
++ (NSMutableArray *)getAllAuthors
+{
+    int index = 0;
+    NSMutableArray *authors = [[NSMutableArray alloc] init];
+    NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
+    FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
+
+    if ([db open]) {
+        FMResultSet *s = [db executeQuery:@"SELECT * FROM authors"];
+        while ([s next]) {
+            XCZAuthor *author = [[XCZAuthor alloc] init];
+            author.id = [s intForColumn:@"id"];
+            author.name = [s stringForColumn:@"name"];
+            author.intro = [s stringForColumn:@"intro"];
+            author.dynasty = [s stringForColumn:@"dynasty"];
+            author.birthYear = [s stringForColumn:@"birth_year"];
+            author.deathYear = [s stringForColumn:@"death_year"];
+            authors[index] = author;
+            index++;
+        }
+
+        [db close];
+    }
+    
+    return authors;
+}
+
 @end
