@@ -24,4 +24,6 @@
 
 + (XCZWork *)getById:(int)workId;
 + (NSMutableArray *)getAll;
++ (NSMutableArray *)getWorksByAuthorId:(int)authorId kind:(NSString *)kind;
+
 @end

@@ -36,37 +36,10 @@
     self = [super init];
     
     if (self) {
-        NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
-        FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
-        
-        // 加载author
-        self.author = [[XCZAuthor alloc] init];
-        if ([db open]) {
-            NSString *query = [[NSString alloc] initWithFormat:@"SELECT * FROM authors WHERE id = %d", authorId];
-            FMResultSet *s = [db executeQuery:query];
-            if ([s next]) {
-                self.author.id = [s intForColumn:@"id"];
-                self.author.name = [s stringForColumn:@"name"];
-                self.author.intro = [s stringForColumn:@"intro"];
-                self.author.dynasty = [s stringForColumn:@"dynasty"];
-                self.author.birthYear = [s stringForColumn:@"birth_year"];
-                self.author.deathYear = [s stringForColumn:@"death_year"];
-            }
-            
-            [db close];
-        }
+        self.author = [XCZAuthor getById:authorId];
         
         // 加载worksCount
-        self.worksCount = 0;
-        if ([db open]) {
-            NSString *query = [[NSString alloc] initWithFormat:@"SELECT COUNT(*) AS works_count FROM works WHERE author_id = %d", self.author.id];
-            FMResultSet *s = [db executeQuery:query];
-            if ([s next]) {
-                self.worksCount = [s intForColumn:@"works_count"];
-            }
-            
-            [db close];
-        }
+        self.worksCount = [XCZAuthor getWorksCount:authorId];
         
         // 加载works
         self.works = [[NSMutableDictionary alloc] init];
@@ -83,36 +56,9 @@
 // 根据类别加载作品
 - (void)loadWorksByKind:(NSString *)kindCN
 {
-    NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
-    FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
-    int index = 0;
+    NSMutableArray *works = [XCZWork getWorksByAuthorId:self.author.id kind:kindCN];
     
-    NSMutableArray *works = [[NSMutableArray alloc] init];
-    
-    if ([db open]) {
-        NSString *query = [[NSString alloc] initWithFormat:@"SELECT * FROM works WHERE author_id = %d AND kind_cn = '%@'", self.author.id, kindCN];
-        FMResultSet *s = [db executeQuery:query];
-        while ([s next]) {
-            XCZWork *work = [[XCZWork alloc] init];
-            work.id = [s intForColumn:@"id"];
-            work.title = [s stringForColumn:@"title"];
-            work.authorId = [s intForColumn:@"author_id"];
-            work.author = [s stringForColumn:@"author"];
-            work.dynasty = [s stringForColumn:@"dynasty"];
-            work.kind = [s stringForColumn:@"kind"];
-            work.kindCN = [s stringForColumn:@"kind_cn"];
-            work.foreword = [s stringForColumn:@"foreword"];
-            work.content = [s stringForColumn:@"content"];
-            work.intro = [s stringForColumn:@"intro"];
-            work.layout = [s stringForColumn:@"layout"];
-            works[index] = work;
-            index++;
-        }
-        
-        [db close];
-    }
-    
-    if (index > 0) {
+    if ([works count] > 0) {
         [self.works setObject:works forKey:kindCN];
     }
 }

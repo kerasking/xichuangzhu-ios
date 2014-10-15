@@ -124,27 +124,7 @@
     // 查询work
     NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
     FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
-    XCZWork *work = [[XCZWork alloc] init];
-    
-    if ([db open]) {
-        NSString *query = [[NSString alloc] initWithFormat:@"SELECT * FROM works WHERE id = %d", quote.workId];
-        FMResultSet *s = [db executeQuery:query];
-        if ([s next]) {
-            work.id = [s intForColumn:@"id"];
-            work.title = [s stringForColumn:@"title"];
-            work.authorId = [s intForColumn:@"author_id"];
-            work.author = [s stringForColumn:@"author"];
-            work.dynasty = [s stringForColumn:@"dynasty"];
-            work.kind = [s stringForColumn:@"kind"];
-            work.foreword = [s stringForColumn:@"foreword"];
-            work.content = [s stringForColumn:@"content"];
-            work.intro = [s stringForColumn:@"intro"];
-            work.layout = [s stringForColumn:@"layout"];
-        }
-        
-        [db close];
-    }
-    
+    XCZWork *work = [XCZWork getById:quote.workId];
     detailController.work = work;
 
     [self.navigationController pushViewController:detailController animated:YES];

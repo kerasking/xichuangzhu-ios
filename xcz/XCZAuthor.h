@@ -17,4 +17,7 @@
 @property (nonatomic, strong) NSString *birthYear;
 @property (nonatomic, strong) NSString *deathYear;
 
++ (XCZAuthor *)getById:(int)authorId;
++ (int)getWorksCount:(int)authorId;
+
 @end
