@@ -47,6 +47,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushNotificationReceived:) name:@"openWorkView" object:nil];
 }
 
+// 收到通知中心通知后，进入特定的作品页面
 - (void)pushNotificationReceived:(NSNotification*) notification
 {
     int workId = [[notification.userInfo objectForKey:@"workId"] intValue];
@@ -116,7 +117,7 @@
         work = self.works[indexPath.row];
     }
     
-    cell.textLabel.text = work.title;
+    cell.textLabel.text = work.fullTitle;
     cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"[%@] %@", work.dynasty, work.author];
     return cell;
 }

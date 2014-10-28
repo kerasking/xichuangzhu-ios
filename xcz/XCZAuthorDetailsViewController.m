@@ -175,7 +175,7 @@
     NSArray *works = [self.works objectForKey:key];
     XCZWork *work = works[indexPath.row];
 
-    cell.textLabel.text = work.title;
+    cell.textLabel.text = work.fullTitle;
     return cell;
 }
 
