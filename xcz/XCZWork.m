@@ -49,7 +49,7 @@
     NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
     FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
     if ([db open]) {
-        FMResultSet *s = [db executeQuery:@"SELECT * FROM works"];
+        FMResultSet *s = [db executeQuery:@"SELECT * FROM works ORDER BY show_order DESC"];
         while ([s next]) {
             XCZWork *work = [[XCZWork alloc] init];
             work.id = [s intForColumn:@"id"];
