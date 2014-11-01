@@ -51,13 +51,13 @@
                                     initWithTitle:@"重新排序"
                                     style:UIBarButtonItemStylePlain
                                     target:self
-                                    action:@selector(refreshQuotes:)];
+                                    action:@selector(reorderWorks:)];
     [self.navigationItem setRightBarButtonItem:rightButton];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushNotificationReceived:) name:@"openWorkView" object:nil];
 }
 
-- (IBAction)refreshQuotes:(id)sender {
+- (IBAction)reorderWorks:(id)sender {
     [AVAnalytics event:@"reorder_works"]; // “重新排序”事件。
     self.works = [XCZWork reorderWorks];
     [self.tableView reloadData];
