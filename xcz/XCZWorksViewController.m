@@ -58,9 +58,10 @@
 }
 
 - (IBAction)refreshQuotes:(id)sender {
-    [AVAnalytics event:@"reorder_works"]; // “换一换”事件。
+    [AVAnalytics event:@"reorder_works"]; // “重新排序”事件。
     self.works = [XCZWork reorderWorks];
     [self.tableView reloadData];
+    [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
 }
 
 // 收到通知中心通知后，进入特定的作品页面
