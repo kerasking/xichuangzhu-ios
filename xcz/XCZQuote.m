@@ -7,6 +7,7 @@
 //
 
 #import "XCZQuote.h"
+#import "XCZUtils.h"
 #import <FMDB/FMDB.h>
 
 @implementation XCZQuote
@@ -16,7 +17,7 @@
 {
     XCZQuote * quote = [[XCZQuote alloc] init];
     
-    NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
+    NSString *dbPath = [XCZUtils getDatabaseFilePath];
     FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
     if ([db open]) {
         FMResultSet *s = [db executeQuery:@"SELECT * FROM quotes ORDER BY RANDOM() LIMIT 1"];
@@ -40,7 +41,7 @@
     NSMutableArray *quotes = [[NSMutableArray alloc] init];
     
     // 从SQLite中加载数据
-    NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
+    NSString *dbPath = [XCZUtils getDatabaseFilePath];
     FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
     if ([db open]) {
         NSString *query = [[NSString alloc] initWithFormat:@"SELECT * FROM quotes ORDER BY RANDOM() LIMIT %d", number];

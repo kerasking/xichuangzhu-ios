@@ -47,7 +47,7 @@
 {
     [super viewDidLoad];
 
-    //添加右按钮
+    //添加“换一换”按钮
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]
                                    initWithTitle:@"换一换"
                                    style:UIBarButtonItemStylePlain

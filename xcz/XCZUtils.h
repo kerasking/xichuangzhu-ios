@@ -11,5 +11,6 @@
 @interface XCZUtils : NSObject
 
 + (NSUInteger)currentWindowWidth;
++ (NSString *)getDatabaseFilePath;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "XCZDynasty.h"
+#import "XCZUtils.h"
 #import <FMDB/FMDB.h>
 
 @implementation XCZDynasty
@@ -16,7 +17,7 @@
     int index = 0;
     NSMutableArray *dynastyNames = [[NSMutableArray alloc] init];
     
-    NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
+    NSString *dbPath = [XCZUtils getDatabaseFilePath];
     FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
     if ([db open]) {
         FMResultSet *s = [db executeQuery:@"SELECT * FROM dynasties ORDER BY start_year ASC"];

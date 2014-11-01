@@ -10,6 +10,7 @@
 #import "XCZWorkDetailViewController.h"
 #import <FMDB/FMDB.h>
 #import "XCZWork.h"
+#import <AVOSCloud/AVOSCloud.h>
 
 @interface XCZWorksViewController ()
 
@@ -39,12 +40,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.searchDisplayController.searchBar.placeholder = @"搜索";
     if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
+        
+    //添加“重新排序”按钮
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]
+                                    initWithTitle:@"重新排序"
+                                    style:UIBarButtonItemStylePlain
+                                    target:self
+                                    action:@selector(refreshQuotes:)];
+    [self.navigationItem setRightBarButtonItem:rightButton];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushNotificationReceived:) name:@"openWorkView" object:nil];
+}
+
+- (IBAction)refreshQuotes:(id)sender {
+    [AVAnalytics event:@"reorder_works"]; // “换一换”事件。
+    self.works = [XCZWork reorderWorks];
+    [self.tableView reloadData];
 }
 
 // 收到通知中心通知后，进入特定的作品页面

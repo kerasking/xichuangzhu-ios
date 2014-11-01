@@ -7,6 +7,7 @@
 //
 
 #import "XCZAuthor.h"
+#import "XCZUtils.h"
 #import <FMDB/FMDB.h>
 
 @implementation XCZAuthor
@@ -16,7 +17,7 @@
 {
     XCZAuthor *author = [[XCZAuthor alloc] init];
     
-    NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
+    NSString *dbPath = [XCZUtils getDatabaseFilePath];
     FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
 
     if ([db open]) {
@@ -41,7 +42,7 @@
 + (int)getWorksCount:(int)authorId
 {
     int worksCount = 0;
-    NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
+    NSString *dbPath = [XCZUtils getDatabaseFilePath];
     FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
 
     if ([db open]) {
@@ -62,7 +63,7 @@
 {
     int index = 0;
     NSMutableArray *authors = [[NSMutableArray alloc] init];
-    NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
+    NSString *dbPath = [XCZUtils getDatabaseFilePath];
     FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
 
     if ([db open]) {
@@ -93,7 +94,7 @@
 {
     int index = 0;
     NSMutableArray *authors = [[NSMutableArray alloc] init];
-    NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
+    NSString *dbPath = [XCZUtils getDatabaseFilePath];
     FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
 
     if ([db open]) {

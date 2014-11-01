@@ -25,4 +25,12 @@
     return width;
 }
 
++ (NSString *)getDatabaseFilePath
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *storePath = [documentsDirectory stringByAppendingPathComponent: @"xcz.db"];
+    return storePath;
+}
+
 @end

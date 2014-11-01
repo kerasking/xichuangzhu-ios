@@ -26,6 +26,7 @@
 
 + (XCZWork *)getById:(int)workId;
 + (NSMutableArray *)getAll;
++ (NSMutableArray *)reorderWorks;
 + (NSMutableArray *)getWorksByAuthorId:(int)authorId kind:(NSString *)kind;
 
 @end
