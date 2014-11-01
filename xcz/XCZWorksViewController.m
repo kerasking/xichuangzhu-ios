@@ -46,9 +46,9 @@
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
         
-    //添加“重新排序”按钮
+    //添加“重排序”按钮
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]
-                                    initWithTitle:@"重新排序"
+                                    initWithTitle:@"重排序"
                                     style:UIBarButtonItemStylePlain
                                     target:self
                                     action:@selector(reorderWorks:)];
@@ -58,7 +58,7 @@
 }
 
 - (IBAction)reorderWorks:(id)sender {
-    [AVAnalytics event:@"reorder_works"]; // “重新排序”事件。
+    [AVAnalytics event:@"reorder_works"]; // “重排序”事件。
     self.works = [XCZWork reorderWorks];
     [self.tableView reloadData];
     [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];

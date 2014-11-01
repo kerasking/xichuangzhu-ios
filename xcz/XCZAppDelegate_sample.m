@@ -13,6 +13,7 @@
 #import "XCZWorkDetailViewController.h"
 #import "XCZWork.h"
 #import <FMDB/FMDB.h>
+#import "XCZUtils.h"
 #import <AVOSCloud/AVOSCloud.h>
 
 #define AVOSCloudAppID  @""
@@ -21,27 +22,79 @@
 @implementation XCZAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{    
+{
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // 设置AVOSCloud
     [AVOSCloud setApplicationId:AVOSCloudAppID clientKey:AVOSCloudAppKey];
     
-    // 向用户申请通知权限
-    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
-        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]];
+    NSString *storePath = [XCZUtils getDatabaseFilePath];
+    NSString *bundleStore = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
+    //NSLog(@"%@", storePath);
+    
+    // 若Documents文件夹下不存在数据库文件，则执行拷贝
+    if (![[NSFileManager defaultManager] fileExistsAtPath:storePath]) {
+        NSLog(@"File not found... copy from bundle.");
+        [[NSFileManager defaultManager] copyItemAtPath:bundleStore toPath:storePath error:nil];
+    } else {
+        NSLog(@"File found.");
+        
+        NSString *latestVersion;
+        NSString *currentVersion;
+        
+        // 获取latestVersion
+        @try {
+            FMDatabase *db = [FMDatabase databaseWithPath:bundleStore];
+            [db open];
+            FMResultSet *s = [db executeQuery:@"SELECT * FROM version"];
+            [s next];
+            latestVersion = [s stringForColumn:@"version"];
+            [db close];
+        }
+        @catch (NSException * e) {
+            NSLog(@"Exception: %@", e);
+        }
+        
+        // 获取currentVersion
+        @try {
+            FMDatabase *db = [FMDatabase databaseWithPath:storePath];
+            [db open];
+            FMResultSet *s = [db executeQuery:@"SELECT * FROM version"];
+            [s next];
+            currentVersion = [s stringForColumn:@"version"];
+            [db close];
+        }
+        @catch (NSException * e) {
+            NSLog(@"Exception: %@", e);
+        }
+        
+        // 若 version 不匹配，则删除原有db，将新db复制过来
+        if(![latestVersion isEqualToString:currentVersion]) {
+            NSLog(@"Version not match...delete old one and copy new one from bundle.");
+            [[NSFileManager defaultManager] removeItemAtPath:storePath error:NULL];
+            [[NSFileManager defaultManager] removeItemAtPath:storePath error:NULL];[[NSFileManager defaultManager] copyItemAtPath:bundleStore toPath:storePath error:nil];
+        } else {
+            NSLog(@"Version match.");
+        }
     }
     
-    // app尚未运行时，处理local notification
-    UILocalNotification *localNotif = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
-    if (localNotif) {
-        [self handleLocalNotification:localNotif];
-    }
+    // 向用户申请通知权限
+    /*
+     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
+     [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]];
+     }
+     
+     // app尚未运行时，处理local notification
+     UILocalNotification *localNotif = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+     if (localNotif) {
+     [self handleLocalNotification:localNotif];
+     }
+     */
     
     // Override point for customization after application launch.
     
-    // 延迟1.2s
-    usleep(1200 * 1000);
+    // 延迟0.5s
+    usleep(500 * 1000);
     
     // 作品Nav
     XCZWorksViewController *worksController = [[XCZWorksViewController alloc] init];
@@ -83,7 +136,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
@@ -101,18 +154,20 @@
 {
 }
 
-// 处理local notification
-- (void)application:(UIApplication *)app didReceiveLocalNotification:(UILocalNotification *)notification {
-    UIApplicationState state = [app applicationState];
-    if (state != UIApplicationStateActive) {
-        [self handleLocalNotification:notification];
-    }
-}
-
-// 在应用运行时，处理local notification
-- (void)handleLocalNotification:(UILocalNotification *)notification
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"openWorkView" object:nil userInfo:notification.userInfo];
-}
+/*
+ // 处理local notification
+ - (void)application:(UIApplication *)app didReceiveLocalNotification:(UILocalNotification *)notification {
+ UIApplicationState state = [app applicationState];
+ if (state != UIApplicationStateActive) {
+ [self handleLocalNotification:notification];
+ }
+ }
+ 
+ // 处理local notification
+ - (void)handleLocalNotification:(UILocalNotification *)notification
+ {
+ [[NSNotificationCenter defaultCenter] postNotificationName:@"openWorkView" object:nil userInfo:notification.userInfo];
+ }
+ */
 
 @end
