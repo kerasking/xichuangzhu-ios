@@ -27,6 +27,9 @@
 {
     self = [super init];
     
+    // 当app初始化时，显示Status Bar
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
+    
     if (self) {
         UINavigationItem *navItem = self.navigationItem;
         navItem.title = @"全部作品";

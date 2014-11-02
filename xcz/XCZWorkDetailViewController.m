@@ -31,13 +31,14 @@
     if (self) {
         self.showAuthorButton = YES;
     }
-    
+
     return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     if (self.showAuthorButton) {
         UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]
                                         initWithTitle:self.work.author
@@ -46,6 +47,21 @@
                                         action:@selector(redirectToAuthor:)];
         [self.navigationItem setRightBarButtonItem:rightButton];
     }
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(toggleBars:)];
+    [self.view addGestureRecognizer:singleTap];
+}
+
+- (void)toggleBars:(UITapGestureRecognizer *)gesture
+{
+    // Toggle statusbar
+    [[UIApplication sharedApplication] setStatusBarHidden:![[UIApplication sharedApplication] isStatusBarHidden] withAnimation:UIStatusBarAnimationSlide];
+    
+    // Toggle navigationbar
+    [self.navigationController setNavigationBarHidden:!self.navigationController.navigationBar.hidden animated:YES];
+    
+    // Toggle tabbar
+    BOOL tabBarHidden = self.tabBarController.tabBar.hidden;
+    [self.tabBarController.tabBar setHidden:!tabBarHidden];
 }
 
 // 移除NSNotification Observer
