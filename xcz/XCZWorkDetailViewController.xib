@@ -13,6 +13,7 @@
                 <outlet property="contentView" destination="FfD-Bw-Cdd" id="Pbu-Wg-MVa"/>
                 <outlet property="introField" destination="1p1-gD-O6S" id="qF5-e1-EPf"/>
                 <outlet property="titleField" destination="3KG-O2-X76" id="d5g-be-H9S"/>
+                <outlet property="titleTopConstraint" destination="FE1-0h-3sh" id="Jju-vb-WBm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

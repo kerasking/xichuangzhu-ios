@@ -14,6 +14,7 @@
 
 @interface XCZWorkDetailViewController ()
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleTopConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *authorTopConstraint;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UILabel *titleField;
@@ -60,7 +61,22 @@
     [self.navigationController setNavigationBarHidden:!self.navigationController.navigationBar.hidden animated:YES];
     
     // Toggle tabbar
+    [self.view layoutIfNeeded];
+    
     BOOL tabBarHidden = self.tabBarController.tabBar.hidden;
+
+    // 全屏模式下，扩大title的顶部间距
+    if (tabBarHidden) {
+        self.titleTopConstraint.constant = 40;
+    } else {
+        self.titleTopConstraint.constant = 60;
+    }
+    
+    [UIView animateWithDuration:0.4
+                     animations:^{
+                         [self.view layoutIfNeeded]; // Called on parent view
+                     }];
+    
     [self.tabBarController.tabBar setHidden:!tabBarHidden];
 }
 
