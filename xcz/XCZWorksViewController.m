@@ -63,8 +63,17 @@
 - (IBAction)reorderWorks:(id)sender {
     [AVAnalytics event:@"reorder_works"]; // “重排序”事件。
     self.works = [XCZWork reorderWorks];
-    [self.tableView reloadData];
-    [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+    [UIView transitionWithView: self.tableView
+                      duration: 0.15f
+                       options: UIViewAnimationOptionTransitionCrossDissolve
+                    animations: ^(void)
+     {
+         [self.tableView reloadData];
+     }
+                    completion: ^(BOOL isFinished)
+     {
+         /* TODO: Whatever you want here */
+     }];
 }
 
 // 收到通知中心通知后，进入特定的作品页面

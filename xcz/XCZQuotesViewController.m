@@ -65,7 +65,18 @@
 - (IBAction)refreshQuotes:(id)sender {
     [AVAnalytics event:@"refresh_random_works"]; // “换一换”事件。
     [self loadQuotes];
-    [self.tableView reloadData];
+    
+    [UIView transitionWithView: self.tableView
+                      duration: 0.2f
+                       options: UIViewAnimationOptionTransitionCrossDissolve
+                    animations: ^(void)
+     {
+         [self.tableView reloadData];
+     }
+                    completion: ^(BOOL isFinished)
+     {
+         /* TODO: Whatever you want here */
+     }];
 }
 
 - (void)didReceiveMemoryWarning
