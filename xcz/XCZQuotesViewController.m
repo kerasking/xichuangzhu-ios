@@ -31,10 +31,26 @@
         
         // 根据屏幕大小来确定摘录的显示数目，以保证一屏能够显示完全
         int height = (int)([[UIScreen mainScreen] bounds].size.height);
-        if (height >= 568) {
-            self.quotesCount = 10;
-        } else {
-            self.quotesCount = 8;
+        switch (height) {
+            case 480:
+                self.quotesCount = 8;
+                break;
+                
+            case 568:
+                self.quotesCount = 10;
+                break;
+                
+            case 667:
+                self.quotesCount = 12;
+                break;
+                
+            case 736:
+                self.quotesCount = 14;
+                break;
+                
+            default:
+                self.quotesCount = 10;
+                break;
         }
         
         // 加载摘录
