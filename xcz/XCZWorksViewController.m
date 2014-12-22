@@ -16,7 +16,6 @@
 
 @property (nonatomic, strong) NSMutableArray *works;
 @property (nonatomic, strong) NSArray *searchResults;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
