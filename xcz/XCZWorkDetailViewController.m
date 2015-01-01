@@ -42,7 +42,7 @@
 {
     [super viewDidLoad];
     
-    // 初始话navbar按钮
+    // 初始化navbar按钮
     bool showLike = ![XCZLike checkExist:self.work.id];
     [self initNavbarShowAuthor:self.showAuthorButton showLike:showLike];
 
