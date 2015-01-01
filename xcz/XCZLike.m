@@ -108,7 +108,7 @@
         NSString *dbPath = [XCZUtils getUserDatabaseFilePath];
         FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
         if ([db open]) {
-            NSString *query = [[NSString alloc] initWithFormat:@"DELETE FROM likes WHERE work_id = %d)", workId];
+            NSString *query = [[NSString alloc] initWithFormat:@"DELETE FROM likes WHERE work_id = %d", workId];
             result = [db executeUpdate:query];
             
             [db close];

@@ -42,34 +42,65 @@
 {
     [super viewDidLoad];
     
-    /*UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]
-     initWithTitle:self.work.author
-     style:UIBarButtonItemStylePlain
-     target:self
-     action:@selector(redirectToAuthor:)];*/
-    //[self.navigationItem setRightBarButtonItem:rightButton];
+    // 初始话navbar按钮
+    bool showLike = ![XCZLike checkExist:self.work.id];
+    [self initNavbarShowAuthor:self.showAuthorButton showLike:showLike];
+
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(toggleBars:)];
+    [self.view addGestureRecognizer:singleTap];
+}
+
+// 设置navbar的按钮显示
+- (void) initNavbarShowAuthor:(bool)showAuthor showLike:(bool)showLike
+{
+    NSMutableArray *btnArrays = [[NSMutableArray alloc] initWithObjects:nil];
     
+    // 是否显示作者按钮
+    if (showAuthor) {
+        UIBarButtonItem * authorButton = [self createAuthorButton];
+        [btnArrays addObject:authorButton];
+    }
+    
+    // 显示收藏/取消收藏按钮
+    if (showLike) {
+        UIBarButtonItem * likeButton = [self createLikeButton];
+        [btnArrays addObject:likeButton];
+    } else {
+        UIBarButtonItem * unlikeButton = [self createUnlikeButton];
+        [btnArrays addObject:unlikeButton];
+    }
+    
+    self.navigationItem.rightBarButtonItems = btnArrays;
+}
+
+// 创建AuthorButton
+- (UIBarButtonItem *)createAuthorButton
+{
     UIImage *authorIcon = [IonIcons imageWithIcon:icon_ios7_person_outline
                                         iconColor:self.view.tintColor
                                          iconSize:30.0f
                                         imageSize:CGSizeMake(30.0f, 30.0f)];
-    UIBarButtonItem *authorButton = [[UIBarButtonItem alloc] initWithImage:authorIcon style:UIBarButtonItemStylePlain target:self action:@selector(redirectToAuthor:)];
-    
+    return [[UIBarButtonItem alloc] initWithImage:authorIcon style:UIBarButtonItemStylePlain target:self action:@selector(redirectToAuthor:)];
+}
+
+// 创建LikeButton
+- (UIBarButtonItem *)createLikeButton
+{
     UIImage *likeIcon = [IonIcons imageWithIcon:icon_ios7_heart_outline
                                       iconColor:self.view.tintColor
                                        iconSize:30.0f
                                       imageSize:CGSizeMake(30.0f, 30.0f)];
-    UIBarButtonItem *likeButton = [[UIBarButtonItem alloc] initWithImage:likeIcon style:UIBarButtonItemStylePlain target:self action:@selector(likeWork:)];
-    
-    // 是否显示作者按钮
-    if (self.showAuthorButton) {
-        self.navigationItem.rightBarButtonItems = @[authorButton, likeButton];
-    } else {
-        self.navigationItem.rightBarButtonItems = @[likeButton];
-    }
-    
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(toggleBars:)];
-    [self.view addGestureRecognizer:singleTap];
+    return [[UIBarButtonItem alloc] initWithImage:likeIcon style:UIBarButtonItemStylePlain target:self action:@selector(likeWork:)];
+}
+
+// 创建UnlikeButton
+- (UIBarButtonItem *)createUnlikeButton
+{
+    UIImage *unlikeIcon = [IonIcons imageWithIcon:icon_ios7_heart
+                                        iconColor:self.view.tintColor
+                                         iconSize:30.0f
+                                        imageSize:CGSizeMake(30.0f, 30.0f)];
+    return [[UIBarButtonItem alloc] initWithImage:unlikeIcon style:UIBarButtonItemStylePlain target:self action:@selector(unlikeWork:)];
 }
 
 // 进入/退出全屏模式
@@ -196,7 +227,23 @@
 
 - (IBAction)likeWork:(id)sender
 {
-    [XCZLike like:self.work.id];
+    bool result = [XCZLike like:self.work.id];
+    
+    if (result) {
+        [self initNavbarShowAuthor:self.showAuthorButton showLike:false];
+    }
+    
+    // 发送数据重载通知
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadLikesData" object:nil userInfo:nil];
+}
+
+- (IBAction)unlikeWork:(id)sender
+{
+    bool result = [XCZLike unlike:self.work.id];
+    
+    if (result) {
+        [self initNavbarShowAuthor:self.showAuthorButton showLike:true];
+    }
     
     // 发送数据重载通知
     [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadLikesData" object:nil userInfo:nil];
