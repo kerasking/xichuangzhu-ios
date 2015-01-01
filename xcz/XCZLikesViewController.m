@@ -57,8 +57,40 @@
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     
+    //添加“编辑”按钮
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]
+                                    initWithTitle:@"编辑"
+                                    style:UIBarButtonItemStylePlain
+                                    target:self
+                                    action:@selector(toggleEditingMode:)];
+    [self.navigationItem setRightBarButtonItem:rightButton];
+    
     // 收到数据重载通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadNotificationReceived:) name:@"reloadLikesData" object:nil];
+}
+
+- (IBAction)toggleEditingMode:(id)sender
+{
+    if (self.tableView.isEditing) {
+        self.navigationItem.rightBarButtonItem.title = @"编辑";
+        [self.tableView setEditing:NO animated:YES];
+    } else {
+        self.navigationItem.rightBarButtonItem.title = @"完成";
+        [self.tableView setEditing:YES animated:YES];
+    }
+}
+
+// 取消收藏
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSLog(@"DSADSA");
+        XCZWork *work = self.works[indexPath.row];
+        [XCZLike unlike:work.id];
+        [self.works removeObjectAtIndex:indexPath.row];
+        
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
