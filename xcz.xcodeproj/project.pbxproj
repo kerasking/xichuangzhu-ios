@@ -16,6 +16,7 @@
 		05B2287C195FD19500F91BCC /* xcz.db in Resources */ = {isa = PBXBuildFile; fileRef = 05B2287B195FCEBE00F91BCC /* xcz.db */; };
 		05B2287F196024ED00F91BCC /* XCZWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B2287E196024ED00F91BCC /* XCZWork.m */; };
 		05BDB0B91A555CA800DBBFBF /* xcz_user.db in Resources */ = {isa = PBXBuildFile; fileRef = 05BDB0B81A555CA800DBBFBF /* xcz_user.db */; };
+		05BDB0BC1A555D7700DBBFBF /* XCZLike.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BDB0BB1A555D7700DBBFBF /* XCZLike.m */; };
 		05CC12F5196569690014989C /* XCZAuthorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CC12F4196569690014989C /* XCZAuthorsViewController.m */; };
 		05CC12F8196569DD0014989C /* XCZAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CC12F7196569DD0014989C /* XCZAuthor.m */; };
 		05CC12FC196583F60014989C /* XCZDynasty.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CC12FB196583F60014989C /* XCZDynasty.m */; };
@@ -65,6 +66,8 @@
 		05B2287D196024ED00F91BCC /* XCZWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZWork.h; sourceTree = "<group>"; };
 		05B2287E196024ED00F91BCC /* XCZWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZWork.m; sourceTree = "<group>"; };
 		05BDB0B81A555CA800DBBFBF /* xcz_user.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = xcz_user.db; sourceTree = "<group>"; };
+		05BDB0BA1A555D7700DBBFBF /* XCZLike.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZLike.h; sourceTree = "<group>"; };
+		05BDB0BB1A555D7700DBBFBF /* XCZLike.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZLike.m; sourceTree = "<group>"; };
 		05CC12F3196569690014989C /* XCZAuthorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZAuthorsViewController.h; sourceTree = "<group>"; };
 		05CC12F4196569690014989C /* XCZAuthorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZAuthorsViewController.m; sourceTree = "<group>"; };
 		05CC12F6196569DD0014989C /* XCZAuthor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZAuthor.h; sourceTree = "<group>"; };
@@ -132,6 +135,8 @@
 			children = (
 				05CC12F6196569DD0014989C /* XCZAuthor.h */,
 				05CC12F7196569DD0014989C /* XCZAuthor.m */,
+				05BDB0BA1A555D7700DBBFBF /* XCZLike.h */,
+				05BDB0BB1A555D7700DBBFBF /* XCZLike.m */,
 				05B2287D196024ED00F91BCC /* XCZWork.h */,
 				05B2287E196024ED00F91BCC /* XCZWork.m */,
 				05CC12FA196583F60014989C /* XCZDynasty.h */,
@@ -393,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05CC12FC196583F60014989C /* XCZDynasty.m in Sources */,
+				05BDB0BC1A555D7700DBBFBF /* XCZLike.m in Sources */,
 				05D4A1DB1967F5BA00D5F534 /* XCZQuotesViewController.m in Sources */,
 				05B2287F196024ED00F91BCC /* XCZWork.m in Sources */,
 				05827AA0196A8236003ABBDD /* XCZUtils.m in Sources */,
