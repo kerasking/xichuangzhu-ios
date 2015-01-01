@@ -6,6 +6,7 @@ target "xcz" do
 pod 'FMDB'
 pod 'AVOSCloud'
 pod 'HTCopyableLabel'
+pod 'ionicons'
 
 end
 

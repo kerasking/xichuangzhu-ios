@@ -15,6 +15,7 @@
 #import <FMDB/FMDB.h>
 #import "XCZUtils.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import "IonIcons.h"
 
 #define AVOSCloudAppID  @""
 #define AVOSCloudAppKey @""
@@ -22,7 +23,7 @@
 @implementation XCZAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+{    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // 设置AVOSCloud
@@ -80,16 +81,16 @@
     
     // 向用户申请通知权限
     /*
-     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
-     [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]];
-     }
-     
-     // app尚未运行时，处理local notification
-     UILocalNotification *localNotif = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
-     if (localNotif) {
-     [self handleLocalNotification:localNotif];
-     }
-     */
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound categories:nil]];
+    }
+    
+    // app尚未运行时，处理local notification
+    UILocalNotification *localNotif = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (localNotif) {
+        [self handleLocalNotification:localNotif];
+    }
+    */
     
     // Override point for customization after application launch.
     
@@ -110,6 +111,21 @@
     UIImage *authorsImg = [UIImage imageNamed:@"authors.png"];
     authorsNavController.tabBarItem.image = authorsImg;
     
+    // 收藏Nav
+    XCZWorksViewController *likesController = [[XCZWorksViewController alloc] init];
+    UINavigationController *likesNavController = [[UINavigationController alloc] initWithRootViewController:likesController];
+    likesNavController.tabBarItem.title = @"收藏";
+    UIImage *likeIcon = [IonIcons imageWithIcon:icon_ios7_heart_outline
+                                      iconColor:[UIColor colorWithRed:146.0/255.0 green:146.0/255.0 blue:146.0/255.0 alpha:1.0]
+                                        iconSize:30.0f
+                                       imageSize:CGSizeMake(30.0f, 30.0f)];
+    UIImage *selectedLikeIcon = [IonIcons imageWithIcon:icon_ios7_heart_outline
+                                      iconColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]
+                                       iconSize:30.0f
+                                      imageSize:CGSizeMake(30.0f, 30.0f)];
+    likesNavController.tabBarItem.image = likeIcon;
+    likesNavController.tabBarItem.selectedImage = selectedLikeIcon;
+    
     // 名言Nav
     XCZQuotesViewController *quotesController = [[XCZQuotesViewController alloc] init];
     UINavigationController *quotesNavController = [[UINavigationController alloc] initWithRootViewController:quotesController];
@@ -118,7 +134,7 @@
     
     // TabBar Controller
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = @[worksNavController, authorsNavController, quotesNavController];
+    tabBarController.viewControllers = @[worksNavController, authorsNavController, likesNavController, quotesNavController];
     
     // Root Controller
     [self.window setRootViewController:tabBarController];
@@ -136,7 +152,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
@@ -155,19 +171,19 @@
 }
 
 /*
- // 处理local notification
- - (void)application:(UIApplication *)app didReceiveLocalNotification:(UILocalNotification *)notification {
- UIApplicationState state = [app applicationState];
- if (state != UIApplicationStateActive) {
- [self handleLocalNotification:notification];
- }
- }
- 
- // 处理local notification
- - (void)handleLocalNotification:(UILocalNotification *)notification
- {
- [[NSNotificationCenter defaultCenter] postNotificationName:@"openWorkView" object:nil userInfo:notification.userInfo];
- }
- */
+// 处理local notification
+- (void)application:(UIApplication *)app didReceiveLocalNotification:(UILocalNotification *)notification {
+    UIApplicationState state = [app applicationState];
+    if (state != UIApplicationStateActive) {
+        [self handleLocalNotification:notification];
+    }
+}
+
+// 处理local notification
+- (void)handleLocalNotification:(UILocalNotification *)notification
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"openWorkView" object:nil userInfo:notification.userInfo];
+}
+*/
 
 @end
