@@ -10,6 +10,7 @@
 #import "XCZUtils.h"
 #import "XCZQuote.h"
 #import "IonIcons.h"
+#import "XCZLike.h"
 #import "XCZAuthorDetailsViewController.h"
 #import <AVOSCloud/AVOSCloud.h>
 
@@ -59,7 +60,7 @@
                                           iconColor:self.view.tintColor
                                            iconSize:30.0f
                                           imageSize:CGSizeMake(30.0f, 30.0f)];
-        UIBarButtonItem *likeButton = [[UIBarButtonItem alloc] initWithImage:likeIcon style:UIBarButtonItemStylePlain target:self action:@selector(redirectToAuthor:)];
+        UIBarButtonItem *likeButton = [[UIBarButtonItem alloc] initWithImage:likeIcon style:UIBarButtonItemStylePlain target:self action:@selector(likeWork:)];
         
         self.navigationItem.rightBarButtonItems = @[authorButton, likeButton];
     }
@@ -188,6 +189,14 @@
     
     XCZAuthorDetailsViewController *authorDetailController = [[XCZAuthorDetailsViewController alloc] initWithAuthorId:self.work.authorId];
     [self.navigationController pushViewController:authorDetailController animated:YES];
+}
+
+- (IBAction)likeWork:(id)sender
+{
+    [XCZLike like:self.work.id];
+    
+    // 发送数据重载通知
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadLikesData" object:nil userInfo:nil];
 }
 
 - (void)didReceiveMemoryWarning

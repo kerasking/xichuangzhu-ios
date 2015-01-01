@@ -87,6 +87,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    // 取消选中效果
     NSIndexPath *tableSelection = [self.tableView indexPathForSelectedRow];
     [self.tableView deselectRowAtIndexPath:tableSelection animated:YES];
 }
@@ -110,7 +111,7 @@
 // 过滤结果
 - (void)filterContentForSearchText:(NSString*)searchText
 {
-    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"title contains[c] %@", searchText];
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"fullTitle contains[c] %@", searchText];
     self.searchResults = [self.works filteredArrayUsingPredicate:resultPredicate];
 }
 

@@ -25,6 +25,7 @@
         [s next];
         work.id = [s intForColumn:@"id"];
         work.title = [s stringForColumn:@"title"];
+        work.fullTitle = [s stringForColumn:@"full_title"];
         work.authorId = [s intForColumn:@"author_id"];
         work.author = [s stringForColumn:@"author"];
         work.dynasty = [s stringForColumn:@"dynasty"];

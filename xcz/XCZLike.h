@@ -16,7 +16,7 @@
 
 + (NSMutableArray *)getAll;
 + (bool)like:(int)workId;
-+ (bool)unlike:(int)workId
++ (bool)unlike:(int)workId;
 + (bool)checkExist:(int)workId;
 + (int)getMaxShowOrder;
 
