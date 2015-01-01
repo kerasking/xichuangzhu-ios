@@ -15,6 +15,7 @@
 		05B22879195F0F1600F91BCC /* XCZWorksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B22877195F0F1600F91BCC /* XCZWorksViewController.m */; };
 		05B2287C195FD19500F91BCC /* xcz.db in Resources */ = {isa = PBXBuildFile; fileRef = 05B2287B195FCEBE00F91BCC /* xcz.db */; };
 		05B2287F196024ED00F91BCC /* XCZWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B2287E196024ED00F91BCC /* XCZWork.m */; };
+		05BDB0B91A555CA800DBBFBF /* xcz_user.db in Resources */ = {isa = PBXBuildFile; fileRef = 05BDB0B81A555CA800DBBFBF /* xcz_user.db */; };
 		05CC12F5196569690014989C /* XCZAuthorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CC12F4196569690014989C /* XCZAuthorsViewController.m */; };
 		05CC12F8196569DD0014989C /* XCZAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CC12F7196569DD0014989C /* XCZAuthor.m */; };
 		05CC12FC196583F60014989C /* XCZDynasty.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CC12FB196583F60014989C /* XCZDynasty.m */; };
@@ -63,6 +64,7 @@
 		05B2287B195FCEBE00F91BCC /* xcz.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = xcz.db; sourceTree = "<group>"; };
 		05B2287D196024ED00F91BCC /* XCZWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZWork.h; sourceTree = "<group>"; };
 		05B2287E196024ED00F91BCC /* XCZWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZWork.m; sourceTree = "<group>"; };
+		05BDB0B81A555CA800DBBFBF /* xcz_user.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = xcz_user.db; sourceTree = "<group>"; };
 		05CC12F3196569690014989C /* XCZAuthorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZAuthorsViewController.h; sourceTree = "<group>"; };
 		05CC12F4196569690014989C /* XCZAuthorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZAuthorsViewController.m; sourceTree = "<group>"; };
 		05CC12F6196569DD0014989C /* XCZAuthor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZAuthor.h; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 		05DF00CF195F0CE100175ABF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				05BDB0B81A555CA800DBBFBF /* xcz_user.db */,
 				05B2287B195FCEBE00F91BCC /* xcz.db */,
 				05DF00D0195F0CE100175ABF /* xcz-Info.plist */,
 				05DF00D1195F0CE100175ABF /* InfoPlist.strings */,
@@ -332,6 +335,7 @@
 			files = (
 				05B2287C195FD19500F91BCC /* xcz.db in Resources */,
 				05CC13191966FCFC0014989C /* AuthorHeaderView.xib in Resources */,
+				05BDB0B91A555CA800DBBFBF /* xcz_user.db in Resources */,
 				05CE723719A4D97C003864E4 /* Images.xcassets in Resources */,
 				0573FF24196847A0005341F2 /* XCZAuthorsViewController.xib in Resources */,
 				05DF00D3195F0CE100175ABF /* InfoPlist.strings in Resources */,

@@ -16,5 +16,6 @@
 
 + (NSUInteger)currentWindowWidth;
 + (NSString *)getDatabaseFilePath;
++ (NSString *)getUserDatabaseFilePath;
 
 @end
