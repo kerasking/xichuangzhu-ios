@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		052E90FB1A558665000D9892 /* XCZLikesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 052E90FA1A558665000D9892 /* XCZLikesViewController.xib */; };
 		0573FF2219682050005341F2 /* XCZWorksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0573FF2119682050005341F2 /* XCZWorksViewController.xib */; };
 		0573FF24196847A0005341F2 /* XCZAuthorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0573FF23196847A0005341F2 /* XCZAuthorsViewController.xib */; };
 		05827AA0196A8236003ABBDD /* XCZUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 05827A9F196A8236003ABBDD /* XCZUtils.m */; };
@@ -18,7 +19,6 @@
 		05BDB0B91A555CA800DBBFBF /* xcz_user.db in Resources */ = {isa = PBXBuildFile; fileRef = 05BDB0B81A555CA800DBBFBF /* xcz_user.db */; };
 		05BDB0BC1A555D7700DBBFBF /* XCZLike.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BDB0BB1A555D7700DBBFBF /* XCZLike.m */; };
 		05BDB0C21A5566FE00DBBFBF /* XCZLikesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BDB0C01A5566FE00DBBFBF /* XCZLikesViewController.m */; };
-		05BDB0C41A556BC000DBBFBF /* XCZLikesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05BDB0C61A556BC000DBBFBF /* XCZLikesViewController.xib */; };
 		05CC12F5196569690014989C /* XCZAuthorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CC12F4196569690014989C /* XCZAuthorsViewController.m */; };
 		05CC12F8196569DD0014989C /* XCZAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CC12F7196569DD0014989C /* XCZAuthor.m */; };
 		05CC12FC196583F60014989C /* XCZDynasty.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CC12FB196583F60014989C /* XCZDynasty.m */; };
@@ -31,7 +31,6 @@
 		05DF00C9195F0CE100175ABF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DF00C8195F0CE100175ABF /* CoreGraphics.framework */; };
 		05DF00CB195F0CE100175ABF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DF00CA195F0CE100175ABF /* UIKit.framework */; };
 		05DF00CD195F0CE100175ABF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DF00CC195F0CE100175ABF /* CoreData.framework */; };
-		05DF00D3195F0CE100175ABF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05DF00D1195F0CE100175ABF /* InfoPlist.strings */; };
 		05DF00D5195F0CE100175ABF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DF00D4195F0CE100175ABF /* main.m */; };
 		05DF00D9195F0CE100175ABF /* XCZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DF00D8195F0CE100175ABF /* XCZAppDelegate.m */; };
 		05DF00E5195F0CE100175ABF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DF00E4195F0CE100175ABF /* XCTest.framework */; };
@@ -55,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		051C225419B8B1FC00FA14E8 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		052E90FA1A558665000D9892 /* XCZLikesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XCZLikesViewController.xib; sourceTree = "<group>"; };
 		0573FF2119682050005341F2 /* XCZWorksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XCZWorksViewController.xib; sourceTree = "<group>"; };
 		0573FF23196847A0005341F2 /* XCZAuthorsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XCZAuthorsViewController.xib; sourceTree = "<group>"; };
 		05827A9E196A8236003ABBDD /* XCZUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZUtils.h; sourceTree = "<group>"; };
@@ -72,7 +72,6 @@
 		05BDB0BB1A555D7700DBBFBF /* XCZLike.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZLike.m; sourceTree = "<group>"; };
 		05BDB0BF1A5566FE00DBBFBF /* XCZLikesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZLikesViewController.h; sourceTree = "<group>"; };
 		05BDB0C01A5566FE00DBBFBF /* XCZLikesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZLikesViewController.m; sourceTree = "<group>"; };
-		05BDB0C51A556BC000DBBFBF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/XCZLikesViewController.xib; sourceTree = "<group>"; };
 		05CC12F3196569690014989C /* XCZAuthorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZAuthorsViewController.h; sourceTree = "<group>"; };
 		05CC12F4196569690014989C /* XCZAuthorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZAuthorsViewController.m; sourceTree = "<group>"; };
 		05CC12F6196569DD0014989C /* XCZAuthor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZAuthor.h; sourceTree = "<group>"; };
@@ -93,7 +92,6 @@
 		05DF00CA195F0CE100175ABF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		05DF00CC195F0CE100175ABF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		05DF00D0195F0CE100175ABF /* xcz-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "xcz-Info.plist"; sourceTree = "<group>"; };
-		05DF00D2195F0CE100175ABF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		05DF00D4195F0CE100175ABF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		05DF00D6195F0CE100175ABF /* xcz-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "xcz-Prefix.pch"; sourceTree = "<group>"; };
 		05DF00D7195F0CE100175ABF /* XCZAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XCZAppDelegate.h; sourceTree = "<group>"; };
@@ -155,6 +153,7 @@
 		05CC12FD196586890014989C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				052E90FA1A558665000D9892 /* XCZLikesViewController.xib */,
 				05CC13181966FCFC0014989C /* AuthorHeaderView.xib */,
 				05CC130D1966689F0014989C /* XCZAuthorDetailsViewController.h */,
 				05CC130E1966689F0014989C /* XCZAuthorDetailsViewController.m */,
@@ -162,7 +161,6 @@
 				05B22877195F0F1600F91BCC /* XCZWorksViewController.m */,
 				05BDB0BF1A5566FE00DBBFBF /* XCZLikesViewController.h */,
 				05BDB0C01A5566FE00DBBFBF /* XCZLikesViewController.m */,
-				05BDB0C61A556BC000DBBFBF /* XCZLikesViewController.xib */,
 				0573FF2119682050005341F2 /* XCZWorksViewController.xib */,
 				05CC12F3196569690014989C /* XCZAuthorsViewController.h */,
 				05CC12F4196569690014989C /* XCZAuthorsViewController.m */,
@@ -231,7 +229,6 @@
 				05BDB0B81A555CA800DBBFBF /* xcz_user.db */,
 				05B2287B195FCEBE00F91BCC /* xcz.db */,
 				05DF00D0195F0CE100175ABF /* xcz-Info.plist */,
-				05DF00D1195F0CE100175ABF /* InfoPlist.strings */,
 				05DF00D4195F0CE100175ABF /* main.m */,
 				05DF00D6195F0CE100175ABF /* xcz-Prefix.pch */,
 			);
@@ -350,9 +347,8 @@
 				05CC13191966FCFC0014989C /* AuthorHeaderView.xib in Resources */,
 				05BDB0B91A555CA800DBBFBF /* xcz_user.db in Resources */,
 				05CE723719A4D97C003864E4 /* Images.xcassets in Resources */,
-				05BDB0C41A556BC000DBBFBF /* XCZLikesViewController.xib in Resources */,
+				052E90FB1A558665000D9892 /* XCZLikesViewController.xib in Resources */,
 				0573FF24196847A0005341F2 /* XCZAuthorsViewController.xib in Resources */,
-				05DF00D3195F0CE100175ABF /* InfoPlist.strings in Resources */,
 				0573FF2219682050005341F2 /* XCZWorksViewController.xib in Resources */,
 				05ABB5CB1961525900341AAC /* XCZWorkDetailViewController.xib in Resources */,
 			);
@@ -442,22 +438,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		05BDB0C61A556BC000DBBFBF /* XCZLikesViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				05BDB0C51A556BC000DBBFBF /* en */,
-			);
-			name = XCZLikesViewController.xib;
-			sourceTree = "<group>";
-		};
-		05DF00D1195F0CE100175ABF /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				05DF00D2195F0CE100175ABF /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		05DF00EE195F0CE100175ABF /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
