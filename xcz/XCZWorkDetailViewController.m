@@ -78,8 +78,8 @@
 {
     UIImage *authorIcon = [IonIcons imageWithIcon:icon_ios7_person_outline
                                         iconColor:self.view.tintColor
-                                         iconSize:30.0f
-                                        imageSize:CGSizeMake(30.0f, 30.0f)];
+                                         iconSize:32.0f
+                                        imageSize:CGSizeMake(32.0f, 32.0f)];
     return [[UIBarButtonItem alloc] initWithImage:authorIcon style:UIBarButtonItemStylePlain target:self action:@selector(redirectToAuthor:)];
 }
 
@@ -88,8 +88,8 @@
 {
     UIImage *likeIcon = [IonIcons imageWithIcon:icon_ios7_heart_outline
                                       iconColor:self.view.tintColor
-                                       iconSize:30.0f
-                                      imageSize:CGSizeMake(30.0f, 30.0f)];
+                                       iconSize:26.0f
+                                      imageSize:CGSizeMake(26.0f, 26.0f)];
     return [[UIBarButtonItem alloc] initWithImage:likeIcon style:UIBarButtonItemStylePlain target:self action:@selector(likeWork:)];
 }
 
@@ -98,8 +98,8 @@
 {
     UIImage *unlikeIcon = [IonIcons imageWithIcon:icon_ios7_heart
                                         iconColor:self.view.tintColor
-                                         iconSize:30.0f
-                                        imageSize:CGSizeMake(30.0f, 30.0f)];
+                                         iconSize:26.0f
+                                        imageSize:CGSizeMake(26.0f, 26.0f)];
     return [[UIBarButtonItem alloc] initWithImage:unlikeIcon style:UIBarButtonItemStylePlain target:self action:@selector(unlikeWork:)];
 }
 
