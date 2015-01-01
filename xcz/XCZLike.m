@@ -26,6 +26,7 @@
             XCZLike *like = [[XCZLike alloc] init];
             like.id = [s intForColumn:@"id"];
             like.workId = [s intForColumn:@"work_id"];
+            like.showOrder = [s intForColumn:@"show_order"];
             like.createdAt = [s stringForColumn:@"created_at"];
             likes[index] = like;
             index++;
@@ -109,6 +110,26 @@
         FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
         if ([db open]) {
             NSString *query = [[NSString alloc] initWithFormat:@"DELETE FROM likes WHERE work_id = %d", workId];
+            result = [db executeUpdate:query];
+            
+            [db close];
+        }
+    }
+    
+    return result;
+}
+
+// 更新showOrder
++ (bool)updateWork:(int)workId showOrder:(int)showOrder
+{
+    bool exist = [self checkExist:workId];
+    bool result;
+    
+    if (exist) {
+        NSString *dbPath = [XCZUtils getUserDatabaseFilePath];
+        FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
+        if ([db open]) {
+            NSString *query = [[NSString alloc] initWithFormat:@"UPDATE likes SET show_order = %d WHERE work_id = %d", showOrder, workId];
             result = [db executeUpdate:query];
             
             [db close];

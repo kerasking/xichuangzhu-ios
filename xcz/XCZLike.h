@@ -12,6 +12,7 @@
 
 @property (nonatomic) int id;
 @property (nonatomic) int workId;
+@property (nonatomic) int showOrder;
 @property (nonatomic, strong) NSString *createdAt;
 
 + (NSMutableArray *)getAll;
@@ -19,5 +20,6 @@
 + (bool)unlike:(int)workId;
 + (bool)checkExist:(int)workId;
 + (int)getMaxShowOrder;
++ (bool)updateWork:(int)workId showOrder:(int)showOrder;
 
 @end

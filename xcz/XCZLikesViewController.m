@@ -74,6 +74,12 @@
     if (self.tableView.isEditing) {
         self.navigationItem.rightBarButtonItem.title = @"编辑";
         [self.tableView setEditing:NO animated:YES];
+        
+        // 在退出编辑模式时进行次序更新
+        for (int i = 0; i < self.works.count; i++) {
+            XCZWork *work = self.works[i];
+            [XCZLike updateWork:work.id showOrder:i];
+        }
     } else {
         self.navigationItem.rightBarButtonItem.title = @"完成";
         [self.tableView setEditing:YES animated:YES];
@@ -84,12 +90,22 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSLog(@"DSADSA");
         XCZWork *work = self.works[indexPath.row];
         [XCZLike unlike:work.id];
         [self.works removeObjectAtIndex:indexPath.row];
         
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+// 交换次序
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    if (sourceIndexPath.row != destinationIndexPath.row) {
+        XCZWork *sourceWork = self.works[sourceIndexPath.row];
+        
+        [self.works removeObjectAtIndex:sourceIndexPath.row];
+        [self.works insertObject:sourceWork atIndex:destinationIndexPath.row];
     }
 }
 
