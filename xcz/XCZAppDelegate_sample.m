@@ -11,6 +11,7 @@
 #import "XCZAuthorsViewController.h"
 #import "XCZQuotesViewController.h"
 #import "XCZWorkDetailViewController.h"
+#import "XCZLikesViewController.h"
 #import "XCZWork.h"
 #import <FMDB/FMDB.h>
 #import "XCZUtils.h"
@@ -29,55 +30,9 @@
     // 设置AVOSCloud
     [AVOSCloud setApplicationId:AVOSCloudAppID clientKey:AVOSCloudAppKey];
     
-    NSString *storePath = [XCZUtils getDatabaseFilePath];
-    NSString *bundleStore = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
-    //NSLog(@"%@", storePath);
-    
-    // 若Documents文件夹下不存在数据库文件，则执行拷贝
-    if (![[NSFileManager defaultManager] fileExistsAtPath:storePath]) {
-        NSLog(@"File not found... copy from bundle.");
-        [[NSFileManager defaultManager] copyItemAtPath:bundleStore toPath:storePath error:nil];
-    } else {
-        NSLog(@"File found.");
-        
-        NSString *latestVersion;
-        NSString *currentVersion;
-        
-        // 获取latestVersion
-        @try {
-            FMDatabase *db = [FMDatabase databaseWithPath:bundleStore];
-            [db open];
-            FMResultSet *s = [db executeQuery:@"SELECT * FROM version"];
-            [s next];
-            latestVersion = [s stringForColumn:@"version"];
-            [db close];
-        }
-        @catch (NSException * e) {
-            NSLog(@"Exception: %@", e);
-        }
-        
-        // 获取currentVersion
-        @try {
-            FMDatabase *db = [FMDatabase databaseWithPath:storePath];
-            [db open];
-            FMResultSet *s = [db executeQuery:@"SELECT * FROM version"];
-            [s next];
-            currentVersion = [s stringForColumn:@"version"];
-            [db close];
-        }
-        @catch (NSException * e) {
-            NSLog(@"Exception: %@", e);
-        }
-        
-        // 若 version 不匹配，则删除原有db，将新db复制过来
-        if(![latestVersion isEqualToString:currentVersion]) {
-            NSLog(@"Version not match...delete old one and copy new one from bundle.");
-            [[NSFileManager defaultManager] removeItemAtPath:storePath error:NULL];
-            [[NSFileManager defaultManager] removeItemAtPath:storePath error:NULL];[[NSFileManager defaultManager] copyItemAtPath:bundleStore toPath:storePath error:nil];
-        } else {
-            NSLog(@"Version match.");
-        }
-    }
+    // 执行数据库拷贝
+    [self copyPublicDatabase];
+    [self copyUserDatabase];
     
     // 向用户申请通知权限
     /*
@@ -112,14 +67,14 @@
     authorsNavController.tabBarItem.image = authorsImg;
     
     // 收藏Nav
-    XCZWorksViewController *likesController = [[XCZWorksViewController alloc] init];
+    XCZLikesViewController *likesController = [[XCZLikesViewController alloc] init];
     UINavigationController *likesNavController = [[UINavigationController alloc] initWithRootViewController:likesController];
     likesNavController.tabBarItem.title = @"收藏";
-    UIImage *likeIcon = [IonIcons imageWithIcon:icon_ios7_heart_outline
+    UIImage *likeIcon = [IonIcons imageWithIcon:icon_ios7_star_outline
                                       iconColor:[UIColor colorWithRed:146.0/255.0 green:146.0/255.0 blue:146.0/255.0 alpha:1.0]
                                         iconSize:30.0f
                                        imageSize:CGSizeMake(30.0f, 30.0f)];
-    UIImage *selectedLikeIcon = [IonIcons imageWithIcon:icon_ios7_heart_outline
+    UIImage *selectedLikeIcon = [IonIcons imageWithIcon:icon_ios7_star_outline
                                       iconColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]
                                        iconSize:30.0f
                                       imageSize:CGSizeMake(30.0f, 30.0f)];
@@ -168,6 +123,74 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
+}
+
+- (void)copyUserDatabase
+{
+    
+    NSString *storePath = [XCZUtils getUserDatabaseFilePath];
+    NSString *bundleStore = [[NSBundle mainBundle] pathForResource:@"xcz_user" ofType:@"db"];
+    
+    // 若Documents文件夹下不存在数据库文件，则执行拷贝
+    if (![[NSFileManager defaultManager] fileExistsAtPath:storePath]) {
+        NSLog(@"User database not found... copy from bundle.");
+        [[NSFileManager defaultManager] copyItemAtPath:bundleStore toPath:storePath error:nil];
+    } else {
+        NSLog(@"User database found.");
+    }
+}
+
+- (void)copyPublicDatabase
+{
+    NSString *storePath = [XCZUtils getDatabaseFilePath];
+    NSString *bundleStore = [[NSBundle mainBundle] pathForResource:@"xcz" ofType:@"db"];
+    //NSLog(@"%@", storePath);
+    
+    // 若Documents文件夹下不存在数据库文件，则执行拷贝
+    if (![[NSFileManager defaultManager] fileExistsAtPath:storePath]) {
+        NSLog(@"Public database not found... copy from bundle.");
+        [[NSFileManager defaultManager] copyItemAtPath:bundleStore toPath:storePath error:nil];
+    } else {
+        NSLog(@"Public database found.");
+        
+        NSString *latestVersion;
+        NSString *currentVersion;
+        
+        // 获取latestVersion
+        @try {
+            FMDatabase *db = [FMDatabase databaseWithPath:bundleStore];
+            [db open];
+            FMResultSet *s = [db executeQuery:@"SELECT * FROM version"];
+            [s next];
+            latestVersion = [s stringForColumn:@"version"];
+            [db close];
+        }
+        @catch (NSException * e) {
+            NSLog(@"Exception: %@", e);
+        }
+        
+        // 获取currentVersion
+        @try {
+            FMDatabase *db = [FMDatabase databaseWithPath:storePath];
+            [db open];
+            FMResultSet *s = [db executeQuery:@"SELECT * FROM version"];
+            [s next];
+            currentVersion = [s stringForColumn:@"version"];
+            [db close];
+        }
+        @catch (NSException * e) {
+            NSLog(@"Exception: %@", e);
+        }
+        
+        // 若 version 不匹配，则删除原有db，将新db复制过来
+        if(![latestVersion isEqualToString:currentVersion]) {
+            NSLog(@"Version not match...delete old one and copy new one from bundle.");
+            [[NSFileManager defaultManager] removeItemAtPath:storePath error:NULL];
+            [[NSFileManager defaultManager] removeItemAtPath:storePath error:NULL];[[NSFileManager defaultManager] copyItemAtPath:bundleStore toPath:storePath error:nil];
+        } else {
+            NSLog(@"Version match.");
+        }
+    }
 }
 
 /*
