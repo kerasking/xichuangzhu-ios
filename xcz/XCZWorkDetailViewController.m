@@ -78,8 +78,8 @@
 {
     UIImage *authorIcon = [IonIcons imageWithIcon:icon_ios7_person_outline
                                         iconColor:self.view.tintColor
-                                         iconSize:30.0f
-                                        imageSize:CGSizeMake(30.0f, 30.0f)];
+                                         iconSize:31.0f
+                                        imageSize:CGSizeMake(31.0f, 31.0f)];
     return [[UIBarButtonItem alloc] initWithImage:authorIcon style:UIBarButtonItemStylePlain target:self action:@selector(redirectToAuthor:)];
 }
 
@@ -96,7 +96,7 @@
 // 创建UnlikeButton
 - (UIBarButtonItem *)createUnlikeButton
 {
-    UIImage *unlikeIcon = [IonIcons imageWithIcon:icon_ios7_heart
+    UIImage *unlikeIcon = [IonIcons imageWithIcon:icon_ios7_star
                                         iconColor:self.view.tintColor
                                          iconSize:27.0f
                                         imageSize:CGSizeMake(27.0f, 27.0f)];

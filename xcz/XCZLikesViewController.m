@@ -13,6 +13,7 @@
 
 @interface XCZLikesViewController ()
 
+@property (nonatomic, strong) NSMutableArray *likes;
 @property (nonatomic, strong) NSMutableArray *works;
 @property (nonatomic, strong) NSArray *searchResults;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -40,10 +41,10 @@
 - (void)loadData
 {
     self.works = [[NSMutableArray alloc] init];
-    NSMutableArray *likes = [XCZLike getAll];
+    self.likes = [XCZLike getAll];
     
-    for (int i = 0; i < likes.count; i++) {
-        XCZLike *like = likes[i];
+    for (int i = 0; i < self.likes.count; i++) {
+        XCZLike *like = self.likes[i];
         XCZWork *work = [XCZWork getById:like.workId];
         self.works[i] = work;
     }
@@ -69,6 +70,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadNotificationReceived:) name:@"reloadLikesData" object:nil];
 }
 
+// 切换编辑模式
 - (IBAction)toggleEditingMode:(id)sender
 {
     if (self.tableView.isEditing) {
@@ -76,9 +78,10 @@
         [self.tableView setEditing:NO animated:YES];
         
         // 在退出编辑模式时进行次序更新
-        for (int i = 0; i < self.works.count; i++) {
-            XCZWork *work = self.works[i];
-            [XCZLike updateWork:work.id showOrder:i];
+        for (int i = 0; i < self.likes.count; i++) {
+            XCZLike *like = self.likes[i];
+            [XCZLike updateWork:like.workId showOrder:i];
+            like.showOrder = i;
         }
     } else {
         self.navigationItem.rightBarButtonItem.title = @"完成";
@@ -103,9 +106,12 @@
 {
     if (sourceIndexPath.row != destinationIndexPath.row) {
         XCZWork *sourceWork = self.works[sourceIndexPath.row];
-        
         [self.works removeObjectAtIndex:sourceIndexPath.row];
         [self.works insertObject:sourceWork atIndex:destinationIndexPath.row];
+        
+        XCZLike *sourceLike = self.likes[sourceIndexPath.row];
+        [self.likes removeObjectAtIndex:sourceIndexPath.row];
+        [self.likes insertObject:sourceLike atIndex:destinationIndexPath.row];
     }
 }
 
