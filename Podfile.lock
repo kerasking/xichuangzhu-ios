@@ -1,7 +1,7 @@
 PODS:
   - AVOSCloud (2.6.6)
   - FMDB (2.4):
-    - FMDB/standard
+    - FMDB/standard (= 2.4)
   - FMDB/common (2.4)
   - FMDB/standard (2.4):
     - FMDB/common
@@ -16,8 +16,8 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AVOSCloud: 88472078f50f51e109e08efa5b49be616e1ae893
-  FMDB: 0b2fa25e5264ef177973c0cb8c02c711107979aa
-  HTCopyableLabel: 4cbbeb9ddecbcb841a6e9a8023f77fc48ef37db0
-  ionicons: 6be0e241a437a7e69c50cbc8e1700ee8d1535a58
+  FMDB: d274d9ff773415735022ac57bfba9f6002f9fed8
+  HTCopyableLabel: e67c190d2f1f8f03c9d9858a7d8ce33be7fb43fa
+  ionicons: 3711c0d69cddccc44c7888730821b4000834ad69
 
-COCOAPODS: 0.34.2
+COCOAPODS: 0.38.2
