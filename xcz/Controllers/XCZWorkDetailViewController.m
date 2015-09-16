@@ -13,6 +13,7 @@
 #import "XCZLike.h"
 #import "XCZAuthorDetailsViewController.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import "UILabel+SetFont.h"
 
 @interface XCZWorkDetailViewController ()
 
@@ -42,14 +43,17 @@
 {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor lightGrayColor];
-    
     // 初始化navbar按钮
     bool showLike = ![XCZLike checkExist:self.work.id];
     [self initNavbarShowAuthor:self.showAuthorButton showLike:showLike];
 
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(toggleBars:)];
     [self.view addGestureRecognizer:singleTap];
+    
+//    [self.titleField setFontAsynchronously:@"STKaiti-SC-Regular" size:25];
+//    [self.authorField setFontAsynchronously:@"STFangsong" size:20];
+//    [self.contentField setFontAsynchronously:@"STFangsong" size:20];
+//    [self.introField setFontAsynchronously:@"STSongti-SC-Regular" size:14];
 }
 
 // 设置navbar的按钮显示
