@@ -7,6 +7,9 @@ pod 'FMDB'
 pod 'AVOSCloud'
 pod 'HTCopyableLabel'
 pod 'ionicons'
+pod 'Fabric'
+pod 'Crashlytics'
+pod 'Masonry'
 
 end
 
