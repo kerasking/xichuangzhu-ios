@@ -50,16 +50,16 @@
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(toggleBars:)];
     [self.view addGestureRecognizer:singleTap];
     
-    [self.titleField setFontAsynchronously:@"STKaiti-SC-Regular" size:25];
-    [self.authorField setFontAsynchronously:@"STFangsong" size:20];
-    [self.contentField setFontAsynchronously:@"STFangsong" size:20];
+//    [self.titleField setFontAsynchronously:@"STKaiti-SC-Regular" size:30];
+//    [self.authorField setFontAsynchronously:@"STFangsong" size:20];
+//    [self.contentField setFontAsynchronously:@"STFangsong" size:22];
 //    [self.introField setFontAsynchronously:@"STSongti-SC-Regular" size:14];
 }
 
 // 设置navbar的按钮显示
 - (void) initNavbarShowAuthor:(bool)showAuthor showLike:(bool)showLike
 {
-    NSMutableArray *btnArrays = [[NSMutableArray alloc] initWithObjects:nil];
+    NSMutableArray *btnArrays = [NSMutableArray new];
     
     // 是否显示作者按钮
     if (showAuthor) {
