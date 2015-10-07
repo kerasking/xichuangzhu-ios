@@ -23,19 +23,7 @@
     if ([db open]) {
         FMResultSet *s = [db executeQuery:[[NSString alloc] initWithFormat:@"SELECT * FROM works where id == %d", workId]];
         [s next];
-        work.id = [s intForColumn:@"id"];
-        work.title = [s stringForColumn:@"title"];
-        work.fullTitle = [s stringForColumn:@"full_title"];
-        work.authorId = [s intForColumn:@"author_id"];
-        work.author = [s stringForColumn:@"author"];
-        work.dynasty = [s stringForColumn:@"dynasty"];
-        work.kind = [s stringForColumn:@"kind"];
-        work.kindCN = [s stringForColumn:@"kind_cn"];
-        work.foreword = [s stringForColumn:@"foreword"];
-        work.content = [s stringForColumn:@"content"];
-        work.intro = [s stringForColumn:@"intro"];
-        work.layout = [s stringForColumn:@"layout"];
-        
+        [work updateWithResultSet:s];
         [db close];
     }
     
@@ -53,19 +41,8 @@
     if ([db open]) {
         FMResultSet *s = [db executeQuery:@"SELECT * FROM works ORDER BY show_order ASC"];
         while ([s next]) {
-            XCZWork *work = [[XCZWork alloc] init];
-            work.id = [s intForColumn:@"id"];
-            work.title = [s stringForColumn:@"title"];
-            work.fullTitle = [s stringForColumn:@"full_title"];
-            work.authorId = [s intForColumn:@"author_id"];
-            work.author = [s stringForColumn:@"author"];
-            work.dynasty = [s stringForColumn:@"dynasty"];
-            work.kind = [s stringForColumn:@"kind"];
-            work.kindCN = [s stringForColumn:@"kind_cn"];
-            work.foreword = [s stringForColumn:@"foreword"];
-            work.content = [s stringForColumn:@"content"];
-            work.intro = [s stringForColumn:@"intro"];
-            work.layout = [s stringForColumn:@"layout"];
+            XCZWork *work = [XCZWork new];
+            [work updateWithResultSet:s];
             works[index] = work;
             index++;
         }
@@ -91,19 +68,8 @@
         [db beginTransaction];
         
         while ([s next]) {
-            XCZWork *work = [[XCZWork alloc] init];
-            work.id = [s intForColumn:@"id"];
-            work.title = [s stringForColumn:@"title"];
-            work.fullTitle = [s stringForColumn:@"full_title"];
-            work.authorId = [s intForColumn:@"author_id"];
-            work.author = [s stringForColumn:@"author"];
-            work.dynasty = [s stringForColumn:@"dynasty"];
-            work.kind = [s stringForColumn:@"kind"];
-            work.kindCN = [s stringForColumn:@"kind_cn"];
-            work.foreword = [s stringForColumn:@"foreword"];
-            work.content = [s stringForColumn:@"content"];
-            work.intro = [s stringForColumn:@"intro"];
-            work.layout = [s stringForColumn:@"layout"];
+            XCZWork *work = [XCZWork new];
+            [work updateWithResultSet:s];
             works[index] = work;
             index++;
             
@@ -133,19 +99,8 @@
         NSString *query = [[NSString alloc] initWithFormat:@"SELECT * FROM works WHERE author_id = %d AND kind_cn = '%@'", authorId, kind];
         FMResultSet *s = [db executeQuery:query];
         while ([s next]) {
-            XCZWork *work = [[XCZWork alloc] init];
-            work.id = [s intForColumn:@"id"];
-            work.title = [s stringForColumn:@"title"];
-            work.fullTitle = [s stringForColumn:@"full_title"];
-            work.authorId = [s intForColumn:@"author_id"];
-            work.author = [s stringForColumn:@"author"];
-            work.dynasty = [s stringForColumn:@"dynasty"];
-            work.kind = [s stringForColumn:@"kind"];
-            work.kindCN = [s stringForColumn:@"kind_cn"];
-            work.foreword = [s stringForColumn:@"foreword"];
-            work.content = [s stringForColumn:@"content"];
-            work.intro = [s stringForColumn:@"intro"];
-            work.layout = [s stringForColumn:@"layout"];
+            XCZWork *work = [XCZWork new];
+            [work updateWithResultSet:s];
             works[index] = work;
             index++;
         }
@@ -154,6 +109,38 @@
     }
     
     return works;
+}
+
++ (XCZWork *)getRandomWork
+{
+    XCZWork *work = [[XCZWork alloc] init];
+    
+    NSString *dbPath = [XCZUtils getDatabaseFilePath];
+    FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
+    if ([db open]) {
+        FMResultSet *s = [db executeQuery:@"SELECT * FROM works ORDER BY RANDOM() LIMIT 1"];
+        [s next];
+        [work updateWithResultSet:s];
+        [db close];
+    }
+    
+    return work;
+}
+
+- (void)updateWithResultSet:(FMResultSet *)resultSet
+{
+    self.id = [resultSet intForColumn:@"id"];
+    self.title = [resultSet stringForColumn:@"title"];
+    self.fullTitle = [resultSet stringForColumn:@"full_title"];
+    self.authorId = [resultSet intForColumn:@"author_id"];
+    self.author = [resultSet stringForColumn:@"author"];
+    self.dynasty = [resultSet stringForColumn:@"dynasty"];
+    self.kind = [resultSet stringForColumn:@"kind"];
+    self.kindCN = [resultSet stringForColumn:@"kind_cn"];
+    self.foreword = [resultSet stringForColumn:@"foreword"];
+    self.content = [resultSet stringForColumn:@"content"];
+    self.intro = [resultSet stringForColumn:@"intro"];
+    self.layout = [resultSet stringForColumn:@"layout"];
 }
 
 @end

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0545D2681BC51F9800410895 /* XCZLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0545D2671BC51F9800410895 /* XCZLabel.m */; settings = {ASSET_TAGS = (); }; };
 		0545D26B1BC5379200410895 /* UIColor+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0545D2691BC5379200410895 /* UIColor+Helper.m */; settings = {ASSET_TAGS = (); }; };
+		0545D26E1BC5428500410895 /* WorkDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0545D26D1BC5428500410895 /* WorkDetailsView.m */; settings = {ASSET_TAGS = (); }; };
+		0545D2711BC54C8B00410895 /* LibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0545D2701BC54C8B00410895 /* LibraryViewController.m */; settings = {ASSET_TAGS = (); }; };
+		0545D2741BC54CF600410895 /* MeetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0545D2731BC54CF600410895 /* MeetViewController.m */; settings = {ASSET_TAGS = (); }; };
 		056485301BA8869D00F52EAE /* DownloadFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 0564852F1BA8869D00F52EAE /* DownloadFont.m */; };
 		0564853B1BA8895300F52EAE /* XCZAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = 056485321BA8895300F52EAE /* XCZAuthor.m */; };
 		0564853C1BA8895300F52EAE /* XCZDynasty.m in Sources */ = {isa = PBXBuildFile; fileRef = 056485341BA8895300F52EAE /* XCZDynasty.m */; };
@@ -61,6 +64,12 @@
 		0545D2671BC51F9800410895 /* XCZLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZLabel.m; sourceTree = "<group>"; };
 		0545D2691BC5379200410895 /* UIColor+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Helper.m"; sourceTree = "<group>"; };
 		0545D26A1BC5379200410895 /* UIColor+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Helper.h"; sourceTree = "<group>"; };
+		0545D26C1BC5428500410895 /* WorkDetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkDetailsView.h; sourceTree = "<group>"; };
+		0545D26D1BC5428500410895 /* WorkDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkDetailsView.m; sourceTree = "<group>"; };
+		0545D26F1BC54C8B00410895 /* LibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryViewController.h; sourceTree = "<group>"; };
+		0545D2701BC54C8B00410895 /* LibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryViewController.m; sourceTree = "<group>"; };
+		0545D2721BC54CF600410895 /* MeetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetViewController.h; sourceTree = "<group>"; };
+		0545D2731BC54CF600410895 /* MeetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeetViewController.m; sourceTree = "<group>"; };
 		0564852E1BA8869D00F52EAE /* DownloadFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadFont.h; sourceTree = "<group>"; };
 		0564852F1BA8869D00F52EAE /* DownloadFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadFont.m; sourceTree = "<group>"; };
 		056485311BA8895300F52EAE /* XCZAuthor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZAuthor.h; sourceTree = "<group>"; };
@@ -170,6 +179,10 @@
 				0564854E1BA889E100F52EAE /* XCZWorksViewController.h */,
 				0564854F1BA889E100F52EAE /* XCZWorksViewController.m */,
 				056485501BA889E100F52EAE /* XCZWorksViewController.xib */,
+				0545D26F1BC54C8B00410895 /* LibraryViewController.h */,
+				0545D2701BC54C8B00410895 /* LibraryViewController.m */,
+				0545D2721BC54CF600410895 /* MeetViewController.h */,
+				0545D2731BC54CF600410895 /* MeetViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -208,6 +221,8 @@
 				05CC13181966FCFC0014989C /* AuthorHeaderView.xib */,
 				0545D2661BC51F9800410895 /* XCZLabel.h */,
 				0545D2671BC51F9800410895 /* XCZLabel.m */,
+				0545D26C1BC5428500410895 /* WorkDetailsView.h */,
+				0545D26D1BC5428500410895 /* WorkDetailsView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -459,12 +474,15 @@
 				0545D2681BC51F9800410895 /* XCZLabel.m in Sources */,
 				0564853D1BA8895300F52EAE /* XCZLike.m in Sources */,
 				056485301BA8869D00F52EAE /* DownloadFont.m in Sources */,
+				0545D2741BC54CF600410895 /* MeetViewController.m in Sources */,
 				05827AA0196A8236003ABBDD /* XCZUtils.m in Sources */,
 				056485541BA889E100F52EAE /* XCZAuthorsViewController.m in Sources */,
 				0564853C1BA8895300F52EAE /* XCZDynasty.m in Sources */,
+				0545D26E1BC5428500410895 /* WorkDetailsView.m in Sources */,
 				056485521BA889E100F52EAE /* XCZWorkDetailViewController.m in Sources */,
 				05DF00D9195F0CE100175ABF /* XCZAppDelegate.m in Sources */,
 				056485561BA889E100F52EAE /* XCZLikesViewController.m in Sources */,
+				0545D2711BC54C8B00410895 /* LibraryViewController.m in Sources */,
 				056485611BA88D6F00F52EAE /* UILabel+SetFont.m in Sources */,
 				0564853B1BA8895300F52EAE /* XCZAuthor.m in Sources */,
 				0545D26B1BC5379200410895 /* UIColor+Helper.m in Sources */,

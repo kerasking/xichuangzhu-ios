@@ -28,5 +28,6 @@
 + (NSMutableArray *)getAll;
 + (NSMutableArray *)reorderWorks;
 + (NSMutableArray *)getWorksByAuthorId:(int)authorId kind:(NSString *)kind;
++ (XCZWork *)getRandomWork;
 
 @end
