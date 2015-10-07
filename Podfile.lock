@@ -1,5 +1,5 @@
 PODS:
-  - AVOSCloud (2.6.6)
+  - AVOSCloud (3.1.3.6)
   - Crashlytics (3.3.0)
   - Fabric (1.5.0):
     - Fabric/Base (= 1.5.0)
@@ -23,7 +23,7 @@ DEPENDENCIES:
   - Masonry
 
 SPEC CHECKSUMS:
-  AVOSCloud: 88472078f50f51e109e08efa5b49be616e1ae893
+  AVOSCloud: a7aa880f15d0c26e6b1d3154459c8b32e96d91ce
   Crashlytics: 6524671d48a4c3f4100b8c56ee8dd7e34aac820a
   Fabric: 374a4a0bbefa219ed201cbc84f2f42e4029302a6
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
