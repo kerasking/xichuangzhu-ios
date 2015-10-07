@@ -184,7 +184,7 @@
 - (UIBarButtonItem *)createAuthorButton
 {
     UIImage *authorIcon = [IonIcons imageWithIcon:ion_ios_person_outline
-                                        iconColor:self.view.tintColor
+                                        iconColor:[UIColor grayColor]
                                          iconSize:31.0f
                                         imageSize:CGSizeMake(31.0f, 31.0f)];
     return [[UIBarButtonItem alloc] initWithImage:authorIcon style:UIBarButtonItemStylePlain target:self action:@selector(redirectToAuthor:)];
@@ -194,7 +194,7 @@
 - (UIBarButtonItem *)createLikeButton
 {
     UIImage *likeIcon = [IonIcons imageWithIcon:ion_ios_star_outline
-                                      iconColor:self.view.tintColor
+                                      iconColor:[UIColor grayColor]
                                        iconSize:27.0f
                                       imageSize:CGSizeMake(27.0f, 27.0f)];
     return [[UIBarButtonItem alloc] initWithImage:likeIcon style:UIBarButtonItemStylePlain target:self action:@selector(likeWork:)];

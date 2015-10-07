@@ -42,7 +42,7 @@
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    UIImage *refreshIcon = [IonIcons imageWithIcon:ion_android_refresh size:28 color:[UIColor lightGrayColor]];
+    UIImage *refreshIcon = [IonIcons imageWithIcon:ion_ios_loop_strong size:24 color:[UIColor lightGrayColor]];
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:refreshIcon style:UIBarButtonItemStylePlain target:self action:@selector(refreshWork)];
     self.navigationItem.rightBarButtonItem = rightButton;
 }
