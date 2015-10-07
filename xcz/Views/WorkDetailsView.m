@@ -132,6 +132,10 @@
         make.top.equalTo(self.contentView).offset(60);
     }];
     
+    [self.introLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.contentView).offset(-40);
+    }];
+    
     [self calculateScrollViewContentSize];
 }
 
@@ -139,6 +143,10 @@
 {
     [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView).offset(40);
+    }];
+    
+    [self.introLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.contentView).offset(-20);
     }];
     
     [self calculateScrollViewContentSize];

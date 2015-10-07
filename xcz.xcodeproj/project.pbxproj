@@ -123,6 +123,7 @@
 		05DF00F1195F0CE100175ABF /* xczTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xczTests.m; sourceTree = "<group>"; };
 		05F219121BC5784000B222D7 /* OtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherViewController.h; sourceTree = "<group>"; };
 		05F219131BC5784000B222D7 /* OtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherViewController.m; sourceTree = "<group>"; };
+		05F219151BC5924D00B222D7 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		373599EB20404398AE2FC10B /* libPods-xcz.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-xcz.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		530CF4E9B8A56A69B8C84DA8 /* Pods-xcz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xcz.debug.xcconfig"; path = "Pods/Target Support Files/Pods-xcz/Pods-xcz.debug.xcconfig"; sourceTree = "<group>"; };
 		EB3898A078A798E532D86F3B /* Pods-xcz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xcz.release.xcconfig"; path = "Pods/Target Support Files/Pods-xcz/Pods-xcz.release.xcconfig"; sourceTree = "<group>"; };
@@ -276,6 +277,7 @@
 				05CC12F9196569E80014989C /* Models */,
 				05DF00D7195F0CE100175ABF /* XCZAppDelegate.h */,
 				05DF00D8195F0CE100175ABF /* XCZAppDelegate.m */,
+				05F219151BC5924D00B222D7 /* Constants.h */,
 				05DF00CF195F0CE100175ABF /* Supporting Files */,
 				05827A9E196A8236003ABBDD /* XCZUtils.h */,
 				05827A9F196A8236003ABBDD /* XCZUtils.m */,

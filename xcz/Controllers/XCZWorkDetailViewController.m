@@ -14,6 +14,7 @@
 #import "XCZAuthorDetailsViewController.h"
 #import "UILabel+SetFont.h"
 #import "XCZUtils.h"
+#import "Constants.h"
 #import "UIColor+Helper.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import <ionicons/IonIcons.h>
@@ -113,8 +114,14 @@
     // 全屏模式下，扩大title的顶部间距
     if (tabBarHidden) {
         [self.detailsView exitFullScreenMode];
+        [self.detailsView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(self.view);
+        }];
     } else {
         [self.detailsView enterFullScreenMode];
+        [self.detailsView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(self.view).offset(XCZTabBarHeight);
+        }];
     }
     
     [UIView animateWithDuration:0.4 animations:^{
