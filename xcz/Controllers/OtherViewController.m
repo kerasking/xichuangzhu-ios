@@ -85,7 +85,6 @@
 {
     UITableViewCell *cell = [UITableViewCell new];
     
-    
     if (indexPath.section == 0) {
         NSMutableAttributedString *iconString = [[NSMutableAttributedString alloc] initWithString:ion_ios_star_outline attributes:@{NSFontAttributeName: [IonIcons fontWithSize:17], NSForegroundColorAttributeName: [UIColor colorWithRGBA:0x333333FF]}];
         NSMutableAttributedString *countString = [[NSMutableAttributedString alloc] initWithString:@"  我的收藏" attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17]}];
@@ -110,6 +109,8 @@
             cell.textLabel.attributedText = iconString;
         }
     }
+    
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
 }

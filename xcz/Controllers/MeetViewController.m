@@ -45,7 +45,7 @@
 {
     [super viewDidLoad];
     
-    self.edgesForExtendedLayout = UIRectEdgeNone;
+//    self.edgesForExtendedLayout = UIRectEdgeNone;
     [self initNavbarShowLike:![XCZLike checkExist:self.work.id]];
 }
 
@@ -127,17 +127,8 @@
 
 - (void)refreshWork
 {
-    [self.detailsView removeFromSuperview];
-    
     self.work = [XCZWork getRandomWork];
-    WorkDetailsView *detailsView = [[WorkDetailsView alloc] initWithWork:self.work width:CGRectGetWidth(self.view.frame)];
-    [self initNavbarShowLike:![XCZLike checkExist:self.work.id]];
-    self.detailsView = detailsView;
-    [self.view addSubview:detailsView];
-    
-    [detailsView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
-    }];
+    [self.detailsView updateWithWork:self.work];
 }
 
 #pragma mark - SomeDelegate

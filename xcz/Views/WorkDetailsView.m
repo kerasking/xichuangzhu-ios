@@ -53,12 +53,14 @@
     
     // 作者
     UILabel *authorLabel = [UILabel new];
+    self.authorLabel = authorLabel;
     authorLabel.textAlignment = NSTextAlignmentCenter;
-    authorLabel.text = [[NSString alloc] initWithFormat:@"[%@] %@", self.work.dynasty, self.work.author];
+    authorLabel.text = [NSString stringWithFormat:@"[%@] %@", self.work.dynasty, self.work.author];
     [contentView addSubview:authorLabel];
     
     // 内容
     UILabel *contentLabel = [UILabel new];
+    self.contentLabel = contentLabel;
     contentLabel.numberOfLines = 0;
     contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
     NSMutableParagraphStyle *contentParagraphStyle = [[NSMutableParagraphStyle alloc] init];
@@ -84,6 +86,7 @@
     
     // 评析
     UILabel *introLabel = [UILabel new];
+    self.introLabel = introLabel;
     introLabel.numberOfLines = 0;
     introLabel.lineBreakMode = NSLineBreakByWordWrapping;
     introLabel.font = [UIFont systemFontOfSize:14];
@@ -141,6 +144,14 @@
 
 - (void)updateWithWork:(XCZWork *)work
 {
+    self.work = work;
+    
+    [self updateAttributedText:work.title label:self.titleLabel];
+    [self updateAttributedText:[NSString stringWithFormat:@"[%@] %@", work.dynasty, work.author] label:self.authorLabel];
+    [self updateAttributedText:work.content label:self.contentLabel];
+    [self updateAttributedText:work.intro label:self.introLabel];
+    
+    [self calculateScrollViewContentSize];
 }
 
 - (void)enterFullScreenMode
@@ -166,6 +177,12 @@
     CGSize size = [self.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     self.contentView.frame = CGRectMake(0, 0, self.width, size.height);
     self.contentSize = CGSizeMake(self.width, size.height);
+}
+
+- (void)updateAttributedText:(NSString *)text label:(UILabel *)label
+{
+    NSDictionary *attributes = [(NSAttributedString *)label.attributedText attributesAtIndex:0 effectiveRange:NULL];
+    label.attributedText = [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
 
 @end
