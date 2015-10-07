@@ -344,7 +344,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = XCZ;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Zhipeng Liu";
 				TargetAttributes = {
 					05DF00C2195F0CE100175ABF = {
@@ -517,6 +517,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -576,7 +577,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Zhipeng Liu (9RHY6JQGD8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xcz/xcz-Prefix.pch";
 				INFOPLIST_FILE = "xcz/xcz-Info.plist";
@@ -585,8 +586,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/xcz",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hustlzp.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "aa93dfdd-93d6-4e8c-b708-5fa4fc7667dd";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -600,7 +602,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Zhipeng Liu (9RHY6JQGD8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xcz/xcz-Prefix.pch";
 				INFOPLIST_FILE = "xcz/xcz-Info.plist";
@@ -609,8 +611,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/xcz",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hustlzp.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "aa93dfdd-93d6-4e8c-b708-5fa4fc7667dd";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -633,6 +636,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "xczTests/xczTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hustlzp.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -651,6 +655,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xcz/xcz-Prefix.pch";
 				INFOPLIST_FILE = "xczTests/xczTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hustlzp.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

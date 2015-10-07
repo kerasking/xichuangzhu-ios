@@ -82,7 +82,7 @@
 // 创建AuthorButton
 - (UIBarButtonItem *)createAuthorButton
 {
-    UIImage *authorIcon = [IonIcons imageWithIcon:icon_ios7_person_outline
+    UIImage *authorIcon = [IonIcons imageWithIcon:ion_ios_person_outline
                                         iconColor:self.view.tintColor
                                          iconSize:31.0f
                                         imageSize:CGSizeMake(31.0f, 31.0f)];
@@ -92,7 +92,7 @@
 // 创建LikeButton
 - (UIBarButtonItem *)createLikeButton
 {
-    UIImage *likeIcon = [IonIcons imageWithIcon:icon_ios7_star_outline
+    UIImage *likeIcon = [IonIcons imageWithIcon:ion_ios_star_outline
                                       iconColor:self.view.tintColor
                                        iconSize:27.0f
                                       imageSize:CGSizeMake(27.0f, 27.0f)];
@@ -102,7 +102,7 @@
 // 创建UnlikeButton
 - (UIBarButtonItem *)createUnlikeButton
 {
-    UIImage *unlikeIcon = [IonIcons imageWithIcon:icon_ios7_star
+    UIImage *unlikeIcon = [IonIcons imageWithIcon:ion_ios_star
                                         iconColor:self.view.tintColor
                                          iconSize:27.0f
                                         imageSize:CGSizeMake(27.0f, 27.0f)];

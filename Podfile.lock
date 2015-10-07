@@ -4,13 +4,13 @@ PODS:
   - Fabric (1.5.0):
     - Fabric/Base (= 1.5.0)
   - Fabric/Base (1.5.0)
-  - FMDB (2.4):
-    - FMDB/standard (= 2.4)
-  - FMDB/common (2.4)
-  - FMDB/standard (2.4):
+  - FMDB (2.5):
+    - FMDB/standard (= 2.5)
+  - FMDB/common (2.5)
+  - FMDB/standard (2.5):
     - FMDB/common
   - HTCopyableLabel (0.0.7)
-  - ionicons (1.5.2)
+  - ionicons (2.0.1)
   - Masonry (0.6.2)
 
 DEPENDENCIES:
@@ -26,9 +26,9 @@ SPEC CHECKSUMS:
   AVOSCloud: 88472078f50f51e109e08efa5b49be616e1ae893
   Crashlytics: 6524671d48a4c3f4100b8c56ee8dd7e34aac820a
   Fabric: 374a4a0bbefa219ed201cbc84f2f42e4029302a6
-  FMDB: d274d9ff773415735022ac57bfba9f6002f9fed8
+  FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   HTCopyableLabel: e67c190d2f1f8f03c9d9858a7d8ce33be7fb43fa
-  ionicons: 3711c0d69cddccc44c7888730821b4000834ad69
+  ionicons: c7b0867373392e85c17f613d19ade04ccfbe5a7c
   Masonry: 362e8a1cc0beada4a4c4832d5e863da2a51533be
 
 COCOAPODS: 0.38.2
