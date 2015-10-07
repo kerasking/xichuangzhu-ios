@@ -62,7 +62,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.searchDisplayController.searchBar.placeholder = @"搜索";
+    self.searchDisplayController.searchBar.placeholder = @"搜索文学家";
     if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
