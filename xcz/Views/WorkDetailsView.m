@@ -19,6 +19,7 @@
 @property (strong, nonatomic) UILabel *titleLabel;
 @property (strong, nonatomic) UILabel *authorLabel;
 @property (strong, nonatomic) UILabel *contentLabel;
+@property (strong, nonatomic) UILabel *introHeaderLabel;
 @property (strong, nonatomic) UILabel *introLabel;
 
 @end
@@ -58,28 +59,9 @@
     authorLabel.text = [NSString stringWithFormat:@"[%@] %@", self.work.dynasty, self.work.author];
     [contentView addSubview:authorLabel];
     
-    // 内容
-    UILabel *contentLabel = [UILabel new];
-    self.contentLabel = contentLabel;
-    contentLabel.numberOfLines = 0;
-    contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    NSMutableParagraphStyle *contentParagraphStyle = [[NSMutableParagraphStyle alloc] init];
-    if ([self.work.layout isEqual: @"indent"]) {
-        // 缩进排版
-        contentParagraphStyle.firstLineHeadIndent = 25;
-        contentParagraphStyle.paragraphSpacing = 20;
-        contentParagraphStyle.lineHeightMultiple = 1.35;
-    } else {
-        // 居中排版
-        contentParagraphStyle.alignment = NSTextAlignmentCenter;
-        contentParagraphStyle.paragraphSpacing = 10;
-        contentParagraphStyle.lineHeightMultiple = 1;
-    }
-    contentLabel.attributedText = [[NSAttributedString alloc] initWithString:self.work.content attributes:@{NSParagraphStyleAttributeName: contentParagraphStyle}];
-    [contentView addSubview:contentLabel];
-    
     // 评析header
     UILabel *introHeaderLabel = [UILabel new];
+    self.introHeaderLabel = introHeaderLabel;
     introHeaderLabel.text = @"评析";
     introHeaderLabel.textColor = [UIColor XCZMainColor];
     [contentView addSubview:introHeaderLabel];
@@ -111,20 +93,7 @@
         make.right.equalTo(contentView).offset(-15);
     }];
     
-    [contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        if ([self.work.layout isEqual: @"indent"]) {
-            make.top.equalTo(authorLabel.mas_bottom).offset(10);
-        } else {
-            make.top.equalTo(authorLabel.mas_bottom).offset(16);
-        }
-        
-        make.left.equalTo(contentView).offset(15);
-        make.right.equalTo(contentView).offset(-15);
-    }];
-    contentLabel.preferredMaxLayoutWidth = width - 15 * 2;
-    
     [introHeaderLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(contentLabel.mas_bottom).offset(20);
         make.left.equalTo(contentView).offset(15);
         make.right.equalTo(contentView).offset(-15);
     }];
@@ -137,6 +106,9 @@
     }];
     introLabel.preferredMaxLayoutWidth = width - 15 * 2;
     
+    // 内容
+    [self createContentLabel];
+    
     [self calculateScrollViewContentSize];
     
     return self;
@@ -148,7 +120,7 @@
     
     [self updateAttributedText:work.title label:self.titleLabel];
     [self updateAttributedText:[NSString stringWithFormat:@"[%@] %@", work.dynasty, work.author] label:self.authorLabel];
-    [self updateAttributedText:work.content label:self.contentLabel];
+    [self createContentLabel];
     [self updateAttributedText:work.intro label:self.introLabel];
     
     [self calculateScrollViewContentSize];
@@ -183,6 +155,45 @@
 {
     NSDictionary *attributes = [(NSAttributedString *)label.attributedText attributesAtIndex:0 effectiveRange:NULL];
     label.attributedText = [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+- (void)createContentLabel
+{
+    if (self.contentLabel) {
+        [self.contentLabel removeFromSuperview];
+    }
+    
+    UILabel *contentLabel = [UILabel new];
+    self.contentLabel = contentLabel;
+    contentLabel.numberOfLines = 0;
+    contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    NSMutableParagraphStyle *contentParagraphStyle = [[NSMutableParagraphStyle alloc] init];
+    if ([self.work.layout isEqual: @"indent"]) {
+        // 缩进排版
+        contentParagraphStyle.firstLineHeadIndent = 25;
+        contentParagraphStyle.paragraphSpacing = 20;
+        contentParagraphStyle.lineHeightMultiple = 1.35;
+    } else {
+        // 居中排版
+        contentParagraphStyle.alignment = NSTextAlignmentCenter;
+        contentParagraphStyle.paragraphSpacing = 10;
+        contentParagraphStyle.lineHeightMultiple = 1;
+    }
+    contentLabel.attributedText = [[NSAttributedString alloc] initWithString:self.work.content attributes:@{NSParagraphStyleAttributeName: contentParagraphStyle}];
+    [self.contentView addSubview:contentLabel];
+    
+    [contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        if ([self.work.layout isEqual: @"indent"]) {
+            make.top.equalTo(self.authorLabel.mas_bottom).offset(10);
+        } else {
+            make.top.equalTo(self.authorLabel.mas_bottom).offset(16);
+        }
+        
+        make.left.equalTo(self.contentView).offset(15);
+        make.right.equalTo(self.contentView).offset(-15);
+        make.bottom.equalTo(self.introHeaderLabel.mas_top).offset(-20);
+    }];
+    contentLabel.preferredMaxLayoutWidth = self.width - 15 * 2;
 }
 
 @end
