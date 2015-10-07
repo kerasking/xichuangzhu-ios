@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0545D2651BC519DA00410895 /* UIColor+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0545D2641BC519DA00410895 /* UIColor+Helper.m */; settings = {ASSET_TAGS = (); }; };
 		0545D2681BC51F9800410895 /* XCZLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0545D2671BC51F9800410895 /* XCZLabel.m */; settings = {ASSET_TAGS = (); }; };
+		0545D26B1BC5379200410895 /* UIColor+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0545D2691BC5379200410895 /* UIColor+Helper.m */; settings = {ASSET_TAGS = (); }; };
 		056485301BA8869D00F52EAE /* DownloadFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 0564852F1BA8869D00F52EAE /* DownloadFont.m */; };
 		0564853B1BA8895300F52EAE /* XCZAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = 056485321BA8895300F52EAE /* XCZAuthor.m */; };
 		0564853C1BA8895300F52EAE /* XCZDynasty.m in Sources */ = {isa = PBXBuildFile; fileRef = 056485341BA8895300F52EAE /* XCZDynasty.m */; };
@@ -57,10 +57,10 @@
 
 /* Begin PBXFileReference section */
 		051C225419B8B1FC00FA14E8 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		0545D2631BC519DA00410895 /* UIColor+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Helper.h"; path = "../../../iOS-Base/Categories/UIColor+Helper.h"; sourceTree = "<group>"; };
-		0545D2641BC519DA00410895 /* UIColor+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Helper.m"; path = "../../../iOS-Base/Categories/UIColor+Helper.m"; sourceTree = "<group>"; };
 		0545D2661BC51F9800410895 /* XCZLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZLabel.h; sourceTree = "<group>"; };
 		0545D2671BC51F9800410895 /* XCZLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZLabel.m; sourceTree = "<group>"; };
+		0545D2691BC5379200410895 /* UIColor+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Helper.m"; sourceTree = "<group>"; };
+		0545D26A1BC5379200410895 /* UIColor+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Helper.h"; sourceTree = "<group>"; };
 		0564852E1BA8869D00F52EAE /* DownloadFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadFont.h; sourceTree = "<group>"; };
 		0564852F1BA8869D00F52EAE /* DownloadFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadFont.m; sourceTree = "<group>"; };
 		056485311BA8895300F52EAE /* XCZAuthor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZAuthor.h; sourceTree = "<group>"; };
@@ -177,8 +177,8 @@
 		0564855B1BA88A0A00F52EAE /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				0545D2631BC519DA00410895 /* UIColor+Helper.h */,
-				0545D2641BC519DA00410895 /* UIColor+Helper.m */,
+				0545D2691BC5379200410895 /* UIColor+Helper.m */,
+				0545D26A1BC5379200410895 /* UIColor+Helper.h */,
 				0564855F1BA88D6F00F52EAE /* UILabel+SetFont.m */,
 				056485601BA88D6F00F52EAE /* UILabel+SetFont.h */,
 			);
@@ -467,8 +467,8 @@
 				056485561BA889E100F52EAE /* XCZLikesViewController.m in Sources */,
 				056485611BA88D6F00F52EAE /* UILabel+SetFont.m in Sources */,
 				0564853B1BA8895300F52EAE /* XCZAuthor.m in Sources */,
+				0545D26B1BC5379200410895 /* UIColor+Helper.m in Sources */,
 				056485591BA889E100F52EAE /* XCZWorksViewController.m in Sources */,
-				0545D2651BC519DA00410895 /* UIColor+Helper.m in Sources */,
 				0564853F1BA8895300F52EAE /* XCZWork.m in Sources */,
 				05DF00D5195F0CE100175ABF /* main.m in Sources */,
 				056485581BA889E100F52EAE /* XCZQuotesViewController.m in Sources */,
