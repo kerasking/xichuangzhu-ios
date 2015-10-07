@@ -9,6 +9,7 @@
 #import "LibraryViewController.h"
 #import "XCZWorksViewController.h"
 #import "XCZAuthorsViewController.h"
+#import <Masonry/Masonry.h>
 
 @interface LibraryViewController ()
 
@@ -55,12 +56,16 @@
     self.worksViewController = [XCZWorksViewController new];
     [self addChildViewController:self.worksViewController];
     [self.view addSubview:self.worksViewController.view];
-    self.worksViewController.view.frame = self.view.bounds;
+    [self.worksViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
 
     self.authorsViewController = [XCZAuthorsViewController new];
     [self addChildViewController:self.authorsViewController];
     [self.view addSubview:self.authorsViewController.view];
-    self.authorsViewController.view.frame = self.view.bounds;
+    [self.authorsViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
     self.authorsViewController.view.hidden = YES;
 }
 

@@ -62,10 +62,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.searchDisplayController.searchBar.placeholder = @"搜索文学家";
-    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-    }
+    
+    self.searchDisplayController.searchBar.placeholder = @"搜索";
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 // 以下3个message用于解决键盘位置占据了searchResultsTableView下方空间的bug

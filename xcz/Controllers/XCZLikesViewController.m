@@ -66,6 +66,8 @@
                                     action:@selector(toggleEditingMode:)];
     [self.navigationItem setRightBarButtonItem:rightButton];
     
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
     // 收到数据重载通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadNotificationReceived:) name:@"reloadLikesData" object:nil];
 }

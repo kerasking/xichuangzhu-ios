@@ -65,7 +65,7 @@
     [super viewDidLoad];
 
     //添加“换一换”按钮
-    UIImage *refreshIcon = [IonIcons imageWithIcon:ion_ios_loop_strong size:24 color:[UIColor lightGrayColor]];
+    UIImage *refreshIcon = [IonIcons imageWithIcon:ion_ios_loop_strong size:24 color:[UIColor grayColor]];
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:refreshIcon style:UIBarButtonItemStylePlain target:self action:@selector(refreshQuotes:)];
     self.navigationItem.rightBarButtonItem = rightButton;
     

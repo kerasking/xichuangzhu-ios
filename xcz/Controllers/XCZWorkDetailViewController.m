@@ -23,6 +23,10 @@
 
 @property (strong, nonatomic) WorkDetailsView *detailsView;
 
+@property (strong, nonatomic) UIBarButtonItem *authorButton;
+@property (strong, nonatomic) UIBarButtonItem *likeButton;
+@property (strong, nonatomic) UIBarButtonItem *unlikeButton;
+
 @end
 
 @implementation XCZWorkDetailViewController
@@ -164,52 +168,58 @@
     
     // 是否显示作者按钮
     if (showAuthor) {
-        UIBarButtonItem * authorButton = [self createAuthorButton];
-        [btnArrays addObject:authorButton];
+        [btnArrays addObject:self.authorButton];
     }
     
     // 显示收藏/取消收藏按钮
     if (showLike) {
-        UIBarButtonItem * likeButton = [self createLikeButton];
-        [btnArrays addObject:likeButton];
+        [btnArrays addObject:self.likeButton];
     } else {
-        UIBarButtonItem * unlikeButton = [self createUnlikeButton];
-        [btnArrays addObject:unlikeButton];
+        [btnArrays addObject:self.unlikeButton];
     }
     
     self.navigationItem.rightBarButtonItems = btnArrays;
 }
 
-// 创建AuthorButton
-- (UIBarButtonItem *)createAuthorButton
-{
-    UIImage *authorIcon = [IonIcons imageWithIcon:ion_ios_person_outline
-                                        iconColor:[UIColor grayColor]
-                                         iconSize:31.0f
-                                        imageSize:CGSizeMake(31.0f, 31.0f)];
-    return [[UIBarButtonItem alloc] initWithImage:authorIcon style:UIBarButtonItemStylePlain target:self action:@selector(redirectToAuthor:)];
-}
-
-// 创建LikeButton
-- (UIBarButtonItem *)createLikeButton
-{
-    UIImage *likeIcon = [IonIcons imageWithIcon:ion_ios_star_outline
-                                      iconColor:[UIColor grayColor]
-                                       iconSize:27.0f
-                                      imageSize:CGSizeMake(27.0f, 27.0f)];
-    return [[UIBarButtonItem alloc] initWithImage:likeIcon style:UIBarButtonItemStylePlain target:self action:@selector(likeWork:)];
-}
-
-// 创建UnlikeButton
-- (UIBarButtonItem *)createUnlikeButton
-{
-    UIImage *unlikeIcon = [IonIcons imageWithIcon:ion_ios_star
-                                        iconColor:self.view.tintColor
-                                         iconSize:27.0f
-                                        imageSize:CGSizeMake(27.0f, 27.0f)];
-    return [[UIBarButtonItem alloc] initWithImage:unlikeIcon style:UIBarButtonItemStylePlain target:self action:@selector(unlikeWork:)];
-}
-
 #pragma mark - Getters & Setters
+
+- (UIBarButtonItem *)authorButton
+{
+    if (!_authorButton) {
+        UIImage *authorIcon = [IonIcons imageWithIcon:ion_ios_person_outline
+                                            iconColor:[UIColor grayColor]
+                                             iconSize:31.0f
+                                            imageSize:CGSizeMake(31.0f, 31.0f)];
+        _authorButton = [[UIBarButtonItem alloc] initWithImage:authorIcon style:UIBarButtonItemStylePlain target:self action:@selector(redirectToAuthor:)];
+    }
+    
+    return _authorButton;
+}
+
+- (UIBarButtonItem *)likeButton
+{
+    if (!_likeButton) {
+        UIImage *likeIcon = [IonIcons imageWithIcon:ion_ios_star_outline
+                                          iconColor:[UIColor grayColor]
+                                           iconSize:27.0f
+                                          imageSize:CGSizeMake(27.0f, 27.0f)];
+        _likeButton = [[UIBarButtonItem alloc] initWithImage:likeIcon style:UIBarButtonItemStylePlain target:self action:@selector(likeWork:)];
+    }
+    
+    return _likeButton;
+}
+
+- (UIBarButtonItem *)unlikeButton
+{
+    if (!_unlikeButton) {
+        UIImage *unlikeIcon = [IonIcons imageWithIcon:ion_ios_star
+                                            iconColor:self.view.tintColor
+                                             iconSize:27.0f
+                                            imageSize:CGSizeMake(27.0f, 27.0f)];
+        _unlikeButton = [[UIBarButtonItem alloc] initWithImage:unlikeIcon style:UIBarButtonItemStylePlain target:self action:@selector(unlikeWork:)];
+    }
+
+    return _unlikeButton;
+}
 
 @end

@@ -43,10 +43,9 @@
 {
     [super viewDidLoad];
     
-    self.searchDisplayController.searchBar.placeholder = @"搜索作品";
-    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-    }
+    self.searchDisplayController.searchBar.placeholder = @"搜索";
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
         
     //添加“重排序”按钮
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]
