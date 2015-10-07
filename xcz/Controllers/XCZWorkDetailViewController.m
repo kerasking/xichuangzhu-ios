@@ -21,6 +21,8 @@
 
 @interface XCZWorkDetailViewController ()
 
+@property (strong, nonatomic) WorkDetailsView *detailsView;
+
 @end
 
 @implementation XCZWorkDetailViewController
@@ -78,6 +80,7 @@
 - (void)createViews
 {
     WorkDetailsView *workDetailsView = [[WorkDetailsView alloc] initWithWork:self.work width:CGRectGetWidth(self.view.frame)];
+    self.detailsView = workDetailsView;
     [self.view addSubview:workDetailsView];
     
     [workDetailsView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -104,11 +107,11 @@
     BOOL tabBarHidden = self.tabBarController.tabBar.hidden;
     
     // 全屏模式下，扩大title的顶部间距
-//    if (tabBarHidden) {
-//        self.titleTopConstraint.constant = 40;
-//    } else {
-//        self.titleTopConstraint.constant = 60;
-//    }
+    if (tabBarHidden) {
+        [self.detailsView exitFullScreenMode];
+    } else {
+        [self.detailsView enterFullScreenMode];
+    }
     
     [UIView animateWithDuration:0.4 animations:^{
         [self.view setNeedsLayout];

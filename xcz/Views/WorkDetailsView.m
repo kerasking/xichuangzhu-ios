@@ -15,6 +15,7 @@
 @property (strong, nonatomic) XCZWork *work;
 @property (nonatomic) CGFloat width;
 
+@property (strong, nonatomic) UIView *contentView;
 @property (strong, nonatomic) UILabel *titleLabel;
 @property (strong, nonatomic) UILabel *authorLabel;
 @property (strong, nonatomic) UILabel *contentLabel;
@@ -36,9 +37,11 @@
     
     UIView *contentView = [UIView new];
     [self addSubview:contentView];
+    self.contentView = contentView;
     
     // 标题
     UILabel *titleLabel = [UILabel new];
+    self.titleLabel = titleLabel;
     titleLabel.numberOfLines = 0;
     titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
     titleLabel.font = [UIFont systemFontOfSize:25];
@@ -94,10 +97,10 @@
     // 约束
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(contentView).offset(40);
-        make.left.equalTo(contentView).offset(20);
-        make.right.equalTo(contentView).offset(-20);
+        make.left.equalTo(contentView).offset(30);
+        make.right.equalTo(contentView).offset(-30);
     }];
-    titleLabel.preferredMaxLayoutWidth = width - 20 * 2;
+    titleLabel.preferredMaxLayoutWidth = width - 30 * 2;
     
     [authorLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(titleLabel.mas_bottom).offset(15);
@@ -131,15 +134,38 @@
     }];
     introLabel.preferredMaxLayoutWidth = width - 15 * 2;
     
-    CGSize size = [contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    contentView.frame = CGRectMake(0, 0, width, size.height);
-    self.contentSize = CGSizeMake(width, size.height);
+    [self calculateScrollViewContentSize];
     
     return self;
 }
 
 - (void)updateWithWork:(XCZWork *)work
 {
+}
+
+- (void)enterFullScreenMode
+{
+    [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentView).offset(60);
+    }];
+    
+    [self calculateScrollViewContentSize];
+}
+
+- (void)exitFullScreenMode
+{
+    [self.titleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentView).offset(40);
+    }];
+    
+    [self calculateScrollViewContentSize];
+}
+
+- (void)calculateScrollViewContentSize
+{
+    CGSize size = [self.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    self.contentView.frame = CGRectMake(0, 0, self.width, size.height);
+    self.contentSize = CGSizeMake(self.width, size.height);
 }
 
 @end

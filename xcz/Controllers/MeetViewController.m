@@ -28,6 +28,9 @@
     self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
     self.view.backgroundColor = [UIColor whiteColor];
     
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(toggleBars:)];
+    [self.view addGestureRecognizer:singleTap];
+    
     [self createViews];
 }
 
@@ -64,6 +67,35 @@
 #pragma mark - Public Interface
 
 #pragma mark - User Interface
+
+// 进入/退出全屏模式
+- (void)toggleBars:(UITapGestureRecognizer *)gesture
+{
+    // Toggle statusbar
+    [[UIApplication sharedApplication] setStatusBarHidden:![[UIApplication sharedApplication] isStatusBarHidden] withAnimation:UIStatusBarAnimationSlide];
+    
+    // Toggle navigationbar
+    [self.navigationController setNavigationBarHidden:!self.navigationController.navigationBar.hidden animated:YES];
+    
+    // Toggle tabbar
+    [self.view layoutIfNeeded];
+    
+    BOOL tabBarHidden = self.tabBarController.tabBar.hidden;
+    
+    // 全屏模式下，扩大title的顶部间距
+    if (tabBarHidden) {
+        [self.detailsView exitFullScreenMode];
+    } else {
+        [self.detailsView enterFullScreenMode];
+    }
+    
+    [UIView animateWithDuration:0.4 animations:^{
+        [self.view setNeedsLayout];
+        [self.view layoutIfNeeded];
+    }];
+    
+    [self.tabBarController.tabBar setHidden:!tabBarHidden];
+}
 
 #pragma mark - SomeDelegate
 
