@@ -14,6 +14,7 @@
 
 @interface MeetViewController ()
 
+@property (strong, nonatomic) UISegmentedControl *segmentControl;
 @property (strong, nonatomic) WorkDetailsView *detailsView;
 
 @end
@@ -34,13 +35,12 @@
 {
     [super viewDidLoad];
     
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    
     self.navigationItem.title = @"偶遇";
     
-    UIImage *plusIcon = [IonIcons imageWithIcon:ion_android_refresh size:28 color:[UIColor lightGrayColor]];
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:plusIcon style:UIBarButtonItemStylePlain target:self action:@selector(refreshWork)];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     
+    UIImage *refreshIcon = [IonIcons imageWithIcon:ion_android_refresh size:28 color:[UIColor lightGrayColor]];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:refreshIcon style:UIBarButtonItemStylePlain target:self action:@selector(refreshWork)];
     self.navigationItem.rightBarButtonItem = rightButton;
 }
 
@@ -71,7 +71,6 @@
 
 - (void)refreshWork
 {
-
     [self.detailsView removeFromSuperview];
     
     WorkDetailsView *detailsView = [[WorkDetailsView alloc] initWithWork:[XCZWork getRandomWork] width:CGRectGetWidth(self.view.frame)];

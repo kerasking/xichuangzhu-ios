@@ -6,10 +6,11 @@
 //  Copyright (c) 2014年 Zhipeng Liu. All rights reserved.
 //
 
-#import "XCZQuotesViewController.h"
-#import <FMDB/FMDB.h>
 #import "XCZQuote.h"
 #import "XCZWorkDetailViewController.h"
+#import "XCZQuotesViewController.h"
+#import <FMDB/FMDB.h>
+#import <ionicons/IonIcons.h>
 #import <AVOSCloud/AVOSCloud.h>
 
 @interface XCZQuotesViewController ()
@@ -64,12 +65,11 @@
     [super viewDidLoad];
 
     //添加“换一换”按钮
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]
-                                   initWithTitle:@"换一换"
-                                   style:UIBarButtonItemStylePlain
-                                   target:self
-                                   action:@selector(refreshQuotes:)];
-    [self.navigationItem setRightBarButtonItem:rightButton];
+    UIImage *refreshIcon = [IonIcons imageWithIcon:ion_android_refresh size:28 color:[UIColor lightGrayColor]];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:refreshIcon style:UIBarButtonItemStylePlain target:self action:@selector(refreshQuotes:)];
+    self.navigationItem.rightBarButtonItem = rightButton;
+    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 // 随机加载10条名言
