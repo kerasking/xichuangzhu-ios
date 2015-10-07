@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0545D2651BC519DA00410895 /* UIColor+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0545D2641BC519DA00410895 /* UIColor+Helper.m */; settings = {ASSET_TAGS = (); }; };
+		0545D2681BC51F9800410895 /* XCZLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0545D2671BC51F9800410895 /* XCZLabel.m */; settings = {ASSET_TAGS = (); }; };
 		056485301BA8869D00F52EAE /* DownloadFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 0564852F1BA8869D00F52EAE /* DownloadFont.m */; };
 		0564853B1BA8895300F52EAE /* XCZAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = 056485321BA8895300F52EAE /* XCZAuthor.m */; };
 		0564853C1BA8895300F52EAE /* XCZDynasty.m in Sources */ = {isa = PBXBuildFile; fileRef = 056485341BA8895300F52EAE /* XCZDynasty.m */; };
 		0564853D1BA8895300F52EAE /* XCZLike.m in Sources */ = {isa = PBXBuildFile; fileRef = 056485361BA8895300F52EAE /* XCZLike.m */; };
 		0564853E1BA8895300F52EAE /* XCZQuote.m in Sources */ = {isa = PBXBuildFile; fileRef = 056485381BA8895300F52EAE /* XCZQuote.m */; };
 		0564853F1BA8895300F52EAE /* XCZWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 0564853A1BA8895300F52EAE /* XCZWork.m */; };
-		056485511BA889E100F52EAE /* XCZWorkDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 056485411BA889E100F52EAE /* XCZWorkDetailViewController.xib */; };
 		056485521BA889E100F52EAE /* XCZWorkDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 056485421BA889E100F52EAE /* XCZWorkDetailViewController.m */; };
 		056485531BA889E100F52EAE /* XCZAuthorDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 056485441BA889E100F52EAE /* XCZAuthorDetailsViewController.m */; };
 		056485541BA889E100F52EAE /* XCZAuthorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 056485461BA889E100F52EAE /* XCZAuthorsViewController.m */; };
@@ -56,6 +57,10 @@
 
 /* Begin PBXFileReference section */
 		051C225419B8B1FC00FA14E8 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		0545D2631BC519DA00410895 /* UIColor+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Helper.h"; path = "../../../iOS-Base/Categories/UIColor+Helper.h"; sourceTree = "<group>"; };
+		0545D2641BC519DA00410895 /* UIColor+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Helper.m"; path = "../../../iOS-Base/Categories/UIColor+Helper.m"; sourceTree = "<group>"; };
+		0545D2661BC51F9800410895 /* XCZLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZLabel.h; sourceTree = "<group>"; };
+		0545D2671BC51F9800410895 /* XCZLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZLabel.m; sourceTree = "<group>"; };
 		0564852E1BA8869D00F52EAE /* DownloadFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadFont.h; sourceTree = "<group>"; };
 		0564852F1BA8869D00F52EAE /* DownloadFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadFont.m; sourceTree = "<group>"; };
 		056485311BA8895300F52EAE /* XCZAuthor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZAuthor.h; sourceTree = "<group>"; };
@@ -68,7 +73,6 @@
 		056485381BA8895300F52EAE /* XCZQuote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZQuote.m; sourceTree = "<group>"; };
 		056485391BA8895300F52EAE /* XCZWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZWork.h; sourceTree = "<group>"; };
 		0564853A1BA8895300F52EAE /* XCZWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZWork.m; sourceTree = "<group>"; };
-		056485411BA889E100F52EAE /* XCZWorkDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XCZWorkDetailViewController.xib; sourceTree = "<group>"; };
 		056485421BA889E100F52EAE /* XCZWorkDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZWorkDetailViewController.m; sourceTree = "<group>"; };
 		056485431BA889E100F52EAE /* XCZAuthorDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZAuthorDetailsViewController.h; sourceTree = "<group>"; };
 		056485441BA889E100F52EAE /* XCZAuthorDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZAuthorDetailsViewController.m; sourceTree = "<group>"; };
@@ -151,9 +155,8 @@
 		056485401BA8898600F52EAE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				056485411BA889E100F52EAE /* XCZWorkDetailViewController.xib */,
-				056485421BA889E100F52EAE /* XCZWorkDetailViewController.m */,
 				0564854D1BA889E100F52EAE /* XCZWorkDetailViewController.h */,
+				056485421BA889E100F52EAE /* XCZWorkDetailViewController.m */,
 				056485431BA889E100F52EAE /* XCZAuthorDetailsViewController.h */,
 				056485441BA889E100F52EAE /* XCZAuthorDetailsViewController.m */,
 				056485451BA889E100F52EAE /* XCZAuthorsViewController.h */,
@@ -174,6 +177,8 @@
 		0564855B1BA88A0A00F52EAE /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				0545D2631BC519DA00410895 /* UIColor+Helper.h */,
+				0545D2641BC519DA00410895 /* UIColor+Helper.m */,
 				0564855F1BA88D6F00F52EAE /* UILabel+SetFont.m */,
 				056485601BA88D6F00F52EAE /* UILabel+SetFont.h */,
 			);
@@ -201,6 +206,8 @@
 			isa = PBXGroup;
 			children = (
 				05CC13181966FCFC0014989C /* AuthorHeaderView.xib */,
+				0545D2661BC51F9800410895 /* XCZLabel.h */,
+				0545D2671BC51F9800410895 /* XCZLabel.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -384,7 +391,6 @@
 				056485551BA889E100F52EAE /* XCZAuthorsViewController.xib in Resources */,
 				056485571BA889E100F52EAE /* XCZLikesViewController.xib in Resources */,
 				0564855A1BA889E100F52EAE /* XCZWorksViewController.xib in Resources */,
-				056485511BA889E100F52EAE /* XCZWorkDetailViewController.xib in Resources */,
 				05CE723719A4D97C003864E4 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,6 +456,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0545D2681BC51F9800410895 /* XCZLabel.m in Sources */,
 				0564853D1BA8895300F52EAE /* XCZLike.m in Sources */,
 				056485301BA8869D00F52EAE /* DownloadFont.m in Sources */,
 				05827AA0196A8236003ABBDD /* XCZUtils.m in Sources */,
@@ -461,6 +468,7 @@
 				056485611BA88D6F00F52EAE /* UILabel+SetFont.m in Sources */,
 				0564853B1BA8895300F52EAE /* XCZAuthor.m in Sources */,
 				056485591BA889E100F52EAE /* XCZWorksViewController.m in Sources */,
+				0545D2651BC519DA00410895 /* UIColor+Helper.m in Sources */,
 				0564853F1BA8895300F52EAE /* XCZWork.m in Sources */,
 				05DF00D5195F0CE100175ABF /* main.m in Sources */,
 				056485581BA889E100F52EAE /* XCZQuotesViewController.m in Sources */,
