@@ -46,6 +46,8 @@
 		05DF00F0195F0CE100175ABF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05DF00EE195F0CE100175ABF /* InfoPlist.strings */; };
 		05DF00F2195F0CE100175ABF /* xczTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DF00F1195F0CE100175ABF /* xczTests.m */; };
 		05F219141BC5784000B222D7 /* OtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F219131BC5784000B222D7 /* OtherViewController.m */; settings = {ASSET_TAGS = (); }; };
+		05F219171BC6126300B222D7 /* xcz_tr.db in Resources */ = {isa = PBXBuildFile; fileRef = 05F219161BC6126300B222D7 /* xcz_tr.db */; settings = {ASSET_TAGS = (); }; };
+		05F2191A1BC6134400B222D7 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F219191BC6134400B222D7 /* AboutViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CABD71F26B624951841B653B /* libPods-xcz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 373599EB20404398AE2FC10B /* libPods-xcz.a */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +126,9 @@
 		05F219121BC5784000B222D7 /* OtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherViewController.h; sourceTree = "<group>"; };
 		05F219131BC5784000B222D7 /* OtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherViewController.m; sourceTree = "<group>"; };
 		05F219151BC5924D00B222D7 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		05F219161BC6126300B222D7 /* xcz_tr.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = xcz_tr.db; sourceTree = "<group>"; };
+		05F219181BC6134400B222D7 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		05F219191BC6134400B222D7 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		373599EB20404398AE2FC10B /* libPods-xcz.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-xcz.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		530CF4E9B8A56A69B8C84DA8 /* Pods-xcz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xcz.debug.xcconfig"; path = "Pods/Target Support Files/Pods-xcz/Pods-xcz.debug.xcconfig"; sourceTree = "<group>"; };
 		EB3898A078A798E532D86F3B /* Pods-xcz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xcz.release.xcconfig"; path = "Pods/Target Support Files/Pods-xcz/Pods-xcz.release.xcconfig"; sourceTree = "<group>"; };
@@ -189,6 +194,8 @@
 				0545D2731BC54CF600410895 /* MeetViewController.m */,
 				05F219121BC5784000B222D7 /* OtherViewController.h */,
 				05F219131BC5784000B222D7 /* OtherViewController.m */,
+				05F219181BC6134400B222D7 /* AboutViewController.h */,
+				05F219191BC6134400B222D7 /* AboutViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -288,6 +295,7 @@
 		05DF00CF195F0CE100175ABF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				05F219161BC6126300B222D7 /* xcz_tr.db */,
 				05CE723619A4D97C003864E4 /* Images.xcassets */,
 				05BDB0B81A555CA800DBBFBF /* xcz_user.db */,
 				05B2287B195FCEBE00F91BCC /* xcz.db */,
@@ -414,6 +422,7 @@
 				056485571BA889E100F52EAE /* XCZLikesViewController.xib in Resources */,
 				0564855A1BA889E100F52EAE /* XCZWorksViewController.xib in Resources */,
 				05CE723719A4D97C003864E4 /* Images.xcassets in Resources */,
+				05F219171BC6126300B222D7 /* xcz_tr.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +509,7 @@
 				0564853E1BA8895300F52EAE /* XCZQuote.m in Sources */,
 				05F219141BC5784000B222D7 /* OtherViewController.m in Sources */,
 				056485531BA889E100F52EAE /* XCZAuthorDetailsViewController.m in Sources */,
+				05F2191A1BC6134400B222D7 /* AboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

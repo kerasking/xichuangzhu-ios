@@ -7,6 +7,7 @@
 //
 
 #import "OtherViewController.h"
+#import "AboutViewController.h"
 #import "XCZLikesViewController.h"
 #import "UIColor+Helper.h"
 #import <Masonry/Masonry.h>
@@ -77,7 +78,7 @@
     if (section == 0) {
         return 1;
     } else {
-        return 2;
+        return 1;
     }
 }
 
@@ -93,21 +94,21 @@
         upvotesLabel.attributedText = iconString;
         cell.textLabel.attributedText = iconString;
     } else {
-        if (indexPath.row == 0) {
-            NSMutableAttributedString *iconString = [[NSMutableAttributedString alloc] initWithString:ion_ios_gear_outline attributes:@{NSFontAttributeName: [IonIcons fontWithSize:17], NSForegroundColorAttributeName: [UIColor colorWithRGBA:0x333333FF]}];
-            NSMutableAttributedString *countString = [[NSMutableAttributedString alloc] initWithString:@"  设置" attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17]}];
-            [iconString appendAttributedString:countString];
-            UILabel *upvotesLabel = [UILabel new];
-            upvotesLabel.attributedText = iconString;
-            cell.textLabel.attributedText = iconString;
-        } else {
-            NSMutableAttributedString *iconString = [[NSMutableAttributedString alloc] initWithString:ion_ios_information_outline attributes:@{NSFontAttributeName: [IonIcons fontWithSize:17], NSForegroundColorAttributeName: [UIColor colorWithRGBA:0x333333FF]}];
-            NSMutableAttributedString *countString = [[NSMutableAttributedString alloc] initWithString:@"  关于" attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17]}];
-            [iconString appendAttributedString:countString];
-            UILabel *upvotesLabel = [UILabel new];
-            upvotesLabel.attributedText = iconString;
-            cell.textLabel.attributedText = iconString;
-        }
+//        if (indexPath.row == 0) {
+//            NSMutableAttributedString *iconString = [[NSMutableAttributedString alloc] initWithString:ion_ios_gear_outline attributes:@{NSFontAttributeName: [IonIcons fontWithSize:17], NSForegroundColorAttributeName: [UIColor colorWithRGBA:0x333333FF]}];
+//            NSMutableAttributedString *countString = [[NSMutableAttributedString alloc] initWithString:@"  设置" attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17]}];
+//            [iconString appendAttributedString:countString];
+//            UILabel *upvotesLabel = [UILabel new];
+//            upvotesLabel.attributedText = iconString;
+//            cell.textLabel.attributedText = iconString;
+//        } else {
+        NSMutableAttributedString *iconString = [[NSMutableAttributedString alloc] initWithString:ion_ios_information_outline attributes:@{NSFontAttributeName: [IonIcons fontWithSize:17], NSForegroundColorAttributeName: [UIColor colorWithRGBA:0x333333FF]}];
+        NSMutableAttributedString *countString = [[NSMutableAttributedString alloc] initWithString:@"  关于" attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17]}];
+        [iconString appendAttributedString:countString];
+        UILabel *upvotesLabel = [UILabel new];
+        upvotesLabel.attributedText = iconString;
+        cell.textLabel.attributedText = iconString;
+//        }
     }
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -141,9 +142,10 @@
         }
     } else {
         if (indexPath.row == 0) {
-            
+            AboutViewController *controller = [AboutViewController new];
+            [self.navigationController pushViewController:controller animated:YES];
         } else {
-        
+            
         }
     }
 }

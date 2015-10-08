@@ -133,7 +133,7 @@
     }];
     
     [self.introLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.contentView).offset(-40);
+        make.bottom.equalTo(self.contentView).offset(-30);
     }];
     
     [self calculateScrollViewContentSize];
@@ -179,7 +179,7 @@
     if ([self.work.layout isEqual: @"indent"]) {
         // 缩进排版
         contentParagraphStyle.firstLineHeadIndent = 25;
-        contentParagraphStyle.paragraphSpacing = 20;
+        contentParagraphStyle.paragraphSpacing = 10;
         contentParagraphStyle.lineHeightMultiple = 1.35;
     } else {
         // 居中排版
