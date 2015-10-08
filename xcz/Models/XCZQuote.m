@@ -22,12 +22,7 @@
     if ([db open]) {
         FMResultSet *s = [db executeQuery:@"SELECT * FROM quotes ORDER BY RANDOM() LIMIT 1"];
         [s next];
-        quote.id = [s intForColumn:@"id"];
-        quote.quote = [s stringForColumn:@"quote"];
-        quote.authorId = [s intForColumn:@"author_id"];
-        quote.author = [s stringForColumn:@"author"];
-        quote.workId = [s intForColumn:@"work_id"];
-        quote.work = [s stringForColumn:@"work"];
+        [quote loadFromResultSet:s];
         [db close];
     }
     
@@ -48,12 +43,7 @@
         FMResultSet *s = [db executeQuery:query];
         while ([s next]) {
             XCZQuote *quote = [[XCZQuote alloc] init];
-            quote.id = [s intForColumn:@"id"];
-            quote.quote = [s stringForColumn:@"quote"];
-            quote.authorId = [s intForColumn:@"author_id"];
-            quote.author = [s stringForColumn:@"author"];
-            quote.workId = [s intForColumn:@"work_id"];
-            quote.work = [s stringForColumn:@"work"];
+            [quote loadFromResultSet:s];
             quotes[index] = quote;
             index++;
         }
@@ -62,6 +52,16 @@
     }
     
     return quotes;
+}
+
+- (void)loadFromResultSet:(FMResultSet *)resultSet
+{
+    self.id = [resultSet intForColumn:@"id"];
+    self.quote = [resultSet stringForColumn:@"quote"];
+    self.authorId = [resultSet intForColumn:@"author_id"];
+    self.author = [resultSet stringForColumn:@"author"];
+    self.workId = [resultSet intForColumn:@"work_id"];
+    self.work = [resultSet stringForColumn:@"work"];
 }
 
 @end

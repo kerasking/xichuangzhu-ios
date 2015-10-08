@@ -24,12 +24,7 @@
         NSString *query = [[NSString alloc] initWithFormat:@"SELECT * FROM authors WHERE id = %d", authorId];
         FMResultSet *s = [db executeQuery:query];
         if ([s next]) {
-            author.id = [s intForColumn:@"id"];
-            author.name = [s stringForColumn:@"name"];
-            author.intro = [s stringForColumn:@"intro"];
-            author.dynasty = [s stringForColumn:@"dynasty"];
-            author.birthYear = [s stringForColumn:@"birth_year"];
-            author.deathYear = [s stringForColumn:@"death_year"];
+            [author loadFromResultSet:s];
         }
         
         [db close];
@@ -73,12 +68,7 @@
 
         while ([s next]) {
             XCZAuthor *author = [[XCZAuthor alloc] init];
-            author.id = [s intForColumn:@"id"];
-            author.name = [s stringForColumn:@"name"];
-            author.intro = [s stringForColumn:@"intro"];
-            author.dynasty = [s stringForColumn:@"dynasty"];
-            author.birthYear = [s stringForColumn:@"birth_year"];
-            author.deathYear = [s stringForColumn:@"death_year"];
+            [author loadFromResultSet:s];
             authors[index] = author;
             index++;
         }
@@ -101,12 +91,7 @@
         FMResultSet *s = [db executeQuery:@"SELECT * FROM authors"];
         while ([s next]) {
             XCZAuthor *author = [[XCZAuthor alloc] init];
-            author.id = [s intForColumn:@"id"];
-            author.name = [s stringForColumn:@"name"];
-            author.intro = [s stringForColumn:@"intro"];
-            author.dynasty = [s stringForColumn:@"dynasty"];
-            author.birthYear = [s stringForColumn:@"birth_year"];
-            author.deathYear = [s stringForColumn:@"death_year"];
+            [author loadFromResultSet:s];
             authors[index] = author;
             index++;
         }
@@ -115,6 +100,16 @@
     }
     
     return authors;
+}
+
+- (void)loadFromResultSet:(FMResultSet *)resultSet
+{
+    self.id = [resultSet intForColumn:@"id"];
+    self.name = [resultSet stringForColumn:@"name"];
+    self.intro = [resultSet stringForColumn:@"intro"];
+    self.dynasty = [resultSet stringForColumn:@"dynasty"];
+    self.birthYear = [resultSet stringForColumn:@"birth_year"];
+    self.deathYear = [resultSet stringForColumn:@"death_year"];
 }
 
 @end
