@@ -46,7 +46,6 @@
 {
     [super viewDidLoad];
     
-//    self.edgesForExtendedLayout = UIRectEdgeNone;
     [self initNavbarShowLike:![XCZLike checkExist:self.work.id]];
 }
 
@@ -136,6 +135,7 @@
 {
     self.work = [XCZWork getRandomWork];
     [self.detailsView updateWithWork:self.work];
+    [self initNavbarShowLike:![XCZLike checkExist:self.work.id]];
 }
 
 #pragma mark - SomeDelegate
