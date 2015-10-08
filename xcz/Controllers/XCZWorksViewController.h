@@ -10,4 +10,6 @@
 
 @interface XCZWorksViewController : UIViewController
 
+- (void)reorderWorks;
+
 @end

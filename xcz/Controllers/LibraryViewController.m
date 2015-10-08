@@ -10,12 +10,14 @@
 #import "XCZWorksViewController.h"
 #import "XCZAuthorsViewController.h"
 #import <Masonry/Masonry.h>
+#import <ionicons/IonIcons.h>
 
 @interface LibraryViewController ()
 
 @property (strong, nonatomic) UISegmentedControl *segmentControl;
 @property (strong, nonatomic) XCZWorksViewController *worksViewController;
 @property (strong, nonatomic) XCZAuthorsViewController *authorsViewController;
+@property (strong, nonatomic) UIBarButtonItem *rightButton;
 
 @end
 
@@ -42,6 +44,9 @@
     self.segmentControl.selectedSegmentIndex = 0;
     [self.segmentControl addTarget:self action:@selector(segmentControlTapped) forControlEvents:UIControlEventValueChanged];
     self.navigationItem.titleView = segmentControl;
+    
+    //添加“重排序”按钮
+    self.navigationItem.rightBarButtonItem = self.rightButton;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -78,10 +83,17 @@
     if (self.segmentControl.selectedSegmentIndex == 0) {
         self.authorsViewController.view.hidden = YES;
         self.worksViewController.view.hidden = NO;
+        self.navigationItem.rightBarButtonItem = self.rightButton;
     } else {
         self.authorsViewController.view.hidden = NO;
         self.worksViewController.view.hidden = YES;
+        self.navigationItem.rightBarButtonItem = nil;
     }
+}
+
+- (void)reorderWorks
+{
+    [self.worksViewController reorderWorks];
 }
 
 #pragma mark - SomeDelegate
@@ -90,5 +102,14 @@
 
 #pragma mark - Getters & Setters
 
+- (UIBarButtonItem *)rightButton
+{
+    if (!_rightButton) {
+        UIImage *refreshIcon = [IonIcons imageWithIcon:ion_ios_loop_strong size:24 color:[UIColor grayColor]];
+        _rightButton = [[UIBarButtonItem alloc] initWithImage:refreshIcon style:UIBarButtonItemStylePlain target:self action:@selector(reorderWorks)];
+    }
+    
+    return _rightButton;
+}
 
 @end

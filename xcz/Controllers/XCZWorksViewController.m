@@ -46,19 +46,12 @@
     self.searchDisplayController.searchBar.placeholder = @"搜索";
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-        
-    //添加“重排序”按钮
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]
-                                    initWithTitle:@"重排序"
-                                    style:UIBarButtonItemStylePlain
-                                    target:self
-                                    action:@selector(reorderWorks:)];
-    [self.navigationItem setRightBarButtonItem:rightButton];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushNotificationReceived:) name:@"openWorkView" object:nil];
 }
 
-- (IBAction)reorderWorks:(id)sender {
+- (void)reorderWorks
+{
     [AVAnalytics event:@"reorder_works"]; // “重排序”事件。
     self.works = [XCZWork reorderWorks];
     [UIView transitionWithView: self.tableView
