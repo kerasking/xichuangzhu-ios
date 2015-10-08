@@ -80,12 +80,32 @@
 
 - (void)createViews
 {
+    UIScrollView *scrollView = [UIScrollView new];
+    [self.view addSubview:scrollView];
+
+    UIView *contentView = [self createContentView];
+    [scrollView addSubview:contentView];
+    
+    [scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    
+    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.view);
+        make.edges.equalTo(scrollView);
+    }];
+}
+
+- (UIView *)createContentView
+{
+    UIView *contentView = [UIView new];
+    
     // slogan wap
     UIView *sloganWapView = [UIView new];
     sloganWapView.backgroundColor = [UIColor colorWithRGBA:0xF2F2F2FF];
-    [self.view addSubview:sloganWapView];
     UITapGestureRecognizer *gestureForSlogan = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sloganTapped:)];
     [sloganWapView addGestureRecognizer:gestureForSlogan];
+    [contentView addSubview:sloganWapView];
     
     // slogan
     UILabel *sloganLabel = [UILabel new];
@@ -119,7 +139,7 @@
     paragraphStyle.lineSpacing = 5;
     [attributedStringForAbout addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, aboutText.length)];
     aboutLabel.attributedText = attributedStringForAbout;
-    [self.view addSubview:aboutLabel];
+    [contentView addSubview:aboutLabel];
     
     // contact
     UILabel *contactLabel = [UILabel new];
@@ -138,7 +158,7 @@
     contactLabel.userInteractionEnabled = YES;
     UITapGestureRecognizer *gestureForContact = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(contactTapped)];
     [contactLabel addGestureRecognizer:gestureForContact];
-    [self.view addSubview:contactLabel];
+    [contentView addSubview:contactLabel];
     
     // website
     UILabel *websiteLabel = [UILabel new];
@@ -157,13 +177,12 @@
     websiteLabel.userInteractionEnabled = YES;
     UITapGestureRecognizer *gestureForWebsite = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(websiteTapped)];
     [websiteLabel addGestureRecognizer:gestureForWebsite];
-    [self.view addSubview:websiteLabel];
+    [contentView addSubview:websiteLabel];
     
     // 约束
     
     [sloganWapView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view);
-        make.left.right.equalTo(self.view);
+        make.top.left.right.equalTo(contentView);
     }];
     
     [sloganLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -173,27 +192,28 @@
     
     [sloganFromLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(sloganWapView).offset(-30);
-        make.top.equalTo(sloganLabel.mas_bottom).offset(25);
+        make.top.equalTo(sloganLabel.mas_bottom).offset(20);
         make.bottom.equalTo(sloganWapView).offset(-15);
     }];
     
     [aboutLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(sloganWapView.mas_bottom).offset(30);
-        make.left.equalTo(self.view).offset(20);
-        make.right.equalTo(self.view).offset(-20);
+        make.left.equalTo(contentView).offset(20);
+        make.right.equalTo(contentView).offset(-20);
     }];
     
     [contactLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(aboutLabel.mas_bottom).offset(20);
-        make.left.equalTo(self.view).offset(20);
-        make.right.equalTo(self.view).offset(-20);
+        make.left.right.equalTo(aboutLabel);
     }];
     
     [websiteLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(contactLabel.mas_bottom).offset(20);
-        make.left.equalTo(self.view).offset(20);
-        make.right.equalTo(self.view).offset(-20);
+        make.left.right.equalTo(contactLabel);
+        make.bottom.equalTo(contentView).offset(-60);
     }];
+
+    return contentView;
 }
 
 #pragma mark - Public Interface
