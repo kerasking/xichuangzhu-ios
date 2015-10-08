@@ -15,7 +15,6 @@
 @property (strong, nonatomic) XCZWork *work;
 @property (nonatomic) CGFloat width;
 
-@property (strong, nonatomic) UIView *contentView;
 @property (strong, nonatomic) UILabel *titleLabel;
 @property (strong, nonatomic) UILabel *authorLabel;
 @property (strong, nonatomic) UILabel *contentLabel;
@@ -85,7 +84,6 @@
         make.left.equalTo(contentView).offset(30);
         make.right.equalTo(contentView).offset(-30);
     }];
-    titleLabel.preferredMaxLayoutWidth = width - 30 * 2;
     
     [authorLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(titleLabel.mas_bottom).offset(15);
@@ -104,15 +102,18 @@
         make.right.equalTo(contentView).offset(-15);
         make.bottom.equalTo(contentView).offset(-20);
     }];
-    introLabel.preferredMaxLayoutWidth = width - 15 * 2;
     
     // 内容
     [self createContentLabel];
     
-    [self calculateScrollViewContentSize];
+    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self);
+    }];
     
     return self;
 }
+
+#pragma mark - public methods
 
 - (void)updateWithWork:(XCZWork *)work
 {
@@ -122,8 +123,6 @@
     [self updateAttributedText:[NSString stringWithFormat:@"[%@] %@", work.dynasty, work.author] label:self.authorLabel];
     [self createContentLabel];
     [self updateAttributedText:work.intro label:self.introLabel];
-    
-    [self calculateScrollViewContentSize];
 }
 
 - (void)enterFullScreenMode
@@ -135,8 +134,6 @@
     [self.introLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.contentView).offset(-30);
     }];
-    
-    [self calculateScrollViewContentSize];
 }
 
 - (void)exitFullScreenMode
@@ -148,16 +145,9 @@
     [self.introLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.contentView).offset(-20);
     }];
-    
-    [self calculateScrollViewContentSize];
 }
 
-- (void)calculateScrollViewContentSize
-{
-    CGSize size = [self.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    self.contentView.frame = CGRectMake(0, 0, self.width, size.height);
-    self.contentSize = CGSizeMake(self.width, size.height);
-}
+#pragma mark - private methods
 
 - (void)updateAttributedText:(NSString *)text label:(UILabel *)label
 {
@@ -201,7 +191,6 @@
         make.right.equalTo(self.contentView).offset(-15);
         make.bottom.equalTo(self.introHeaderLabel.mas_top).offset(-20);
     }];
-    contentLabel.preferredMaxLayoutWidth = self.width - 15 * 2;
 }
 
 @end

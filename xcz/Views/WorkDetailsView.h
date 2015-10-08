@@ -11,6 +11,8 @@
 
 @interface WorkDetailsView : UIScrollView
 
+@property (strong, nonatomic) UIView *contentView;
+
 - (instancetype)initWithWork:(XCZWork *)work width:(CGFloat)width;
 - (void)updateWithWork:(XCZWork *)work;
 - (void)enterFullScreenMode;

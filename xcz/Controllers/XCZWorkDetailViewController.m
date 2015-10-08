@@ -91,6 +91,10 @@
     [workDetailsView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+    
+    [workDetailsView.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.view);
+    }];
 }
 
 #pragma mark - Public Interface
