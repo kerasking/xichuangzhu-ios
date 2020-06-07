@@ -7,27 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0573FF2219682050005341F2 /* XCZWorksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0573FF2119682050005341F2 /* XCZWorksViewController.xib */; };
-		0573FF24196847A0005341F2 /* XCZAuthorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0573FF23196847A0005341F2 /* XCZAuthorsViewController.xib */; };
+		0545D2681BC51F9800410895 /* XCZLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0545D2671BC51F9800410895 /* XCZLabel.m */; settings = {ASSET_TAGS = (); }; };
+		0545D26B1BC5379200410895 /* UIColor+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0545D2691BC5379200410895 /* UIColor+Helper.m */; settings = {ASSET_TAGS = (); }; };
+		0545D26E1BC5428500410895 /* WorkDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0545D26D1BC5428500410895 /* WorkDetailsView.m */; settings = {ASSET_TAGS = (); }; };
+		0545D2711BC54C8B00410895 /* LibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0545D2701BC54C8B00410895 /* LibraryViewController.m */; settings = {ASSET_TAGS = (); }; };
+		0545D2741BC54CF600410895 /* MeetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0545D2731BC54CF600410895 /* MeetViewController.m */; settings = {ASSET_TAGS = (); }; };
+		056485301BA8869D00F52EAE /* DownloadFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 0564852F1BA8869D00F52EAE /* DownloadFont.m */; };
+		0564853B1BA8895300F52EAE /* XCZAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = 056485321BA8895300F52EAE /* XCZAuthor.m */; };
+		0564853C1BA8895300F52EAE /* XCZDynasty.m in Sources */ = {isa = PBXBuildFile; fileRef = 056485341BA8895300F52EAE /* XCZDynasty.m */; };
+		0564853D1BA8895300F52EAE /* XCZLike.m in Sources */ = {isa = PBXBuildFile; fileRef = 056485361BA8895300F52EAE /* XCZLike.m */; };
+		0564853E1BA8895300F52EAE /* XCZQuote.m in Sources */ = {isa = PBXBuildFile; fileRef = 056485381BA8895300F52EAE /* XCZQuote.m */; };
+		0564853F1BA8895300F52EAE /* XCZWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 0564853A1BA8895300F52EAE /* XCZWork.m */; };
+		056485521BA889E100F52EAE /* XCZWorkDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 056485421BA889E100F52EAE /* XCZWorkDetailViewController.m */; };
+		056485531BA889E100F52EAE /* XCZAuthorDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 056485441BA889E100F52EAE /* XCZAuthorDetailsViewController.m */; };
+		056485541BA889E100F52EAE /* XCZAuthorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 056485461BA889E100F52EAE /* XCZAuthorsViewController.m */; };
+		056485551BA889E100F52EAE /* XCZAuthorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 056485471BA889E100F52EAE /* XCZAuthorsViewController.xib */; };
+		056485561BA889E100F52EAE /* XCZLikesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 056485491BA889E100F52EAE /* XCZLikesViewController.m */; };
+		056485571BA889E100F52EAE /* XCZLikesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0564854A1BA889E100F52EAE /* XCZLikesViewController.xib */; };
+		056485581BA889E100F52EAE /* XCZQuotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0564854C1BA889E100F52EAE /* XCZQuotesViewController.m */; };
+		056485591BA889E100F52EAE /* XCZWorksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0564854F1BA889E100F52EAE /* XCZWorksViewController.m */; };
+		0564855A1BA889E100F52EAE /* XCZWorksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 056485501BA889E100F52EAE /* XCZWorksViewController.xib */; };
+		056485611BA88D6F00F52EAE /* UILabel+SetFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 0564855F1BA88D6F00F52EAE /* UILabel+SetFont.m */; };
 		05827AA0196A8236003ABBDD /* XCZUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 05827A9F196A8236003ABBDD /* XCZUtils.m */; };
-		05ABB5CA1961525900341AAC /* XCZWorkDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05ABB5C81961525900341AAC /* XCZWorkDetailViewController.m */; };
-		05ABB5CB1961525900341AAC /* XCZWorkDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05ABB5C91961525900341AAC /* XCZWorkDetailViewController.xib */; };
-		05B22879195F0F1600F91BCC /* XCZWorksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B22877195F0F1600F91BCC /* XCZWorksViewController.m */; };
 		05B2287C195FD19500F91BCC /* xcz.db in Resources */ = {isa = PBXBuildFile; fileRef = 05B2287B195FCEBE00F91BCC /* xcz.db */; };
-		05B2287F196024ED00F91BCC /* XCZWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B2287E196024ED00F91BCC /* XCZWork.m */; };
-		05CC12F5196569690014989C /* XCZAuthorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CC12F4196569690014989C /* XCZAuthorsViewController.m */; };
-		05CC12F8196569DD0014989C /* XCZAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CC12F7196569DD0014989C /* XCZAuthor.m */; };
-		05CC12FC196583F60014989C /* XCZDynasty.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CC12FB196583F60014989C /* XCZDynasty.m */; };
-		05CC13101966689F0014989C /* XCZAuthorDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CC130E1966689F0014989C /* XCZAuthorDetailsViewController.m */; };
+		05BDB0B91A555CA800DBBFBF /* xcz_user.db in Resources */ = {isa = PBXBuildFile; fileRef = 05BDB0B81A555CA800DBBFBF /* xcz_user.db */; };
 		05CC13191966FCFC0014989C /* AuthorHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05CC13181966FCFC0014989C /* AuthorHeaderView.xib */; };
 		05CE723719A4D97C003864E4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05CE723619A4D97C003864E4 /* Images.xcassets */; };
-		05D4A1D81967F53900D5F534 /* XCZQuote.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D4A1D71967F53900D5F534 /* XCZQuote.m */; };
-		05D4A1DB1967F5BA00D5F534 /* XCZQuotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D4A1DA1967F5BA00D5F534 /* XCZQuotesViewController.m */; };
 		05DF00C7195F0CE100175ABF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DF00C6195F0CE100175ABF /* Foundation.framework */; };
 		05DF00C9195F0CE100175ABF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DF00C8195F0CE100175ABF /* CoreGraphics.framework */; };
 		05DF00CB195F0CE100175ABF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DF00CA195F0CE100175ABF /* UIKit.framework */; };
 		05DF00CD195F0CE100175ABF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DF00CC195F0CE100175ABF /* CoreData.framework */; };
-		05DF00D3195F0CE100175ABF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05DF00D1195F0CE100175ABF /* InfoPlist.strings */; };
 		05DF00D5195F0CE100175ABF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DF00D4195F0CE100175ABF /* main.m */; };
 		05DF00D9195F0CE100175ABF /* XCZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DF00D8195F0CE100175ABF /* XCZAppDelegate.m */; };
 		05DF00E5195F0CE100175ABF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DF00E4195F0CE100175ABF /* XCTest.framework */; };
@@ -36,6 +45,9 @@
 		05DF00E8195F0CE100175ABF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DF00CC195F0CE100175ABF /* CoreData.framework */; };
 		05DF00F0195F0CE100175ABF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05DF00EE195F0CE100175ABF /* InfoPlist.strings */; };
 		05DF00F2195F0CE100175ABF /* xczTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DF00F1195F0CE100175ABF /* xczTests.m */; };
+		05F219141BC5784000B222D7 /* OtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F219131BC5784000B222D7 /* OtherViewController.m */; settings = {ASSET_TAGS = (); }; };
+		05F219171BC6126300B222D7 /* xcz_tr.db in Resources */ = {isa = PBXBuildFile; fileRef = 05F219161BC6126300B222D7 /* xcz_tr.db */; settings = {ASSET_TAGS = (); }; };
+		05F2191A1BC6134400B222D7 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F219191BC6134400B222D7 /* AboutViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CABD71F26B624951841B653B /* libPods-xcz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 373599EB20404398AE2FC10B /* libPods-xcz.a */; };
 /* End PBXBuildFile section */
 
@@ -51,39 +63,57 @@
 
 /* Begin PBXFileReference section */
 		051C225419B8B1FC00FA14E8 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		0573FF2119682050005341F2 /* XCZWorksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XCZWorksViewController.xib; sourceTree = "<group>"; };
-		0573FF23196847A0005341F2 /* XCZAuthorsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XCZAuthorsViewController.xib; sourceTree = "<group>"; };
+		0545D2661BC51F9800410895 /* XCZLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZLabel.h; sourceTree = "<group>"; };
+		0545D2671BC51F9800410895 /* XCZLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZLabel.m; sourceTree = "<group>"; };
+		0545D2691BC5379200410895 /* UIColor+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Helper.m"; sourceTree = "<group>"; };
+		0545D26A1BC5379200410895 /* UIColor+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Helper.h"; sourceTree = "<group>"; };
+		0545D26C1BC5428500410895 /* WorkDetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkDetailsView.h; sourceTree = "<group>"; };
+		0545D26D1BC5428500410895 /* WorkDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkDetailsView.m; sourceTree = "<group>"; };
+		0545D26F1BC54C8B00410895 /* LibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryViewController.h; sourceTree = "<group>"; };
+		0545D2701BC54C8B00410895 /* LibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryViewController.m; sourceTree = "<group>"; };
+		0545D2721BC54CF600410895 /* MeetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetViewController.h; sourceTree = "<group>"; };
+		0545D2731BC54CF600410895 /* MeetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeetViewController.m; sourceTree = "<group>"; };
+		0564852E1BA8869D00F52EAE /* DownloadFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadFont.h; sourceTree = "<group>"; };
+		0564852F1BA8869D00F52EAE /* DownloadFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadFont.m; sourceTree = "<group>"; };
+		056485311BA8895300F52EAE /* XCZAuthor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZAuthor.h; sourceTree = "<group>"; };
+		056485321BA8895300F52EAE /* XCZAuthor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZAuthor.m; sourceTree = "<group>"; };
+		056485331BA8895300F52EAE /* XCZDynasty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZDynasty.h; sourceTree = "<group>"; };
+		056485341BA8895300F52EAE /* XCZDynasty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZDynasty.m; sourceTree = "<group>"; };
+		056485351BA8895300F52EAE /* XCZLike.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZLike.h; sourceTree = "<group>"; };
+		056485361BA8895300F52EAE /* XCZLike.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZLike.m; sourceTree = "<group>"; };
+		056485371BA8895300F52EAE /* XCZQuote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZQuote.h; sourceTree = "<group>"; };
+		056485381BA8895300F52EAE /* XCZQuote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZQuote.m; sourceTree = "<group>"; };
+		056485391BA8895300F52EAE /* XCZWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZWork.h; sourceTree = "<group>"; };
+		0564853A1BA8895300F52EAE /* XCZWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZWork.m; sourceTree = "<group>"; };
+		056485421BA889E100F52EAE /* XCZWorkDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZWorkDetailViewController.m; sourceTree = "<group>"; };
+		056485431BA889E100F52EAE /* XCZAuthorDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZAuthorDetailsViewController.h; sourceTree = "<group>"; };
+		056485441BA889E100F52EAE /* XCZAuthorDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZAuthorDetailsViewController.m; sourceTree = "<group>"; };
+		056485451BA889E100F52EAE /* XCZAuthorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZAuthorsViewController.h; sourceTree = "<group>"; };
+		056485461BA889E100F52EAE /* XCZAuthorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZAuthorsViewController.m; sourceTree = "<group>"; };
+		056485471BA889E100F52EAE /* XCZAuthorsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XCZAuthorsViewController.xib; sourceTree = "<group>"; };
+		056485481BA889E100F52EAE /* XCZLikesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZLikesViewController.h; sourceTree = "<group>"; };
+		056485491BA889E100F52EAE /* XCZLikesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZLikesViewController.m; sourceTree = "<group>"; };
+		0564854A1BA889E100F52EAE /* XCZLikesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XCZLikesViewController.xib; sourceTree = "<group>"; };
+		0564854B1BA889E100F52EAE /* XCZQuotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZQuotesViewController.h; sourceTree = "<group>"; };
+		0564854C1BA889E100F52EAE /* XCZQuotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZQuotesViewController.m; sourceTree = "<group>"; };
+		0564854D1BA889E100F52EAE /* XCZWorkDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZWorkDetailViewController.h; sourceTree = "<group>"; };
+		0564854E1BA889E100F52EAE /* XCZWorksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZWorksViewController.h; sourceTree = "<group>"; };
+		0564854F1BA889E100F52EAE /* XCZWorksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZWorksViewController.m; sourceTree = "<group>"; };
+		056485501BA889E100F52EAE /* XCZWorksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XCZWorksViewController.xib; sourceTree = "<group>"; };
+		0564855F1BA88D6F00F52EAE /* UILabel+SetFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+SetFont.m"; sourceTree = "<group>"; };
+		056485601BA88D6F00F52EAE /* UILabel+SetFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+SetFont.h"; sourceTree = "<group>"; };
 		05827A9E196A8236003ABBDD /* XCZUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZUtils.h; sourceTree = "<group>"; };
 		05827A9F196A8236003ABBDD /* XCZUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZUtils.m; sourceTree = "<group>"; };
-		05ABB5C71961525900341AAC /* XCZWorkDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZWorkDetailViewController.h; sourceTree = "<group>"; };
-		05ABB5C81961525900341AAC /* XCZWorkDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZWorkDetailViewController.m; sourceTree = "<group>"; };
-		05ABB5C91961525900341AAC /* XCZWorkDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XCZWorkDetailViewController.xib; sourceTree = "<group>"; };
-		05B22876195F0F1600F91BCC /* XCZWorksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZWorksViewController.h; sourceTree = "<group>"; };
-		05B22877195F0F1600F91BCC /* XCZWorksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZWorksViewController.m; sourceTree = "<group>"; };
 		05B2287B195FCEBE00F91BCC /* xcz.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = xcz.db; sourceTree = "<group>"; };
-		05B2287D196024ED00F91BCC /* XCZWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZWork.h; sourceTree = "<group>"; };
-		05B2287E196024ED00F91BCC /* XCZWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZWork.m; sourceTree = "<group>"; };
-		05CC12F3196569690014989C /* XCZAuthorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZAuthorsViewController.h; sourceTree = "<group>"; };
-		05CC12F4196569690014989C /* XCZAuthorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZAuthorsViewController.m; sourceTree = "<group>"; };
-		05CC12F6196569DD0014989C /* XCZAuthor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZAuthor.h; sourceTree = "<group>"; };
-		05CC12F7196569DD0014989C /* XCZAuthor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZAuthor.m; sourceTree = "<group>"; };
-		05CC12FA196583F60014989C /* XCZDynasty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZDynasty.h; sourceTree = "<group>"; };
-		05CC12FB196583F60014989C /* XCZDynasty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZDynasty.m; sourceTree = "<group>"; };
-		05CC130D1966689F0014989C /* XCZAuthorDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZAuthorDetailsViewController.h; sourceTree = "<group>"; };
-		05CC130E1966689F0014989C /* XCZAuthorDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZAuthorDetailsViewController.m; sourceTree = "<group>"; };
+		05BDB0B81A555CA800DBBFBF /* xcz_user.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = xcz_user.db; sourceTree = "<group>"; };
 		05CC13181966FCFC0014989C /* AuthorHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthorHeaderView.xib; sourceTree = "<group>"; };
 		05CE723619A4D97C003864E4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		05D4A1D61967F53900D5F534 /* XCZQuote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZQuote.h; sourceTree = "<group>"; };
-		05D4A1D71967F53900D5F534 /* XCZQuote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZQuote.m; sourceTree = "<group>"; };
-		05D4A1D91967F5BA00D5F534 /* XCZQuotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCZQuotesViewController.h; sourceTree = "<group>"; };
-		05D4A1DA1967F5BA00D5F534 /* XCZQuotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCZQuotesViewController.m; sourceTree = "<group>"; };
 		05DF00C3195F0CE100175ABF /* xcz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xcz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DF00C6195F0CE100175ABF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		05DF00C8195F0CE100175ABF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		05DF00CA195F0CE100175ABF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		05DF00CC195F0CE100175ABF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		05DF00D0195F0CE100175ABF /* xcz-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "xcz-Info.plist"; sourceTree = "<group>"; };
-		05DF00D2195F0CE100175ABF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		05DF00D4195F0CE100175ABF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		05DF00D6195F0CE100175ABF /* xcz-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "xcz-Prefix.pch"; sourceTree = "<group>"; };
 		05DF00D7195F0CE100175ABF /* XCZAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XCZAppDelegate.h; sourceTree = "<group>"; };
@@ -93,8 +123,15 @@
 		05DF00ED195F0CE100175ABF /* xczTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "xczTests-Info.plist"; sourceTree = "<group>"; };
 		05DF00EF195F0CE100175ABF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		05DF00F1195F0CE100175ABF /* xczTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xczTests.m; sourceTree = "<group>"; };
+		05F219121BC5784000B222D7 /* OtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherViewController.h; sourceTree = "<group>"; };
+		05F219131BC5784000B222D7 /* OtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherViewController.m; sourceTree = "<group>"; };
+		05F219151BC5924D00B222D7 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		05F219161BC6126300B222D7 /* xcz_tr.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = xcz_tr.db; sourceTree = "<group>"; };
+		05F219181BC6134400B222D7 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		05F219191BC6134400B222D7 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		373599EB20404398AE2FC10B /* libPods-xcz.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-xcz.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B2746BE289C74C47AEA1EF75 /* Pods-xcz.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xcz.xcconfig"; path = "Pods/Pods-xcz.xcconfig"; sourceTree = "<group>"; };
+		530CF4E9B8A56A69B8C84DA8 /* Pods-xcz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xcz.debug.xcconfig"; path = "Pods/Target Support Files/Pods-xcz/Pods-xcz.debug.xcconfig"; sourceTree = "<group>"; };
+		EB3898A078A798E532D86F3B /* Pods-xcz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xcz.release.xcconfig"; path = "Pods/Target Support Files/Pods-xcz/Pods-xcz.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,40 +161,83 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0564852D1BA885EC00F52EAE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0564852E1BA8869D00F52EAE /* DownloadFont.h */,
+				0564852F1BA8869D00F52EAE /* DownloadFont.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		056485401BA8898600F52EAE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0564854D1BA889E100F52EAE /* XCZWorkDetailViewController.h */,
+				056485421BA889E100F52EAE /* XCZWorkDetailViewController.m */,
+				056485431BA889E100F52EAE /* XCZAuthorDetailsViewController.h */,
+				056485441BA889E100F52EAE /* XCZAuthorDetailsViewController.m */,
+				056485451BA889E100F52EAE /* XCZAuthorsViewController.h */,
+				056485461BA889E100F52EAE /* XCZAuthorsViewController.m */,
+				056485471BA889E100F52EAE /* XCZAuthorsViewController.xib */,
+				056485481BA889E100F52EAE /* XCZLikesViewController.h */,
+				056485491BA889E100F52EAE /* XCZLikesViewController.m */,
+				0564854A1BA889E100F52EAE /* XCZLikesViewController.xib */,
+				0564854B1BA889E100F52EAE /* XCZQuotesViewController.h */,
+				0564854C1BA889E100F52EAE /* XCZQuotesViewController.m */,
+				0564854E1BA889E100F52EAE /* XCZWorksViewController.h */,
+				0564854F1BA889E100F52EAE /* XCZWorksViewController.m */,
+				056485501BA889E100F52EAE /* XCZWorksViewController.xib */,
+				0545D26F1BC54C8B00410895 /* LibraryViewController.h */,
+				0545D2701BC54C8B00410895 /* LibraryViewController.m */,
+				0545D2721BC54CF600410895 /* MeetViewController.h */,
+				0545D2731BC54CF600410895 /* MeetViewController.m */,
+				05F219121BC5784000B222D7 /* OtherViewController.h */,
+				05F219131BC5784000B222D7 /* OtherViewController.m */,
+				05F219181BC6134400B222D7 /* AboutViewController.h */,
+				05F219191BC6134400B222D7 /* AboutViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0564855B1BA88A0A00F52EAE /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				0545D2691BC5379200410895 /* UIColor+Helper.m */,
+				0545D26A1BC5379200410895 /* UIColor+Helper.h */,
+				0564855F1BA88D6F00F52EAE /* UILabel+SetFont.m */,
+				056485601BA88D6F00F52EAE /* UILabel+SetFont.h */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		05CC12F9196569E80014989C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				05CC12F6196569DD0014989C /* XCZAuthor.h */,
-				05CC12F7196569DD0014989C /* XCZAuthor.m */,
-				05B2287D196024ED00F91BCC /* XCZWork.h */,
-				05B2287E196024ED00F91BCC /* XCZWork.m */,
-				05CC12FA196583F60014989C /* XCZDynasty.h */,
-				05CC12FB196583F60014989C /* XCZDynasty.m */,
-				05D4A1D61967F53900D5F534 /* XCZQuote.h */,
-				05D4A1D71967F53900D5F534 /* XCZQuote.m */,
+				056485311BA8895300F52EAE /* XCZAuthor.h */,
+				056485321BA8895300F52EAE /* XCZAuthor.m */,
+				056485331BA8895300F52EAE /* XCZDynasty.h */,
+				056485341BA8895300F52EAE /* XCZDynasty.m */,
+				056485351BA8895300F52EAE /* XCZLike.h */,
+				056485361BA8895300F52EAE /* XCZLike.m */,
+				056485371BA8895300F52EAE /* XCZQuote.h */,
+				056485381BA8895300F52EAE /* XCZQuote.m */,
+				056485391BA8895300F52EAE /* XCZWork.h */,
+				0564853A1BA8895300F52EAE /* XCZWork.m */,
 			);
-			name = Models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		05CC12FD196586890014989C /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				05CC13181966FCFC0014989C /* AuthorHeaderView.xib */,
-				05CC130D1966689F0014989C /* XCZAuthorDetailsViewController.h */,
-				05CC130E1966689F0014989C /* XCZAuthorDetailsViewController.m */,
-				05B22876195F0F1600F91BCC /* XCZWorksViewController.h */,
-				05B22877195F0F1600F91BCC /* XCZWorksViewController.m */,
-				0573FF2119682050005341F2 /* XCZWorksViewController.xib */,
-				05CC12F3196569690014989C /* XCZAuthorsViewController.h */,
-				05CC12F4196569690014989C /* XCZAuthorsViewController.m */,
-				0573FF23196847A0005341F2 /* XCZAuthorsViewController.xib */,
-				05ABB5C71961525900341AAC /* XCZWorkDetailViewController.h */,
-				05ABB5C81961525900341AAC /* XCZWorkDetailViewController.m */,
-				05ABB5C91961525900341AAC /* XCZWorkDetailViewController.xib */,
-				05D4A1D91967F5BA00D5F534 /* XCZQuotesViewController.h */,
-				05D4A1DA1967F5BA00D5F534 /* XCZQuotesViewController.m */,
+				0545D2661BC51F9800410895 /* XCZLabel.h */,
+				0545D2671BC51F9800410895 /* XCZLabel.m */,
+				0545D26C1BC5428500410895 /* WorkDetailsView.h */,
+				0545D26D1BC5428500410895 /* WorkDetailsView.m */,
 			);
-			name = Views;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		05DF00BA195F0CE100175ABF = {
@@ -167,7 +247,7 @@
 				05DF00EB195F0CE100175ABF /* xczTests */,
 				05DF00C5195F0CE100175ABF /* Frameworks */,
 				05DF00C4195F0CE100175ABF /* Products */,
-				B2746BE289C74C47AEA1EF75 /* Pods-xcz.xcconfig */,
+				EB669B81E5B37CF522C72540 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -197,11 +277,14 @@
 		05DF00CE195F0CE100175ABF /* xcz */ = {
 			isa = PBXGroup;
 			children = (
-				05CE723619A4D97C003864E4 /* Images.xcassets */,
+				0564855B1BA88A0A00F52EAE /* Categories */,
+				056485401BA8898600F52EAE /* Controllers */,
+				0564852D1BA885EC00F52EAE /* Utils */,
 				05CC12FD196586890014989C /* Views */,
 				05CC12F9196569E80014989C /* Models */,
 				05DF00D7195F0CE100175ABF /* XCZAppDelegate.h */,
 				05DF00D8195F0CE100175ABF /* XCZAppDelegate.m */,
+				05F219151BC5924D00B222D7 /* Constants.h */,
 				05DF00CF195F0CE100175ABF /* Supporting Files */,
 				05827A9E196A8236003ABBDD /* XCZUtils.h */,
 				05827A9F196A8236003ABBDD /* XCZUtils.m */,
@@ -212,9 +295,11 @@
 		05DF00CF195F0CE100175ABF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				05F219161BC6126300B222D7 /* xcz_tr.db */,
+				05CE723619A4D97C003864E4 /* Images.xcassets */,
+				05BDB0B81A555CA800DBBFBF /* xcz_user.db */,
 				05B2287B195FCEBE00F91BCC /* xcz.db */,
 				05DF00D0195F0CE100175ABF /* xcz-Info.plist */,
-				05DF00D1195F0CE100175ABF /* InfoPlist.strings */,
 				05DF00D4195F0CE100175ABF /* main.m */,
 				05DF00D6195F0CE100175ABF /* xcz-Prefix.pch */,
 			);
@@ -239,6 +324,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		EB669B81E5B37CF522C72540 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				530CF4E9B8A56A69B8C84DA8 /* Pods-xcz.debug.xcconfig */,
+				EB3898A078A798E532D86F3B /* Pods-xcz.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -251,6 +345,7 @@
 				05DF00C0195F0CE100175ABF /* Frameworks */,
 				05DF00C1195F0CE100175ABF /* Resources */,
 				D3A423F2841247EE8ACF5249 /* Copy Pods Resources */,
+				050AF69F1BAC1D0600FF56E0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -286,7 +381,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = XCZ;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Zhipeng Liu";
 				TargetAttributes = {
 					05DF00C2195F0CE100175ABF = {
@@ -322,11 +417,12 @@
 			files = (
 				05B2287C195FD19500F91BCC /* xcz.db in Resources */,
 				05CC13191966FCFC0014989C /* AuthorHeaderView.xib in Resources */,
+				05BDB0B91A555CA800DBBFBF /* xcz_user.db in Resources */,
+				056485551BA889E100F52EAE /* XCZAuthorsViewController.xib in Resources */,
+				056485571BA889E100F52EAE /* XCZLikesViewController.xib in Resources */,
+				0564855A1BA889E100F52EAE /* XCZWorksViewController.xib in Resources */,
 				05CE723719A4D97C003864E4 /* Images.xcassets in Resources */,
-				0573FF24196847A0005341F2 /* XCZAuthorsViewController.xib in Resources */,
-				05DF00D3195F0CE100175ABF /* InfoPlist.strings in Resources */,
-				0573FF2219682050005341F2 /* XCZWorksViewController.xib in Resources */,
-				05ABB5CB1961525900341AAC /* XCZWorkDetailViewController.xib in Resources */,
+				05F219171BC6126300B222D7 /* xcz_tr.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +437,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		050AF69F1BAC1D0600FF56E0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/Fabric.framework/run\" 381afd6764f80d23443d620e7747e03f867c0ac3 773ed15148084e082507af05b6418cbc08d25458a9d2f0bb194f2538347443a3";
+		};
 		9A222FDB2DB94392BEE9375E /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -368,7 +477,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-xcz-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-xcz/Pods-xcz-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -378,18 +487,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05CC12FC196583F60014989C /* XCZDynasty.m in Sources */,
-				05D4A1DB1967F5BA00D5F534 /* XCZQuotesViewController.m in Sources */,
-				05B2287F196024ED00F91BCC /* XCZWork.m in Sources */,
+				0545D2681BC51F9800410895 /* XCZLabel.m in Sources */,
+				0564853D1BA8895300F52EAE /* XCZLike.m in Sources */,
+				056485301BA8869D00F52EAE /* DownloadFont.m in Sources */,
+				0545D2741BC54CF600410895 /* MeetViewController.m in Sources */,
 				05827AA0196A8236003ABBDD /* XCZUtils.m in Sources */,
-				05CC12F8196569DD0014989C /* XCZAuthor.m in Sources */,
-				05CC13101966689F0014989C /* XCZAuthorDetailsViewController.m in Sources */,
-				05D4A1D81967F53900D5F534 /* XCZQuote.m in Sources */,
-				05B22879195F0F1600F91BCC /* XCZWorksViewController.m in Sources */,
+				056485541BA889E100F52EAE /* XCZAuthorsViewController.m in Sources */,
+				0564853C1BA8895300F52EAE /* XCZDynasty.m in Sources */,
+				0545D26E1BC5428500410895 /* WorkDetailsView.m in Sources */,
+				056485521BA889E100F52EAE /* XCZWorkDetailViewController.m in Sources */,
 				05DF00D9195F0CE100175ABF /* XCZAppDelegate.m in Sources */,
-				05CC12F5196569690014989C /* XCZAuthorsViewController.m in Sources */,
+				056485561BA889E100F52EAE /* XCZLikesViewController.m in Sources */,
+				0545D2711BC54C8B00410895 /* LibraryViewController.m in Sources */,
+				056485611BA88D6F00F52EAE /* UILabel+SetFont.m in Sources */,
+				0564853B1BA8895300F52EAE /* XCZAuthor.m in Sources */,
+				0545D26B1BC5379200410895 /* UIColor+Helper.m in Sources */,
+				056485591BA889E100F52EAE /* XCZWorksViewController.m in Sources */,
+				0564853F1BA8895300F52EAE /* XCZWork.m in Sources */,
 				05DF00D5195F0CE100175ABF /* main.m in Sources */,
-				05ABB5CA1961525900341AAC /* XCZWorkDetailViewController.m in Sources */,
+				056485581BA889E100F52EAE /* XCZQuotesViewController.m in Sources */,
+				0564853E1BA8895300F52EAE /* XCZQuote.m in Sources */,
+				05F219141BC5784000B222D7 /* OtherViewController.m in Sources */,
+				056485531BA889E100F52EAE /* XCZAuthorDetailsViewController.m in Sources */,
+				05F2191A1BC6134400B222D7 /* AboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,14 +532,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		05DF00D1195F0CE100175ABF /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				05DF00D2195F0CE100175ABF /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		05DF00EE195F0CE100175ABF /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -449,6 +561,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -503,12 +616,13 @@
 		};
 		05DF00F6195F0CE100175ABF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B2746BE289C74C47AEA1EF75 /* Pods-xcz.xcconfig */;
+			baseConfigurationReference = 530CF4E9B8A56A69B8C84DA8 /* Pods-xcz.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Zhipeng Liu (9RHY6JQGD8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Zhipeng Liu (9RHY6JQGD8)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xcz/xcz-Prefix.pch";
 				INFOPLIST_FILE = "xcz/xcz-Info.plist";
@@ -517,8 +631,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/xcz",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hustlzp.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "D7C49E29-CB11-4DEF-BB12-9A725704DF38";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -527,12 +642,13 @@
 		};
 		05DF00F7195F0CE100175ABF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B2746BE289C74C47AEA1EF75 /* Pods-xcz.xcconfig */;
+			baseConfigurationReference = EB3898A078A798E532D86F3B /* Pods-xcz.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Zhipeng Liu (9RHY6JQGD8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Zhipeng Liu (9RHY6JQGD8)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xcz/xcz-Prefix.pch";
 				INFOPLIST_FILE = "xcz/xcz-Info.plist";
@@ -541,8 +657,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/xcz",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hustlzp.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "D7C49E29-CB11-4DEF-BB12-9A725704DF38";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -565,6 +682,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "xczTests/xczTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hustlzp.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -583,6 +701,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xcz/xcz-Prefix.pch";
 				INFOPLIST_FILE = "xczTests/xczTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hustlzp.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

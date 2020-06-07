@@ -16,6 +16,5 @@ DerivedData
 .idea/
 *.ipa
 xcz/XCZAppDelegate.m
-
-# Pods - for those of you who use CocoaPods
+*.xcworkspace
 Pods/
